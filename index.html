@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0046)file:///C:/Users/BABAR/Downloads/index_79.html -->
+<!-- saved from url=(0046)file:///C:/Users/BABAR/Downloads/index_81.html -->
 <html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 42 42&#39;%3E%3Cpolygon points=&#39;21,2 40,15 40,27 21,40 2,27 2,15&#39; fill=&#39;%230C0904&#39; stroke=&#39;%23C9A96E&#39; stroke-width=&#39;2&#39;/%3E%3Ccircle cx=&#39;21&#39; cy=&#39;21&#39; r=&#39;4&#39; fill=&#39;%23C9A96E&#39;/%3E%3C/svg%3E">
@@ -412,11 +412,11 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
       <div class="logo-text"><span class="main">Conciergeries Maroc</span><span class="sub">Répertoire National</span></div>
     </div>
     <nav>
-      <a onclick="showPage(&#39;annuaire&#39;)" id="nav-annuaire" class="">Annuaire</a>
-      <a onclick="showPage(&#39;carte&#39;)" id="nav-carte" class="">Carte</a>
-      <a onclick="showPage(&#39;avis&#39;)" id="nav-avis" class="">Avis</a>
-      <a onclick="showPage(&#39;clients&#39;)" id="nav-clients" class="">Propriétaires</a>
-      <a onclick="showPage(&#39;conciergeries&#39;)" id="nav-conciergeries" class="active">Conciergeries</a>
+      <a onclick="showPage(&#39;annuaire&#39;)" id="nav-annuaire" class="active">Annuaire</a>
+      <a onclick="showPage(&#39;carte&#39;)" id="nav-carte">Carte</a>
+      <a onclick="showPage(&#39;avis&#39;)" id="nav-avis">Avis</a>
+      <a onclick="showPage(&#39;clients&#39;)" id="nav-clients">Propriétaires</a>
+      <a onclick="showPage(&#39;conciergeries&#39;)" id="nav-conciergeries">Conciergeries</a>
       <a onclick="showPage(&#39;cgu&#39;)" id="nav-cgu">CGU</a>
     </nav>
 <div class="lang-selector">
@@ -429,7 +429,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
 </header>
 
 <!-- ========== PAGE ANNUAIRE ========== -->
-<div id="annuaire-page" class="page">
+<div id="annuaire-page" class="page active">
   <section class="hero">
     <p class="hero-eyebrow">✦ Le premier répertoire dédié ✦</p>
     <h1>Les meilleures<br><em>conciergeries</em><br>du Maroc</h1>
@@ -451,7 +451,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
   </div>
 
   <div class="stats-bar">
-    <div class="stat"><span class="stat-number" id="totalCount">16</span><span class="stat-label">Conciergeries</span></div>
+    <div class="stat"><span class="stat-number" id="totalCount">17</span><span class="stat-label">Conciergeries</span></div>
     <div class="stat"><span class="stat-number">8</span><span class="stat-label">Villes</span></div>
     <div class="stat"><span class="stat-number" id="avgRating">4.6★</span><span class="stat-label">Note moyenne</span></div>
     <div class="stat"><span class="stat-number" id="totalAvis">6</span><span class="stat-label">Avis clients</span></div>
@@ -462,7 +462,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
   <section class="grid-section">
     <div class="grid-header">
       <span class="grid-title">Conciergeries répertoriées</span>
-      <span class="grid-count" id="resultCount">16 résultats</span>
+      <span class="grid-count" id="resultCount">17 résultats</span>
     </div>
     <div class="cards-grid" id="cardsGrid"><div class="card featured" data-id="1" style="animation-delay: 0s;"><div class="card-accent"></div>
         <div class="card-badge premium"><span>🏛️</span>Conciergerie Premium</div>
@@ -656,6 +656,18 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
             <button class="card-contact" onclick="event.stopPropagation();openDetail(16)">📱</button>
             <button class="card-link" onclick="event.stopPropagation();openDetail(16)">Voir →</button>
           </div>
+        </div></div><div class="card" data-id="17" style="animation-delay: 0.64s;"><div class="card-accent"></div>
+        <div class="card-badge"><span>U0001f3e1</span>Conciergerie</div>
+        <div class="card-city">Marrakech</div>
+        <div class="card-name">La Conciergerie Marocaine</div>
+        <div class="card-desc">Villas, appartements, location de véhicule et activités, restaurant. Une conciergerie complète pour tous vos besoins à Marrakech.</div>
+        <div class="card-tags"><span class="tag">Villas</span><span class="tag">Luxe</span><span class="tag">Expat</span></div>
+        <div class="card-footer">
+          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">Nouveau</span></div>
+          <div class="card-actions">
+            <button class="card-contact" onclick="event.stopPropagation();openDetail(17)">📱</button>
+            <button class="card-link" onclick="event.stopPropagation();openDetail(17)">Voir →</button>
+          </div>
         </div></div></div>
   </section>
 
@@ -668,7 +680,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
     <div class="city-card" onclick="filterCity(&#39;Marrakech&#39;)">
       <span class="city-emoji">🕌</span>
       <div class="city-name">Marrakech</div>
-      <div class="city-count">5 conciergeries</div>
+      <div class="city-count">6 conciergeries</div>
     </div>
     <div class="city-card" onclick="filterCity(&#39;Casablanca&#39;)">
       <span class="city-emoji">🏙️</span>
@@ -743,49 +755,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
   <div style="padding:2rem 5vw 1rem;display:flex;justify-content:flex-end;">
     <button class="add-avis-btn" onclick="openModal(&#39;avis&#39;)">+ Laisser un avis</button>
   </div>
-  <div class="avis-grid" id="avisGrid"><div class="avis-card" style="animation:fadeUp .5s ease 0s both;">
-      <div class="avis-stars">★★★★★</div>
-      <div class="avis-text">"Service impeccable, taux d'occupation passé de 60% à 94% en 3 mois. L'équipe est réactive, professionnelle et les propriétés sont toujours impeccables pour les voyageurs."</div>
-      <div class="avis-meta">
-        <div><div class="avis-author">Karim B.</div><div class="avis-concierge">Marrakech Luxury Stays</div></div>
-        <div style="text-align:right;"><div class="avis-date">Avril 2025</div><div class="avis-concierge">Propriétaire</div></div>
-      </div>
-    </div><div class="avis-card" style="animation:fadeUp .5s ease 0.07s both;">
-      <div class="avis-stars">★★★★★</div>
-      <div class="avis-text">"En tant qu'expatriée à Dubaï, je ne pouvais pas gérer mon appartement à Casablanca à distance. Casa Confort m'a tout simplifié. Reversements ponctuels chaque mois."</div>
-      <div class="avis-meta">
-        <div><div class="avis-author">Nadia M.</div><div class="avis-concierge">Casa Confort Services</div></div>
-        <div style="text-align:right;"><div class="avis-date">Mars 2025</div><div class="avis-concierge">Propriétaire</div></div>
-      </div>
-    </div><div class="avis-card" style="animation:fadeUp .5s ease 0.14s both;">
-      <div class="avis-stars">★★★★☆</div>
-      <div class="avis-text">"Très bonne conciergerie pour la région d'Agadir. Photos professionnelles vraiment top, ça a fait une vraie différence sur Airbnb. Je recommande."</div>
-      <div class="avis-meta">
-        <div><div class="avis-author">Youssef A.</div><div class="avis-concierge">Agadir Beach Rentals</div></div>
-        <div style="text-align:right;"><div class="avis-date">Février 2025</div><div class="avis-concierge">Propriétaire</div></div>
-      </div>
-    </div><div class="avis-card" style="animation:fadeUp .5s ease 0.21000000000000002s both;">
-      <div class="avis-stars">★★★★★</div>
-      <div class="avis-text">"Tanger Keys a tout géré pour moi pendant que je vivais en France. Rapport mensuel clair, zéro stress. La meilleure décision que j'ai prise pour mon appartement."</div>
-      <div class="avis-meta">
-        <div><div class="avis-author">Samira L.</div><div class="avis-concierge">Tanger Keys</div></div>
-        <div style="text-align:right;"><div class="avis-date">Janvier 2025</div><div class="avis-concierge">Propriétaire</div></div>
-      </div>
-    </div><div class="avis-card" style="animation:fadeUp .5s ease 0.28s both;">
-      <div class="avis-stars">★★★★★</div>
-      <div class="avis-text">"Notre maison à Essaouira est entre de très bonnes mains. L'accueil des voyageurs est chaleureux et authentique. Retours excellents de nos hôtes."</div>
-      <div class="avis-meta">
-        <div><div class="avis-author">Pierre &amp; Marie D.</div><div class="avis-concierge">Mogador Hosting</div></div>
-        <div style="text-align:right;"><div class="avis-date">Décembre 2024</div><div class="avis-concierge">Propriétaire</div></div>
-      </div>
-    </div><div class="avis-card" style="animation:fadeUp .5s ease 0.35000000000000003s both;">
-      <div class="avis-stars">★★★★★</div>
-      <div class="avis-text">"Villa avec piscine dans la Palmeraie bien gérée depuis 2 ans. Occupation maximale en haute saison. Palmeraie Rentals est fiable et très professionnel."</div>
-      <div class="avis-meta">
-        <div><div class="avis-author">Omar K.</div><div class="avis-concierge">Palmeraie Rentals</div></div>
-        <div style="text-align:right;"><div class="avis-date">Mai 2025</div><div class="avis-concierge">Propriétaire</div></div>
-      </div>
-    </div></div>
+  <div class="avis-grid" id="avisGrid"></div>
   <footer>
     <p>© 2025 Concierge Maroc</p>
     <p>Les avis sont vérifiés par notre équipe</p>
@@ -795,7 +765,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
 
 
 <!-- ========== PAGE CONCIERGERIES ========== -->
-<div id="conciergeries-page" class="page active">
+<div id="conciergeries-page" class="page">
 
   <!-- HERO -->
   <div class="conc-hero">
@@ -807,17 +777,17 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
     <p id="conc-hero-p">Profitez de notre offre de lancement exclusive. Les 10 premières conciergeries à s'inscrire bénéficient d'une visibilité <strong style="color:var(--gold);">à vie et gratuite</strong> sur le répertoire national.</p>
     <div id="spots-counter" style="display:flex;align-items:center;justify-content:center;gap:1.5rem;margin:1.5rem 0 2rem;">
       <div style="text-align:center;">
-        <span style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:3.5rem;color:var(--gold);line-height:1;" id="spots-left">6</span>
+        <span style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:3.5rem;color:var(--gold);line-height:1;" id="spots-left">5</span>
         <span style="display:block;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,241,232,.4);margin-top:.2rem;">Places restantes</span>
       </div>
       <div style="width:1px;height:50px;background:rgba(201,169,110,.2);"></div>
       <div style="text-align:center;">
-        <span style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:3.5rem;color:var(--cream);line-height:1;" id="spots-taken">4</span>
+        <span style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:3.5rem;color:var(--cream);line-height:1;" id="spots-taken">5</span>
         <span style="display:block;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,241,232,.4);margin-top:.2rem;">Déjà inscrites</span>
       </div>
     </div>
     <div id="spots-bar-wrap" style="max-width:400px;margin:0 auto 2rem;background:rgba(247,241,232,.06);height:4px;">
-      <div id="spots-bar" style="height: 4px; background: linear-gradient(to right,var(--gold-dark),var(--gold)); transition: width 0.8s; width: 40%;"></div>
+      <div id="spots-bar" style="height: 4px; background: linear-gradient(to right,var(--gold-dark),var(--gold)); transition: width 0.8s; width: 50%;"></div>
     </div>
     <button class="btn-cta" onclick="document.getElementById(&#39;form-inscription&#39;).scrollIntoView({behavior:&#39;smooth&#39;})">Je réserve ma place gratuite →</button>
     <p style="font-size:.7rem;color:rgba(247,241,232,.3);margin-top:1rem;">✦ Après les 10 premières places, l'inscription restera gratuite mais sans les avantages premium</p>
@@ -1147,7 +1117,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
     <span class="modal-eyebrow">Partager votre expérience</span>
     <h3>Laisser un avis</h3>
     <div class="form-group"><label>Conciergerie évaluée *</label>
-      <select id="a-concierge"><option value="">Choisir...</option><option value="1">Marrakech Luxury Stays — Marrakech</option><option value="2">Casa Confort Services — Casablanca</option><option value="3">Agadir Beach Rentals — Agadir</option><option value="4">Tanger Keys — Tanger</option><option value="5">Médina Riad Management — Fès</option><option value="6">Mogador Hosting — Essaouira</option><option value="7">Capitale Concierge — Rabat</option><option value="8">Dakhla Nomad Stays — Dakhla</option><option value="9">Palmeraie Rentals — Marrakech</option><option value="10">Anfa Premium Hosting — Casablanca</option><option value="11">Souss Valley Conciergerie — Agadir</option><option value="12">Maroc Finds Conciergerie — Marrakech</option><option value="13">Red Palm Concierge — Rabat</option><option value="14">Tisura Ouiam Conciergerie — Marrakech</option><option value="15">Your Conciergerie — Rabat</option><option value="16">Élégance Rouge Conciergerie — Marrakech</option></select>
+      <select id="a-concierge"><option value="">Choisir...</option></select>
     </div>
     <div class="form-group"><label>Note globale *</label>
       <div class="star-select" id="starSelect">
@@ -1314,7 +1284,8 @@ let conciergeries = [
   {id:13,nom:"Red Palm Concierge",ville:"Rabat",desc:"Nous ne faisons pas seulement de la gestion locative : nous développons le potentiel de votre bien. Rabat · Bouznika · Mansouria · Casablanca · Marrakech · Agadir · Bientôt à Tanger et Assilah.",tel:"+212687987416",email:"Redpalmconcierge@gmail.com",social:"@redpalmconcierge",web:"https://redpalmconcierge.systeme.io/bf2f89f9",type:"Airbnb / Location courte durée",tags:["Airbnb","Villas","Expat"],icon:"🌴",featured:false,lat:33.9716,lng:-6.8498},
   {id:14,nom:"Tisura Ouiam Conciergerie",ville:"Marrakech",desc:"Tisura Ouiam Conciergerie accompagne les propriétaires à Marrakech dans la gestion complète de leurs biens en location courte durée. Service clé en main : gestion des réservations, accueil des voyageurs, ménage professionnel, blanchisserie, assistance et optimisation des annonces pour maximiser la rentabilité.",tel:"+33667469854",email:"amanabywiam@gmail.com",social:"@tisuraouiamconciergerie",web:"https://tisuraouiamconciergerie.com",type:"Airbnb / Location courte durée",tags:["Airbnb","Luxe","Expat"],icon:"🏡",featured:false,lat:31.6295,lng:-7.9811},
   {id:15,nom:"Your Conciergerie",ville:"Rabat",desc:"Au Maroc, accueillir est un art. Chez Your Conciergerie, nous en avons fait une discipline. Vision globale : rigueur opérationnelle, expertise terrain et attention aux détails. Optimisation des revenus, expérience voyageur irréprochable et transparence totale. Entre hospitalité marocaine et standards internationaux, chaque séjour est orchestré avec exigence.",tel:"00212628445344",email:"mourad42@yahoo.fr",social:"@yourconciergerie",web:"https://conciergerie-ma.com/",type:"Airbnb / Location courte durée",tags:["Airbnb","Luxe","Expat"],icon:"🏰",featured:false,lat:33.9716,lng:-6.8698},
-  {id:16,nom:"Élégance Rouge Conciergerie",ville:"Marrakech",desc:"Elegance Rouge Conciergerie est une société de gestion locative courte durée (LCD) basée à Marrakech, spécialisée dans la gestion complète de biens immobiliers pour propriétaires non-résidents. Modèle 100% automatisé : serrures connectées, check-in autonome, messagerie automatisée. Services : création et optimisation des annonces, tarification dynamique, communication voyageurs, coordination ménage et maintenance, reporting propriétaire.",tel:"+212663344115",email:"elegancerougeconciergerie@gmail.com",social:"@elegancerouge.conciergerie",web:"https://elegancerougeconciergerie.com/",type:"Airbnb / Location courte durée",tags:["Airbnb","Expat","Automatisé"],icon:"🔑",featured:false,lat:31.6295,lng:-7.9811}
+  {id:16,nom:"Élégance Rouge Conciergerie",ville:"Marrakech",desc:"Elegance Rouge Conciergerie est une société de gestion locative courte durée (LCD) basée à Marrakech, spécialisée dans la gestion complète de biens immobiliers pour propriétaires non-résidents. Modèle 100% automatisé : serrures connectées, check-in autonome, messagerie automatisée. Services : création et optimisation des annonces, tarification dynamique, communication voyageurs, coordination ménage et maintenance, reporting propriétaire.",tel:"+212663344115",email:"elegancerougeconciergerie@gmail.com",social:"@elegancerouge.conciergerie",web:"https://elegancerougeconciergerie.com/",type:"Airbnb / Location courte durée",tags:["Airbnb","Expat","Automatisé"],icon:"🔑",featured:false,lat:31.6295,lng:-7.9811},
+  {id:17,nom:"La Conciergerie Marocaine",ville:"Marrakech",desc:"Villas, appartements, location de véhicule et activités, restaurant. Une conciergerie complète pour tous vos besoins à Marrakech.",tel:"+33609551756",email:"Laconciergeriemarocaine@hotmail.com",social:"@La_Conciergerie_Marocaine",web:"",type:"Villas & propriétés luxe",tags:["Villas","Luxe","Expat"],icon:"\U0001f3e1",featured:false,lat:31.6195,lng:-7.9911}
 ];
 
 const avisDataAll = {
@@ -1729,7 +1700,7 @@ function submitClient(){
 
 // ============ SPOTS COUNTER ============
 // ⚙️ MODIFIEZ CE CHIFFRE à chaque nouvelle inscription reçue par email
-const INSCRIPTIONS_REELLES = 4; // 0 = aucune inscription pour l'instant
+const INSCRIPTIONS_REELLES = 5; // 0 = aucune inscription pour l'instant
 const MAX_SPOTS = 10;
 
 function updateSpots(){
