@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)file:///C:/Users/BABAR/Downloads/index_77.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 42 42&#39;%3E%3Cpolygon points=&#39;21,2 40,15 40,27 21,40 2,27 2,15&#39; fill=&#39;%230C0904&#39; stroke=&#39;%23C9A96E&#39; stroke-width=&#39;2&#39;/%3E%3Ccircle cx=&#39;21&#39; cy=&#39;21&#39; r=&#39;4&#39; fill=&#39;%23C9A96E&#39;/%3E%3C/svg%3E">
+
+<!-- Google Analytics -->
+<script async="" src="./index_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VQVEZ3W4TC');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Conciergeries Maroc — Le premier répertoire national des conciergeries Airbnb et villas au Maroc. Trouvez, comparez et contactez les meilleures conciergeries à Marrakech, Casablanca, Agadir, Tanger et dans tout le Royaume.">
+<meta name="keywords" content="conciergerie maroc, airbnb maroc, gestion locative maroc, conciergerie marrakech, conciergerie casablanca, conciergerie agadir, villa maroc, riad maroc, MRE immobilier">
+<meta name="author" content="Conciergeries Maroc">
+<meta name="robots" content="index, follow">
+<meta name="google-site-verification" content="6OJyBgIjtkI4Q0GRv3r6iF29_YHWLhVt2UY-tpCBI24">
+<meta property="og:title" content="Conciergeries Maroc — Répertoire National">
+<meta property="og:description" content="Le premier répertoire des conciergeries Airbnb et villas au Maroc. Trouvez la conciergerie idéale pour votre bien.">
+<meta property="og:url" content="https://conciergeries-maroc.com">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Conciergeries Maroc — Répertoire National">
+<meta name="twitter:description" content="Le premier répertoire des conciergeries au Maroc. Trouvez, comparez et contactez les meilleures conciergeries Airbnb &amp; villas.">
+<title>Conciergeries Maroc — Répertoire National des Conciergeries Airbnb &amp; Villas</title>
+<link rel="stylesheet" href="./index_files/leaflet.min.css">
+<script src="./index_files/leaflet.min.js.téléchargement"></script>
+<link href="./index_files/css2" rel="stylesheet">
+
+
+<style>
+:root {
+  --gold: #C9A96E; --gold-light: #E8D5A3; --gold-dark: #9A7A4A;
+  --terracotta: #C4622D; --deep: #1A1209; --warm-black: #0E0A05;
+  --cream: #F7F1E8; --cream-dark: #EDE4D4; --text: #2A1F10;
+  --text-light: #6B5A40; --white: #FDFAF4;
+  --card-bg: rgba(255,248,235,0.03); --border: rgba(201,169,110,0.18);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--warm-black);color:var(--cream);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;}
+
+/* ZELLIGE */
+.zellige-bg{position:fixed;inset:0;opacity:0.035;
+  background-image:repeating-conic-gradient(from 0deg at 50% 50%,#C9A96E 0deg 90deg,transparent 90deg 180deg),
+  repeating-conic-gradient(from 45deg at 0% 0%,#C9A96E 0deg 90deg,transparent 90deg 180deg);
+  background-size:40px 40px,40px 40px;pointer-events:none;z-index:0;}
+
+/* NAV */
+header{position:sticky;top:0;z-index:200;background:rgba(14,10,5,0.92);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);padding:0 5vw;}
+.header-top{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 0;}
+.logo{display:flex;align-items:center;gap:.9rem;cursor:pointer;}
+.logo svg{width:36px;height:36px;}
+.logo-text .main{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;letter-spacing:.05em;color:var(--gold);}
+.logo-text .sub{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold-light);opacity:.6;margin-top:2px;display:block;}
+nav{display:flex;gap:2rem;align-items:center;}
+nav a{color:var(--cream);text-decoration:none;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;opacity:.6;transition:all .2s;cursor:pointer;}
+nav a:hover,nav a.active{opacity:1;color:var(--gold);}
+.btn-add{background:var(--gold);color:var(--warm-black);border:none;padding:.55rem 1.2rem;font-family:'Jost',sans-serif;
+  font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .3s;}
+.btn-add:hover{background:var(--gold-light);}
+
+/* PAGES */
+.page{display:none;min-height:100vh;}
+#carte-page.active{display:flex!important;flex-direction:column;height:100vh;}
+
+.page.active{display:block;}
+
+/* ============ PAGE ANNUAIRE ============ */
+.hero{position:relative;z-index:5;text-align:center;padding:5rem 5vw 3.5rem;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-40%;left:50%;transform:translateX(-50%);
+  width:900px;height:700px;background:radial-gradient(ellipse,rgba(201,169,110,.1) 0%,transparent 70%);pointer-events:none;}
+.hero-eyebrow{font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;opacity:.8;animation:fadeUp .8s ease both;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,6vw,5.5rem);font-weight:300;line-height:1.05;margin-bottom:1.2rem;animation:fadeUp .8s ease .1s both;}
+.hero h1 em{font-style:italic;color:var(--gold);}
+.hero-desc{max-width:500px;margin:0 auto 2.5rem;color:rgba(247,241,232,.55);font-size:.9rem;line-height:1.8;animation:fadeUp .8s ease .2s both;}
+.ornament{display:flex;align-items:center;justify-content:center;gap:1.2rem;margin-bottom:3rem;animation:fadeUp .8s ease .25s both;}
+.ornament-line{width:70px;height:1px;background:linear-gradient(to right,transparent,var(--gold));}
+.ornament-line:last-child{background:linear-gradient(to left,transparent,var(--gold));}
+.ornament-diamond{width:5px;height:5px;background:var(--gold);transform:rotate(45deg);}
+
+/* SEARCH */
+.search-wrap{position:relative;z-index:10;max-width:720px;margin:0 auto 1.5rem;padding:0 5vw;animation:fadeUp .8s ease .3s both;}
+.search-bar{display:flex;background:rgba(247,241,232,.04);border:1px solid rgba(201,169,110,.3);backdrop-filter:blur(10px);}
+.search-bar input{flex:1;background:transparent;border:none;padding:.9rem 1.3rem;color:var(--cream);font-family:'Jost',sans-serif;font-size:.88rem;outline:none;}
+.search-bar input::placeholder{color:rgba(247,241,232,.3);}
+.search-bar select{background:rgba(201,169,110,.08);border:none;border-left:1px solid rgba(201,169,110,.25);
+  padding:.9rem 1rem;color:var(--gold-light);font-family:'Jost',sans-serif;font-size:.78rem;outline:none;cursor:pointer;}
+.search-bar select option{background:#1a1209;color:var(--cream);}
+.search-btn{background:var(--gold);border:none;padding:.9rem 1.8rem;color:var(--warm-black);font-family:'Jost',sans-serif;
+  font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .3s;}
+.search-btn:hover{background:var(--gold-light);}
+
+/* STATS */
+.stats-bar{position:relative;z-index:5;display:flex;justify-content:center;gap:4rem;padding:1.8rem 5vw;
+  border-top:1px solid rgba(201,169,110,.08);border-bottom:1px solid rgba(201,169,110,.08);margin-bottom:3.5rem;animation:fadeUp .8s ease .35s both;}
+.stat{text-align:center;}
+.stat-number{font-family:'Cormorant Garamond',serif;font-size:2.3rem;font-weight:300;color:var(--gold);line-height:1;display:block;}
+.stat-label{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,241,232,.35);margin-top:.3rem;display:block;}
+
+/* FILTERS */
+.filters{position:relative;z-index:5;display:flex;gap:.6rem;padding:0 5vw;margin-bottom:2.5rem;flex-wrap:wrap;align-items:center;animation:fadeUp .8s ease .4s both;}
+
+
+/* VIEW TOGGLE */
+.view-toggle{display:flex;gap:.5rem;}
+.view-btn{background:transparent;border:1px solid rgba(201,169,110,.2);color:rgba(247,241,232,.5);padding:.35rem .7rem;
+  font-size:.8rem;cursor:pointer;transition:all .2s;}
+.view-btn.active{background:rgba(201,169,110,.15);border-color:var(--gold);color:var(--gold);}
+
+/* GRID */
+.grid-section{position:relative;z-index:5;padding:0 5vw 2rem;}
+.grid-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.8rem;}
+.grid-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;opacity:.75;}
+.grid-count{font-size:.72rem;color:rgba(247,241,232,.35);letter-spacing:.1em;}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1px;}
+.cards-grid.list-view{grid-template-columns:1fr;}
+
+/* CARD */
+.card{background:var(--card-bg);border:1px solid var(--border);padding:1.8rem;position:relative;
+  cursor:pointer;transition:all .35s ease;overflow:hidden;animation:fadeUp .5s ease both;}
+.card::before{content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(201,169,110,.06) 0%,transparent 60%);opacity:0;transition:opacity .35s;}
+.card:hover{border-color:rgba(201,169,110,.4);transform:translateY(-2px);}
+.card:hover::before{opacity:1;}
+.card-accent{position:absolute;top:0;right:0;width:2px;height:0;background:var(--gold);transition:height .4s ease;}
+.card:hover .card-accent{height:100%;}
+.card-badge{display:inline-flex;align-items:center;gap:.35rem;font-size:.58rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,169,110,.35);padding:.2rem .55rem;margin-bottom:1rem;}
+.card-badge.premium{background:rgba(201,169,110,.1);}
+.card-city{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,241,232,.35);margin-bottom:.4rem;}
+.card-name{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400;color:var(--cream);margin-bottom:.6rem;line-height:1.2;}
+.card-desc{font-size:.8rem;color:rgba(247,241,232,.48);line-height:1.7;margin-bottom:1.2rem;}
+.card-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:1.3rem;}
+.tag{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(247,241,232,.45);border:1px solid rgba(247,241,232,.1);padding:.18rem .45rem;}
+.card-footer{display:flex;justify-content:space-between;align-items:center;padding-top:1rem;border-top:1px solid rgba(201,169,110,.1);}
+.card-rating{display:flex;align-items:center;gap:.35rem;}
+.stars{color:var(--gold);font-size:.7rem;letter-spacing:1px;}
+.rating-count{font-size:.72rem;color:rgba(247,241,232,.4);}
+.card-actions{display:flex;gap:.8rem;align-items:center;}
+.card-link{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);text-decoration:none;
+  display:flex;align-items:center;gap:.3rem;background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;transition:gap .2s;}
+.card-link:hover{gap:.6rem;}
+.card-contact{font-size:.68rem;letter-spacing:.08em;color:rgba(247,241,232,.4);background:none;border:none;cursor:pointer;
+  font-family:'Jost',sans-serif;transition:color .2s;}
+.card-contact:hover{color:var(--gold);}
+.card.featured{grid-column:span 2;background:rgba(201,169,110,.03);border-color:rgba(201,169,110,.22);}
+.card.featured .card-name{font-size:1.8rem;}
+.card.list-view-card{display:flex;gap:2rem;align-items:flex-start;}
+.card.list-view-card .card-desc{margin-bottom:.8rem;}
+.card.list-view-card .card-main{flex:1;}
+.card.list-view-card .card-side{display:flex;flex-direction:column;align-items:flex-end;gap:.8rem;min-width:160px;}
+
+/* MAP */
+#map-page{display:none;}
+#carte-page.active{display:flex;flex-direction:column;min-height:100vh;}
+.map-header{padding:2rem 5vw 1.5rem;border-bottom:1px solid var(--border);}
+.map-header h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--cream);margin-bottom:.3rem;}
+.map-header p{font-size:.8rem;color:rgba(247,241,232,.4);letter-spacing:.05em;}
+.map-container{display:flex;height:calc(100vh - 140px);min-height:500px;}
+#leaflet-map{flex:1;min-height:400px;}
+.map-sidebar{width:340px;background:rgba(14,10,5,.95);border-left:1px solid var(--border);overflow-y:auto;padding:1.5rem;}
+.map-sidebar h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;margin-bottom:1.2rem;color:var(--gold);letter-spacing:.05em;}
+.map-card{border:1px solid var(--border);padding:1.2rem;margin-bottom:1px;cursor:pointer;transition:all .2s;background:var(--card-bg);}
+.map-card:hover,.map-card.selected{border-color:rgba(201,169,110,.45);background:rgba(201,169,110,.06);}
+.map-card-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--cream);margin-bottom:.2rem;}
+.map-card-city{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;}
+.map-card-rating{font-size:.72rem;color:rgba(247,241,232,.45);}
+.leaflet-popup-content-wrapper{background:#1A1209!important;border:1px solid rgba(201,169,110,.35)!important;border-radius:0!important;color:var(--cream)!important;box-shadow:0 8px 32px rgba(0,0,0,.5)!important;}
+.leaflet-popup-tip{background:#1A1209!important;}
+.popup-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--cream);margin-bottom:.25rem;}
+.popup-city{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;}
+.popup-stars{color:var(--gold);font-size:.75rem;margin-bottom:.4rem;}
+.popup-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.6rem;}
+.popup-tag{font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(201,169,110,.25);color:rgba(247,241,232,.55);padding:.15rem .4rem;}
+.popup-btn{display:block;margin-top:.7rem;background:var(--gold);color:var(--warm-black);border:none;
+  padding:.45rem 1rem;font-family:'Jost',sans-serif;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;width:100%;transition:background .2s;}
+.popup-btn:hover{background:var(--gold-light);}
+
+/* AVIS PAGE */
+#avis-page.active{display:block;}
+.avis-header{padding:3rem 5vw 2rem;border-bottom:1px solid var(--border);}
+.avis-header h2{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;margin-bottom:.5rem;}
+.avis-header p{color:rgba(247,241,232,.45);font-size:.85rem;}
+.avis-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1px;padding:2rem 5vw;}
+.avis-card{background:var(--card-bg);border:1px solid var(--border);padding:2rem;position:relative;}
+.avis-card::after{content:'"';font-family:'Cormorant Garamond',serif;font-size:6rem;color:rgba(201,169,110,.06);
+  position:absolute;top:.5rem;left:1.5rem;line-height:1;pointer-events:none;}
+.avis-stars{color:var(--gold);font-size:.85rem;margin-bottom:1rem;letter-spacing:2px;}
+.avis-text{font-size:.85rem;color:rgba(247,241,232,.6);line-height:1.8;margin-bottom:1.5rem;font-style:italic;}
+.avis-meta{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid var(--border);padding-top:1rem;}
+.avis-author{font-size:.78rem;color:var(--cream);font-weight:400;}
+.avis-concierge{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);}
+.avis-date{font-size:.65rem;color:rgba(247,241,232,.3);}
+.add-avis-btn{display:block;margin:0 auto 3rem;background:transparent;border:1px solid var(--gold);
+  color:var(--gold);padding:.9rem 2.5rem;font-family:'Jost',sans-serif;font-size:.78rem;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:all .3s;}
+.add-avis-btn:hover{background:var(--gold);color:var(--warm-black);}
+
+/* CITIES SECTION */
+.cities-section{position:relative;z-index:5;padding:3.5rem 5vw;border-top:1px solid rgba(201,169,110,.08);background:rgba(247,241,232,.01);}
+.section-header{text-align:center;margin-bottom:2.5rem;}
+.section-eyebrow{font-size:.62rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;display:block;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:2.3rem;font-weight:300;color:var(--cream);}
+.cities-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1px;}
+.city-card{background:var(--card-bg);border:1px solid var(--border);padding:1.8rem 1.3rem;text-align:center;cursor:pointer;transition:all .3s;}
+.city-card:hover{background:rgba(201,169,110,.06);border-color:rgba(201,169,110,.3);}
+.city-emoji{font-size:1.6rem;margin-bottom:.6rem;display:block;}
+.city-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--cream);margin-bottom:.2rem;}
+.city-count{font-size:.62rem;letter-spacing:.15em;color:rgba(247,241,232,.3);text-transform:uppercase;}
+
+/* CTA */
+.cta-section{position:relative;z-index:20;padding:4.5rem 5vw;text-align:center;overflow:hidden;}
+.cta-section::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,169,110,.07) 0%,transparent 60%);pointer-events:none;}
+.cta-section h2{font-family:'Cormorant Garamond',serif;font-size:2.7rem;font-weight:300;margin-bottom:.9rem;}
+.cta-section p{color:rgba(247,241,232,.5);font-size:.88rem;line-height:1.8;max-width:460px;margin:0 auto 2.2rem;}
+.btn-cta{display:inline-block;background:transparent;border:1px solid var(--gold);color:var(--gold);padding:.9rem 2.2rem;position:relative;z-index:25;
+  font-family:'Jost',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:all .3s;text-decoration:none;}
+.btn-cta:hover{background:var(--gold);color:var(--warm-black);}
+
+footer{position:relative;z-index:5;border-top:1px solid rgba(201,169,110,.12);padding:2rem 5vw;
+  display:flex;justify-content:space-between;align-items:center;}
+footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
+
+/* MODALS */
+.modal-overlay{position:fixed;inset:0;background:rgba(8,5,2,.92);backdrop-filter:blur(8px);z-index:500;
+  display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;padding:1.5rem;overflow-y:auto;}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal{background:#12100A;border:1px solid rgba(201,169,110,.3);max-width:580px;width:100%;padding:2.5rem;position:relative;
+  transform:translateY(18px);transition:transform .3s;max-height:90vh;overflow-y:auto;}
+.modal-overlay.open .modal{transform:translateY(0);}
+.modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:rgba(247,241,232,.35);
+  font-size:1.2rem;cursor:pointer;transition:color .2s;z-index:10;}
+.modal-close:hover{color:var(--gold);}
+.modal h3{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:300;margin-bottom:.3rem;color:var(--cream);}
+.modal-eyebrow{font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.8rem;display:block;}
+.form-group{margin-bottom:1rem;}
+.form-group label{display:block;font-size:.67rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(247,241,232,.45);margin-bottom:.45rem;}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:rgba(247,241,232,.03);
+  border:1px solid rgba(201,169,110,.18);padding:.75rem .95rem;color:var(--cream);font-family:'Jost',sans-serif;
+  font-size:.83rem;outline:none;transition:border-color .2s;-webkit-appearance:none;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(201,169,110,.45);}
+.form-group select option{background:#1a1209;}
+.form-group textarea{resize:vertical;min-height:75px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.star-select{display:flex;gap:.4rem;margin-top:.3rem;}
+.star-btn{background:none;border:none;font-size:1.4rem;cursor:pointer;color:rgba(247,241,232,.2);transition:color .15s;padding:0;}
+.star-btn.active{color:var(--gold);}
+.btn-submit{width:100%;background:var(--gold);border:none;padding:.95rem;color:var(--warm-black);font-family:'Jost',sans-serif;
+  font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:background .3s;margin-top:.6rem;}
+.btn-submit:hover{background:var(--gold-light);}
+.form-check{display:flex;align-items:flex-start;gap:.6rem;margin-top:.8rem;}
+.form-check input[type=checkbox]{width:auto;margin-top:2px;accent-color:var(--gold);}
+.form-check label{font-size:.75rem;color:rgba(247,241,232,.45);text-transform:none;letter-spacing:0;}
+
+/* DETAIL MODAL */
+.detail-modal{max-width:680px;}
+.detail-hero{background:rgba(201,169,110,.05);border:1px solid rgba(201,169,110,.12);padding:2rem;margin-bottom:1.5rem;text-align:center;}
+.detail-icon{font-size:3rem;margin-bottom:.8rem;}
+.detail-name{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--cream);margin-bottom:.3rem;}
+.detail-city{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);}
+.detail-stars{color:var(--gold);font-size:1rem;letter-spacing:2px;margin-top:.5rem;}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;}
+.detail-info{background:rgba(247,241,232,.02);border:1px solid rgba(201,169,110,.12);padding:1.2rem;}
+.detail-info-label{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,241,232,.35);margin-bottom:.4rem;}
+.detail-info-value{font-size:.85rem;color:var(--cream);}
+.detail-desc{font-size:.85rem;color:rgba(247,241,232,.55);line-height:1.8;margin-bottom:1.5rem;}
+.detail-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.5rem;}
+.detail-reviews{margin-bottom:1.5rem;}
+.detail-reviews h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold);margin-bottom:.8rem;font-weight:400;}
+.mini-review{background:rgba(247,241,232,.02);border:1px solid rgba(201,169,110,.1);padding:.9rem;margin-bottom:1px;}
+.mini-review-stars{color:var(--gold);font-size:.7rem;margin-bottom:.3rem;}
+.mini-review-text{font-size:.8rem;color:rgba(247,241,232,.55);font-style:italic;line-height:1.6;}
+.mini-review-author{font-size:.65rem;color:rgba(247,241,232,.3);margin-top:.4rem;}
+.contact-actions{display:flex;gap:.8rem;}
+.btn-whatsapp{flex:1;background:#25D366;border:none;padding:.8rem;color:#fff;font-family:'Jost',sans-serif;
+  font-size:.75rem;font-weight:500;letter-spacing:.1em;cursor:pointer;transition:background .2s;}
+.btn-whatsapp:hover{background:#20b557;}
+.btn-email{flex:1;background:transparent;border:1px solid var(--gold);color:var(--gold);padding:.8rem;font-family:'Jost',sans-serif;
+  font-size:.75rem;font-weight:500;letter-spacing:.1em;cursor:pointer;transition:all .2s;}
+.btn-email:hover{background:var(--gold);color:var(--warm-black);}
+
+/* TOAST */
+.toast{position:fixed;bottom:2rem;right:2rem;background:#1A1209;border:1px solid rgba(201,169,110,.4);
+  color:var(--cream);padding:1rem 1.5rem;font-size:.82rem;z-index:999;transform:translateY(80px);
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1);max-width:320px;}
+.toast.show{transform:translateY(0);}
+.toast-gold{border-color:var(--gold);color:var(--gold);}
+
+
+
+/* CONCIERGERIES PAGE */
+.conc-hero{padding:4rem 5vw 3rem;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
+.conc-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(201,169,110,.1) 0%,transparent 70%);pointer-events:none;}
+.conc-hero h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:300;margin-bottom:1rem;}
+.conc-hero h2 em{font-style:italic;color:var(--gold);}
+.conc-hero p{color:rgba(247,241,232,.5);font-size:.9rem;line-height:1.8;max-width:520px;margin:0 auto 2.5rem;}
+.conc-avantages{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;padding:3rem 5vw;border-bottom:1px solid var(--border);}
+.avantage-card{background:var(--card-bg);border:1px solid var(--border);padding:2rem;text-align:center;transition:all .3s;}
+.avantage-card:hover{background:rgba(201,169,110,.06);border-color:rgba(201,169,110,.3);}
+.avantage-icon{font-size:2rem;margin-bottom:1rem;display:block;}
+.avantage-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--cream);margin-bottom:.5rem;}
+.avantage-desc{font-size:.78rem;color:rgba(247,241,232,.4);line-height:1.6;}
+.conc-process{padding:3.5rem 5vw;border-bottom:1px solid var(--border);}
+.conc-process h3{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;text-align:center;margin-bottom:.5rem;}
+.conc-process-sub{text-align:center;font-size:.82rem;color:rgba(247,241,232,.4);margin-bottom:3rem;}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;}
+.process-step{background:var(--card-bg);border:1px solid var(--border);padding:2rem;text-align:center;position:relative;}
+.process-step::after{content:'→';position:absolute;right:-12px;top:50%;transform:translateY(-50%);color:var(--gold);font-size:1rem;z-index:2;}
+.process-step:last-child::after{display:none;}
+.process-num{font-family:'Cormorant Garamond',serif;font-size:3rem;color:rgba(201,169,110,.2);line-height:1;margin-bottom:.5rem;}
+.process-icon{font-size:1.5rem;margin-bottom:.8rem;display:block;}
+.process-title{font-size:.82rem;font-weight:500;color:var(--cream);margin-bottom:.4rem;letter-spacing:.05em;}
+.process-desc{font-size:.75rem;color:rgba(247,241,232,.38);line-height:1.5;}
+.conc-inscription{display:grid;grid-template-columns:1fr 1.4fr;gap:1px;padding:3rem 5vw;}
+.conc-left{background:var(--card-bg);border:1px solid var(--border);padding:2.5rem;}
+.conc-left h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;margin-bottom:1.5rem;color:var(--gold);}
+.conc-checklist{list-style:none;display:flex;flex-direction:column;gap:.8rem;margin-bottom:2rem;}
+.conc-checklist li{font-size:.83rem;color:rgba(247,241,232,.55);display:flex;align-items:flex-start;gap:.7rem;line-height:1.5;}
+.conc-checklist li::before{content:'✦';color:var(--gold);font-size:.7rem;margin-top:3px;flex-shrink:0;}
+.conc-right{background:rgba(201,169,110,.03);border:1px solid rgba(201,169,110,.2);padding:2.5rem;}
+.conc-right h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;margin-bottom:.3rem;color:var(--cream);}
+.conc-form-eyebrow{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:block;}
+.conc-gratuit{display:inline-block;background:rgba(201,169,110,.12);border:1px solid rgba(201,169,110,.3);
+  color:var(--gold);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;padding:.3rem .8rem;margin-bottom:1.5rem;}
+@media(max-width:900px){
+  .process-steps{grid-template-columns:1fr 1fr;}
+  .process-step::after{display:none;}
+  .conc-inscription{grid-template-columns:1fr;}
+}
+@media(max-width:600px){.process-steps{grid-template-columns:1fr;}.conc-avantages{grid-template-columns:1fr 1fr;}}
+
+/* CLIENTS PAGE */
+.clients-hero{padding:3.5rem 5vw 2rem;border-bottom:1px solid var(--border);background:linear-gradient(135deg,rgba(201,169,110,.05) 0%,transparent 60%);}
+.clients-hero h2{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;margin-bottom:.5rem;}
+.clients-hero p{color:rgba(247,241,232,.45);font-size:.88rem;line-height:1.7;max-width:500px;}
+.clients-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;padding:3rem 5vw;}
+.clients-panel{background:var(--card-bg);border:1px solid var(--border);padding:2.5rem;}
+.clients-panel h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--gold);margin-bottom:.5rem;}
+.clients-panel p{font-size:.82rem;color:rgba(247,241,232,.45);line-height:1.7;margin-bottom:1.8rem;}
+.how-steps{display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem;}
+.how-step{display:flex;align-items:flex-start;gap:1rem;}
+.step-num{width:28px;height:28px;background:rgba(201,169,110,.15);border:1px solid rgba(201,169,110,.3);
+  color:var(--gold);font-size:.75rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:500;}
+.step-text{font-size:.82rem;color:rgba(247,241,232,.55);line-height:1.6;padding-top:4px;}
+.step-text strong{color:var(--cream);display:block;margin-bottom:.2rem;font-weight:400;}
+.temoignages-section{padding:0 5vw 4rem;}
+.temoignages-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1px;}
+.temoignage-card{background:var(--card-bg);border:1px solid var(--border);padding:2rem;position:relative;overflow:hidden;}
+.temoignage-card::before{content:'"';font-family:'Cormorant Garamond',serif;font-size:5rem;color:rgba(201,169,110,.07);
+  position:absolute;top:.2rem;left:1.2rem;line-height:1;pointer-events:none;}
+.temoignage-type{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;}
+.temoignage-text{font-size:.83rem;color:rgba(247,241,232,.58);line-height:1.75;font-style:italic;margin-bottom:1.2rem;}
+.temoignage-author{font-size:.78rem;color:var(--cream);font-weight:400;}
+.temoignage-detail{font-size:.65rem;color:rgba(247,241,232,.3);margin-top:.2rem;letter-spacing:.05em;}
+.clients-cta{background:rgba(201,169,110,.04);border-top:1px solid var(--border);padding:3rem 5vw;text-align:center;}
+.clients-cta h3{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;margin-bottom:.8rem;}
+.clients-cta p{color:rgba(247,241,232,.45);font-size:.85rem;max-width:420px;margin:0 auto 2rem;}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+@media(max-width:768px){.clients-grid{grid-template-columns:1fr;}.cta-btns{flex-direction:column;align-items:center;}}
+
+
+
+
+
+/* LANGUAGE SELECTOR */
+.lang-selector{display:flex;align-items:center;gap:.3rem;margin-left:.8rem;}
+.lang-btn{background:transparent;border:1px solid rgba(201,169,110,0.25);color:rgba(247,241,232,0.5);
+  padding:.22rem .5rem;font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.08em;
+  cursor:pointer;transition:all .2s;}
+.lang-btn:hover,.lang-btn.active{background:rgba(201,169,110,0.15);border-color:var(--gold);color:var(--gold);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:768px){
+  .card.featured{grid-column:span 1;}
+  nav{display:none;}
+  .stats-bar{gap:1.5rem;flex-wrap:wrap;}
+  .form-row{grid-template-columns:1fr;}
+  footer{flex-direction:column;gap:.5rem;text-align:center;}
+  .map-container{flex-direction:column;}
+  .map-sidebar{width:100%;height:250px;}
+  .detail-grid{grid-template-columns:1fr;}
+  .contact-actions{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+<div class="zellige-bg"></div>
+<!-- NETLIFY FORMS DETECTOR (invisible) -->
+<form name="inscription-conciergerie" data-netlify="true" hidden="">
+  <input type="text" name="nom">
+  <input type="text" name="ville">
+  <textarea name="description"></textarea>
+  <input type="text" name="telephone">
+  <input type="email" name="email">
+  <input type="text" name="social">
+  <input type="text" name="site_web">
+  <input type="text" name="type_service">
+</form>
+
+
+<!-- HEADER -->
+<header>
+  <div class="header-top">
+    <div class="logo" onclick="showPage(&#39;annuaire&#39;)">
+      <svg viewBox="0 0 42 42" fill="none"><polygon points="21,2 40,15 40,27 21,40 2,27 2,15" fill="none" stroke="#C9A96E" stroke-width="1.2"></polygon><polygon points="21,9 34,17 34,25 21,33 8,25 8,17" fill="none" stroke="#C9A96E" stroke-width="0.5" opacity="0.4"></polygon><circle cx="21" cy="21" r="3" fill="#C9A96E"></circle></svg>
+      <div class="logo-text"><span class="main">Conciergeries Maroc</span><span class="sub">Répertoire National</span></div>
+    </div>
+    <nav>
+      <a onclick="showPage(&#39;annuaire&#39;)" id="nav-annuaire" class="">Annuaire</a>
+      <a onclick="showPage(&#39;carte&#39;)" id="nav-carte">Carte</a>
+      <a onclick="showPage(&#39;avis&#39;)" id="nav-avis">Avis</a>
+      <a onclick="showPage(&#39;clients&#39;)" id="nav-clients">Propriétaires</a>
+      <a onclick="showPage(&#39;conciergeries&#39;)" id="nav-conciergeries" class="active">Conciergeries</a>
+      <a onclick="showPage(&#39;cgu&#39;)" id="nav-cgu">CGU</a>
+    </nav>
+<div class="lang-selector">
+      <button class="lang-btn active" onclick="setLang(&#39;fr&#39;,this)">FR</button>
+      <button class="lang-btn" onclick="setLang(&#39;en&#39;,this)">EN</button>
+      <button class="lang-btn" onclick="setLang(&#39;ar&#39;,this)">AR</button>
+    </div>
+    <button class="btn-add" onclick="showPage(&#39;conciergeries&#39;)">+ Ajouter ma conciergerie</button>
+  </div>
+</header>
+
+<!-- ========== PAGE ANNUAIRE ========== -->
+<div id="annuaire-page" class="page">
+  <section class="hero">
+    <p class="hero-eyebrow">✦ Le premier répertoire dédié ✦</p>
+    <h1>Les meilleures<br><em>conciergeries</em><br>du Maroc</h1>
+    <p class="hero-desc">Trouvez, comparez et contactez les meilleures conciergeries Airbnb &amp; villas à travers tout le Royaume.</p>
+    <div class="ornament"><div class="ornament-line"></div><div class="ornament-diamond"></div><div class="ornament-line"></div></div>
+  </section>
+
+  <div class="search-wrap">
+    <div class="search-bar">
+      <input type="text" placeholder="Rechercher une conciergerie..." id="searchInput" oninput="filterCards()">
+      <select id="cityFilter" onchange="filterCards()">
+        <option value="" id="opt-all-cities">Toutes les villes</option>
+        <option>Marrakech</option><option>Casablanca</option><option>Agadir</option>
+        <option>Fès</option><option>Tanger</option><option>Essaouira</option>
+        <option>Rabat</option><option>Dakhla</option>
+      </select>
+      <button class="search-btn" onclick="filterCards()">Chercher</button>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat"><span class="stat-number" id="totalCount">16</span><span class="stat-label">Conciergeries</span></div>
+    <div class="stat"><span class="stat-number">8</span><span class="stat-label">Villes</span></div>
+    <div class="stat"><span class="stat-number" id="avgRating">4.6★</span><span class="stat-label">Note moyenne</span></div>
+    <div class="stat"><span class="stat-number" id="totalAvis">6</span><span class="stat-label">Avis clients</span></div>
+  </div>
+
+  
+
+  <section class="grid-section">
+    <div class="grid-header">
+      <span class="grid-title">Conciergeries répertoriées</span>
+      <span class="grid-count" id="resultCount">16 résultats</span>
+    </div>
+    <div class="cards-grid" id="cardsGrid"><div class="card featured" data-id="1" style="animation-delay: 0s;"><div class="card-accent"></div>
+        <div class="card-badge premium"><span>🏛️</span>Conciergerie Premium</div>
+        <div class="card-city">Marrakech</div>
+        <div class="card-name">Marrakech Luxury Stays</div>
+        <div class="card-desc">Gestion complète de villas et riads haut de gamme. Check-in, ménage, linge, accueil &amp; assistance 24h/24. Plus de 80 propriétés gérées avec un taux d'occupation de 94%.</div>
+        <div class="card-tags"><span class="tag">Airbnb</span><span class="tag">Villas</span><span class="tag">Riads</span><span class="tag">Luxe</span></div>
+        <div class="card-footer">
+          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">5.0 (1 avis)</span></div>
+          <div class="card-actions">
+            <button class="card-contact" onclick="event.stopPropagation();openDetail(1)">📱</button>
+            <button class="card-link" onclick="event.stopPropagation();openDetail(1)">Voir →</button>
+          </div>
+        </div></div><div class="card" data-id="2" style="animation-delay: 0.04s;"><div class="card-accent"></div>
+        <div class="card-badge"><span>🏙️</span>Conciergerie</div>
+        <div class="card-city">Casablanca</div>
+        <div class="card-name">Casa Confort Services</div>
+        <div class="card-desc">Spécialiste de la gestion locative courte durée à Casablanca. Idéal pour propriétaires expatriés. Reporting mensuel et reversements ponctuels.</div>
+        <div class="card-tags"><span class="tag">Airbnb</span><span class="tag">Expat</span></div>
+        <div class="card-footer">
+          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">5.0 (1 avis)</span></div>
+          <div class="card-actions">
+            <button class="card-contact" onclick="event.stopPropagation();openDetail(2)">📱</button>
+            <button class="card-link" onclick="event.stopPropagation();openDetail(2)">Voir →</button>
+          </div>
+        </div></div><div class="card" data-id="3" style="animation-delay: 0.08s;"><div class="card-accent"></div>
+        <div class="card-badge"><span>🏖️</span>Conciergerie</div>
+        <div class="card-city">Agadir</div>
+        <div class="card-name">Agadir Beach Rentals</div>
+        <div class="card-desc">Gestion de résidences balnéaires et appartements tourisme à Agadir et Taghazout. Photographie professionnelle incluse.</div>
+        <div class="card-tags"><span class="tag">Airbnb</span><span class="tag">Villas</span></div>
+        <div class="card-footer">
+          <div class="card-rating"><span class="stars">★★★★☆</span><span class="rating-count">4.0 (1 avis)</span></div>
+          <div class="card-actions">
+            <button class="card-contact" onclick="event.stopPropagation();openDetail(3)">📱</button>
+            <button class="card-link" onclick="event.stopPropagation();openDetail(3)">Voir →</button>
+          </div>
+        </div></div><div class="card" data-id="4" style="animation-delay: 0.12s;"><div class="card-accent"></div>
+        <div class="card-badge"><span>⚓</span>Conciergerie</div>
+        <div class="card-city">Tanger</div>
+        <div class="card-name">Tanger Keys</div>
+        <div class="card-desc">Conciergerie digitale pour propriétaires non-résidents. Reporting mensuel détaillé, reversements ponctuels et gestion des urgences 24/7.</div>
+        <div class="card-tags"><span class="tag">Airbnb</span><span class="tag">Expat</span></div>
+        <div class="card-footer">
+          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">5.0 (1 avis)</span></div>
+          <div class="card-actions">
+            <button class="card-contact" onclick="event.stopPropagation();openDetail(4)">📱</button>
+            <button class="card-link" onclick="event.stopPropagation();openDetail(4)">Voir →</button>
+          </div>
+        </div></div><div class="card" data-id="5" style="animation-delay: 0.16s;"><div class="card-accent"></div>
+        <div class="card-badge"><span>🏺</span>Conciergerie</div>
+        <div class="card-city">Fès</div>
+        <div class="card-name">Médina Riad Management</div>
+        <div class="card-desc">Experts en gestion de riads dans la médina de Fès. Accueil culturel personnalisé, services sur mesure pour une expérience authentique.</div>
+        <div class="card-tags"><span class="tag">Riads</span><span class="tag">Luxe</span></div>
+        <div class="card-footer">
+          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">Nouveau</span></div>
+          <div class="card-actions">
+            <button class="card-contact" onclick="event.stopPropagation();openDetail(5)">📱</button>
+            <button class="card-link" onclick="event.stopPropagation();openDetail(5)">Voir →</button>
+          </div>
+        </div></div><div class="card" data-id="6" style="animation-delay: 0.2s;"><div class="card-accent"></div>
+        <div class="card-badge"><span>🌊</span>Conciergerie</div>
+        <div class="card-city">Essaouira</div>
+        <div class="card-name">Mogador Hosting</div>
+        <div class="card-desc">Services de conciergerie haut de gamme dans la cité des alizés. Gestion d'appartements et maisons de charme avec expérience authentique garantie.</div>
+        <div class="card-tags"><span class="tag">Airbnb</span><span class="tag">Villas</span></div>
+        <div class="card-footer">
+          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">5.0 (1 avis)</span></div>
+          <div class="card-actions">
+            <button class="card-contact" onclick="event.stopPropagation();openDetail(6)">📱</button>
+            <button class="card-link" onclick="event.stopPropagation();openDetail(6)">Voir →</button>
+          </div>
+        </div></div><div class="card" data-id="7" style="animation-delay: 0.24s;"><div class="card-accent"></div>
+        <div class="card-badge"><span>🏛️</span>Conciergerie</div>
+        <div class="card-city">Rabat</div>
+        <div class="card-name">Capitale Concierge</div>
+        <div class="card-desc">Gestion professionnelle pour appartements et maisons à Rabat et Salé. Clientèle diplomatique bienvenue. Discrétion et professionnalisme assurés.</div>
+        <div class="card-tags"><span class="tag">Airbnb</span><span class="tag">Expat</span></div>
+        <div class="card-footer">
+          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">Nouveau</span></div>
+          <div class="card-actions">
+            <button class="card-contact" onclick="event.stopPropagation();openDetail(7)">📱</button>
+            <button class="card-link" onclick="event.stopPropagation();openDetail(7)">Voir →</button>
+          </div>
+        </div></div><div class="card" data-id="8" style="animation-delay: 0.28s;"><div class="card-accent"></div>
+        <div class="card-badge"><span>🪁</span>Conciergerie</div>
+        <div class="card-city">Dakhla</div>
+        <div class="card-name">Dakhla Nomad Stays</div>
+        <div class="card-desc">Conciergerie spécialisée pour kitesurf lodges et hébergements insolites à Dakhla. En pleine croissance dans une destination émergente.</div>
+        <div class="card-tags"><span class="tag">Villas</span><span class="tag">Airbnb</span></div>
+        <div class="card-footer">
+          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">Nouveau</span></div>
+          <div class="card-actions">
+            <button class="card-contact" onclick="event.stopPropagation();openDetail(8)">📱</button>
+            <button class="card-link" onclick="event.stopPropagation();openDetail(8)">Voir →</button>
+          </div>
+        </div></div><div class="card" data-id="9" style="animation-delay: 0.32s;"><div class="card-accent"></div>
+        <div class="card-badge"><span>🌴</span>Conciergerie</div>
+        <div class="card-city">Marrakech</div>
+        <div class="card-name">Palmeraie Rentals</div>
+        <div class="card-desc">Gestion de villas avec piscine dans la Palmeraie de Marrakech. Photographie professionnelle, accueil VIP et conciergerie lifestyle inclus.</div>
+        <div class="card-tags"><span class="tag">Airbnb</span><span class="tag">Villas</span></div>
+        <div class="card-footer">
+          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">5.0 (1 avis)</span></div>
+          <div class="card-actions">
+            <button class="card-contact" onclick="event.stopPropagation();openDetail(9)">📱</button>
+            <button class="card-link" onclick="event.stopPropagation();openDetail(9)">Voir →</button>
+          </div>
+        </div></div><div class="card" data-id="10" style="animation-delay: 0.36s;"><div class="card-accent"></div>
+        <div class="card-badge"><span>💎</span>Conciergerie</div>
+        <div class="card-city">Casablanca</div>
+        <div class="card-name">Anfa Premium Hosting</div>
+        <div class="card-desc">Gestion de propriétés de luxe dans le quartier Anfa et California à Casablanca. Services personnalisés pour une clientèle exigeante.</div>
+        <div class="card-tags"><span class="tag">Luxe</span><span class="tag">Villas</span></div>
+        <div class="card-footer">
+          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">Nouveau</span></div>
+          <div class="card-actions">
+            <button class="card-contact" onclick="event.stopPropagation();openDetail(10)">📱</button>
+            <button class="card-link" onclick="event.stopPropagation();openDetail(10)">Voir →</button>
+          </div>
+        </div></div><div class="card" data-id="11" style="animation-delay: 0.4s;"><div class="card-accent"></div>
+        <div class="card-badge"><span>🏔️</span>Conciergerie</div>
+        <div class="card-city">Agadir</div>
+        <div class="card-name">Souss Valley Conciergerie</div>
+        <div class="card-desc">Services tout inclus pour propriétés à Agadir, Taroudant et la région du Souss. Équipe locale expérimentée disponible 7j/7.</div>
+        <div class="card-tags"><span class="tag">Airbnb</span><span class="tag">Riads</span></div>
+        <div class="card-footer">
+          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">Nouveau</span></div>
+          <div class="card-actions">
+            <button class="card-contact" onclick="event.stopPropagation();openDetail(11)">📱</button>
+            <button class="card-link" onclick="event.stopPropagation();openDetail(11)">Voir →</button>
+          </div>
+        </div></div><div class="card" data-id="12" style="animation-delay: 0.44s;"><div class="card-accent"></div>
+        <div class="card-badge"><span>✨</span>Conciergerie</div>
+        <div class="card-city">Marrakech</div>
+        <div class="card-name">Maroc Finds Conciergerie</div>
+        <div class="card-desc">Gestion Airbnb et villas lifestyle au Maroc. Conseils déco, produits tendances et accompagnement propriétaires de A à Z.</div>
+        <div class="card-tags"><span class="tag">Airbnb</span><span class="tag">Villas</span><span class="tag">Expat</span></div>
+        <div class="card-footer">
+          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">Nouveau</span></div>
+          <div class="card-actions">
+            <button class="card-contact" onclick="event.stopPropagation();openDetail(12)">📱</button>
+            <button class="card-link" onclick="event.stopPropagation();openDetail(12)">Voir →</button>
+          </div>
+        </div></div><div class="card" data-id="13" style="animation-delay: 0.48s;"><div class="card-accent"></div>
+        <div class="card-badge"><span>🌴</span>Conciergerie</div>
+        <div class="card-city">Rabat</div>
+        <div class="card-name">Red Palm Concierge</div>
+        <div class="card-desc">Nous ne faisons pas seulement de la gestion locative : nous développons le potentiel de votre bien. Rabat · Bouznika · Mansouria · Casablanca · Marrakech · Agadir · Bientôt à Tanger et Assilah.</div>
+        <div class="card-tags"><span class="tag">Airbnb</span><span class="tag">Villas</span><span class="tag">Expat</span></div>
+        <div class="card-footer">
+          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">Nouveau</span></div>
+          <div class="card-actions">
+            <button class="card-contact" onclick="event.stopPropagation();openDetail(13)">📱</button>
+            <button class="card-link" onclick="event.stopPropagation();openDetail(13)">Voir →</button>
+          </div>
+        </div></div><div class="card" data-id="14" style="animation-delay: 0.52s;"><div class="card-accent"></div>
+        <div class="card-badge"><span>🏡</span>Conciergerie</div>
+        <div class="card-city">Marrakech</div>
+        <div class="card-name">Tisura Ouiam Conciergerie</div>
+        <div class="card-desc">Tisura Ouiam Conciergerie accompagne les propriétaires à Marrakech dans la gestion complète de leurs biens en location courte durée. Service clé en main : gestion des réservations, accueil des voyageurs, ménage professionnel, blanchisserie, assistance et optimisation des annonces pour maximiser la rentabilité.</div>
+        <div class="card-tags"><span class="tag">Airbnb</span><span class="tag">Luxe</span><span class="tag">Expat</span></div>
+        <div class="card-footer">
+          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">Nouveau</span></div>
+          <div class="card-actions">
+            <button class="card-contact" onclick="event.stopPropagation();openDetail(14)">📱</button>
+            <button class="card-link" onclick="event.stopPropagation();openDetail(14)">Voir →</button>
+          </div>
+        </div></div><div class="card" data-id="15" style="animation-delay: 0.56s;"><div class="card-accent"></div>
+        <div class="card-badge"><span>🏰</span>Conciergerie</div>
+        <div class="card-city">Rabat</div>
+        <div class="card-name">Your Conciergerie</div>
+        <div class="card-desc">Au Maroc, accueillir est un art. Chez Your Conciergerie, nous en avons fait une discipline. Vision globale : rigueur opérationnelle, expertise terrain et attention aux détails. Optimisation des revenus, expérience voyageur irréprochable et transparence totale. Entre hospitalité marocaine et standards internationaux, chaque séjour est orchestré avec exigence.</div>
+        <div class="card-tags"><span class="tag">Airbnb</span><span class="tag">Luxe</span><span class="tag">Expat</span></div>
+        <div class="card-footer">
+          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">Nouveau</span></div>
+          <div class="card-actions">
+            <button class="card-contact" onclick="event.stopPropagation();openDetail(15)">📱</button>
+            <button class="card-link" onclick="event.stopPropagation();openDetail(15)">Voir →</button>
+          </div>
+        </div></div><div class="card" data-id="16" style="animation-delay: 0.6s;"><div class="card-accent"></div>
+        <div class="card-badge"><span>🔑</span>Conciergerie</div>
+        <div class="card-city">Marrakech</div>
+        <div class="card-name">Élégance Rouge Conciergerie</div>
+        <div class="card-desc">Elegance Rouge Conciergerie est une société de gestion locative courte durée (LCD) basée à Marrakech, spécialisée dans la gestion complète de biens immobiliers pour propriétaires non-résidents. Modèle 100% automatisé : serrures connectées, check-in autonome, messagerie automatisée. Services : création et optimisation des annonces, tarification dynamique, communication voyageurs, coordination ménage et maintenance, reporting propriétaire.</div>
+        <div class="card-tags"><span class="tag">Airbnb</span><span class="tag">Expat</span><span class="tag">Automatisé</span></div>
+        <div class="card-footer">
+          <div class="card-rating"><span class="stars">★★★★★</span><span class="rating-count">Nouveau</span></div>
+          <div class="card-actions">
+            <button class="card-contact" onclick="event.stopPropagation();openDetail(16)">📱</button>
+            <button class="card-link" onclick="event.stopPropagation();openDetail(16)">Voir →</button>
+          </div>
+        </div></div></div>
+  </section>
+
+  <section class="cities-section">
+    <div class="section-header">
+      <span class="section-eyebrow">✦ Par destination ✦</span>
+      <h2 class="section-title">Explorer par ville</h2>
+    </div>
+    <div class="cities-grid" id="citiesGrid">
+    <div class="city-card" onclick="filterCity(&#39;Marrakech&#39;)">
+      <span class="city-emoji">🕌</span>
+      <div class="city-name">Marrakech</div>
+      <div class="city-count">5 conciergeries</div>
+    </div>
+    <div class="city-card" onclick="filterCity(&#39;Casablanca&#39;)">
+      <span class="city-emoji">🏙️</span>
+      <div class="city-name">Casablanca</div>
+      <div class="city-count">2 conciergeries</div>
+    </div>
+    <div class="city-card" onclick="filterCity(&#39;Agadir&#39;)">
+      <span class="city-emoji">🏖️</span>
+      <div class="city-name">Agadir</div>
+      <div class="city-count">2 conciergeries</div>
+    </div>
+    <div class="city-card" onclick="filterCity(&#39;Tanger&#39;)">
+      <span class="city-emoji">⚓</span>
+      <div class="city-name">Tanger</div>
+      <div class="city-count">1 conciergerie</div>
+    </div>
+    <div class="city-card" onclick="filterCity(&#39;Fès&#39;)">
+      <span class="city-emoji">🏺</span>
+      <div class="city-name">Fès</div>
+      <div class="city-count">1 conciergerie</div>
+    </div>
+    <div class="city-card" onclick="filterCity(&#39;Essaouira&#39;)">
+      <span class="city-emoji">🌊</span>
+      <div class="city-name">Essaouira</div>
+      <div class="city-count">1 conciergerie</div>
+    </div>
+    <div class="city-card" onclick="filterCity(&#39;Rabat&#39;)">
+      <span class="city-emoji">🏛️</span>
+      <div class="city-name">Rabat</div>
+      <div class="city-count">3 conciergeries</div>
+    </div>
+    <div class="city-card" onclick="filterCity(&#39;Dakhla&#39;)">
+      <span class="city-emoji">🪁</span>
+      <div class="city-name">Dakhla</div>
+      <div class="city-count">1 conciergerie</div>
+    </div></div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Vous gérez une conciergerie ?</h2>
+    <p>Rejoignez le répertoire et gagnez en visibilité auprès de milliers de propriétaires à travers le Maroc.</p>
+    <button class="btn-cta" onclick="showPage(&#39;conciergeries&#39;)">Référencer ma conciergerie</button>
+  </section>
+
+  <footer>
+    <p>© 2025 Concierge Maroc — Répertoire National</p>
+    <p>Fait avec ♥ pour la communauté des hôtes marocains</p>
+  </footer>
+</div>
+
+<!-- ========== PAGE CARTE ========== -->
+<div id="carte-page" class="page">
+  <div class="map-header">
+    <h2 id="map-title-h2">Carte des conciergeries</h2>
+    <p id="map-title-p">Visualisez toutes les conciergeries répertoriées à travers le Maroc</p>
+  </div>
+  <div class="map-container">
+    <div id="leaflet-map"></div>
+    <div class="map-sidebar">
+      <h3 id="map-sidebar-h3">✦ Toutes les conciergeries</h3>
+      <div id="mapList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== PAGE AVIS ========== -->
+<div id="avis-page" class="page">
+  <div class="avis-header">
+    <h2>Avis &amp; Témoignages</h2>
+    <p>Ce que disent les propriétaires et les hôtes</p>
+  </div>
+  <div style="padding:2rem 5vw 1rem;display:flex;justify-content:flex-end;">
+    <button class="add-avis-btn" onclick="openModal(&#39;avis&#39;)">+ Laisser un avis</button>
+  </div>
+  <div class="avis-grid" id="avisGrid"></div>
+  <footer>
+    <p>© 2025 Concierge Maroc</p>
+    <p>Les avis sont vérifiés par notre équipe</p>
+  </footer>
+</div>
+
+
+
+<!-- ========== PAGE CONCIERGERIES ========== -->
+<div id="conciergeries-page" class="page active">
+
+  <!-- HERO -->
+  <div class="conc-hero">
+    <div style="display:inline-flex;align-items:center;gap:.8rem;background:rgba(196,98,45,.15);border:1px solid rgba(196,98,45,.4);padding:.5rem 1.2rem;margin-bottom:1.5rem;">
+      <span style="color:#C4622D;font-size:.85rem;">🔥</span>
+      <span style="font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:#E8835A;">Offre de lancement — Places limitées</span>
+    </div>
+    <h2 id="conc-hero-h2">Les <em>10 premières</em><br>conciergeries<br>inscrites gratuitement</h2>
+    <p id="conc-hero-p">Profitez de notre offre de lancement exclusive. Les 10 premières conciergeries à s'inscrire bénéficient d'une visibilité <strong style="color:var(--gold);">à vie et gratuite</strong> sur le répertoire national.</p>
+    <div id="spots-counter" style="display:flex;align-items:center;justify-content:center;gap:1.5rem;margin:1.5rem 0 2rem;">
+      <div style="text-align:center;">
+        <span style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:3.5rem;color:var(--gold);line-height:1;" id="spots-left">6</span>
+        <span style="display:block;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,241,232,.4);margin-top:.2rem;">Places restantes</span>
+      </div>
+      <div style="width:1px;height:50px;background:rgba(201,169,110,.2);"></div>
+      <div style="text-align:center;">
+        <span style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:3.5rem;color:var(--cream);line-height:1;" id="spots-taken">4</span>
+        <span style="display:block;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,241,232,.4);margin-top:.2rem;">Déjà inscrites</span>
+      </div>
+    </div>
+    <div id="spots-bar-wrap" style="max-width:400px;margin:0 auto 2rem;background:rgba(247,241,232,.06);height:4px;">
+      <div id="spots-bar" style="height: 4px; background: linear-gradient(to right,var(--gold-dark),var(--gold)); transition: width 0.8s; width: 40%;"></div>
+    </div>
+    <button class="btn-cta" onclick="document.getElementById(&#39;form-inscription&#39;).scrollIntoView({behavior:&#39;smooth&#39;})">Je réserve ma place gratuite →</button>
+    <p style="font-size:.7rem;color:rgba(247,241,232,.3);margin-top:1rem;">✦ Après les 10 premières places, l'inscription restera gratuite mais sans les avantages premium</p>
+  </div>
+
+  <!-- AVANTAGES -->
+  <div class="conc-avantages">
+    <div class="avantage-card">
+      <span class="avantage-icon">👁️</span>
+      <div class="avantage-title">Visibilité nationale</div>
+      <div class="avantage-desc">Votre conciergerie visible par des milliers de propriétaires à travers tout le Maroc</div>
+    </div>
+    <div class="avantage-card">
+      <span class="avantage-icon">📧</span>
+      <div class="avantage-title">Demandes qualifiées</div>
+      <div class="avantage-desc">Recevez directement les demandes de propriétaires qui cherchent activement une conciergerie</div>
+    </div>
+    <div class="avantage-card">
+      <span class="avantage-icon">⭐</span>
+      <div class="avantage-title">Système d'avis</div>
+      <div class="avantage-desc">Vos clients peuvent laisser des avis qui renforcent votre crédibilité et attirent de nouveaux clients</div>
+    </div>
+    <div class="avantage-card">
+      <span class="avantage-icon">🗺️</span>
+      <div class="avantage-title">Présence sur la carte</div>
+      <div class="avantage-desc">Votre conciergerie géolocalisée sur la carte interactive du Maroc</div>
+    </div>
+
+    <div class="avantage-card">
+      <span class="avantage-icon">📱</span>
+      <div class="avantage-title">Contact direct</div>
+      <div class="avantage-desc">Les propriétaires vous contactent directement par WhatsApp ou email, sans intermédiaire</div>
+    </div>
+  </div>
+
+  <!-- PROCESS -->
+  <div class="conc-process">
+    <h3>Comment ça fonctionne</h3>
+    <p class="conc-process-sub">De l'inscription à votre premier client en 4 étapes simples</p>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-num">01</div>
+        <span class="process-icon">📝</span>
+        <div class="process-title">Remplissez le formulaire</div>
+        <div class="process-desc">Nom, ville, description de vos services, contact</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">02</div>
+        <span class="process-icon">✅</span>
+        <div class="process-title">Validation sous 24h</div>
+        <div class="process-desc">Notre équipe vérifie votre inscription avant publication</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">03</div>
+        <span class="process-icon">🌐</span>
+        <div class="process-title">Vous êtes en ligne</div>
+        <div class="process-desc">Votre fiche apparaît dans l'annuaire et sur la carte</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">04</div>
+        <span class="process-icon">📞</span>
+        <div class="process-title">Premiers contacts</div>
+        <div class="process-desc">Les propriétaires vous contactent directement</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMULAIRE -->
+  <div class="conc-inscription" id="form-inscription">
+    <div class="conc-left">
+      <h3>Pourquoi nous rejoindre ?</h3>
+      <ul class="conc-checklist">
+        <li>Accès à une base de propriétaires qui cherchent activement une conciergerie</li>
+        <li>Votre profil avec description, services, contact et avis clients</li>
+        <li>Présence sur la carte interactive géolocalisée</li>
+        <li>Notifications emails à chaque propriétaire intéressé</li>
+        
+        <li>Visible sur mobile, tablette et ordinateur</li>
+        <li>Idéal pour les conciergeries qui démarrent ou veulent se développer</li>
+      </ul>
+      <div style="background:rgba(201,169,110,.06);border:1px solid rgba(201,169,110,.2);padding:1.2rem;margin-top:1rem;">
+        <div style="font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;">Des questions ?</div>
+        <div style="font-size:.82rem;color:rgba(247,241,232,.5);">Contactez-nous sur WhatsApp ou par email :</div>
+        <div style="font-size:.85rem;color:var(--cream);margin-top:.4rem;">conciergeries.maroc@proton.me</div>
+      </div>
+    </div>
+
+    <div class="conc-right">
+      
+      <h3>Inscrivez votre conciergerie</h3>
+      <span class="conc-form-eyebrow">Remplissez le formulaire ci-dessous</span>
+
+      <div class="form-row">
+        <div class="form-group"><label>Nom de la conciergerie *</label><input id="f-nom" type="text" placeholder="Ex: Marrakech Stays"></div>
+        <div class="form-group"><label>Ville *</label>
+          <select id="f-ville">
+            <option value="">Choisir...</option>
+            <option>Marrakech</option><option>Casablanca</option><option>Agadir</option>
+            <option>Fès</option><option>Tanger</option><option>Essaouira</option><option>Rabat</option><option>Dakhla</option><option>Autre</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group"><label>Description de vos services *</label>
+        <textarea id="f-desc" placeholder="Décrivez vos services, zone d&#39;intervention, nombre de biens gérés, ce qui vous différencie..." style="min-height:90px;"></textarea>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>WhatsApp *</label><input id="f-tel" type="text" placeholder="+212 6XX XXX XXX"></div>
+        <div class="form-group"><label>Email</label><input id="f-email" type="text" placeholder="contact@exemple.com"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Instagram / TikTok</label><input id="f-social" type="text" placeholder="@votre_compte"></div>
+        <div class="form-group"><label>Site web</label><input id="f-web" type="text" placeholder="https://..."></div>
+      </div>
+      <div class="form-group"><label>Type de service</label>
+        <select id="f-type">
+          <option>Airbnb / Location courte durée</option>
+          <option>Villas &amp; propriétés luxe</option>
+          <option>Riads &amp; médinas</option>
+          <option>Multi-services</option>
+        </select>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" id="f-accept">
+        <label for="f-accept">J'accepte que mes informations soient publiées sur le répertoire public</label>
+      </div>
+      <button class="btn-submit" onclick="submitConcierge()">Réserver ma place →</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Concierge Maroc</p>
+    <p>Validation sous 24h · Offre de lancement</p>
+  </footer>
+</div>
+
+<!-- ========== PAGE CLIENTS ========== -->
+<div id="clients-page" class="page">
+  <div class="clients-hero">
+    <p class="hero-eyebrow" style="font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;">✦ Espace propriétaires ✦</p>
+    <h2>Vous êtes propriétaire ?</h2>
+    <p>Trouvez la conciergerie idéale pour votre bien, ou partagez votre expérience pour aider la communauté.</p>
+  </div>
+
+  <div class="clients-grid">
+    <!-- PANNEAU DEMANDE -->
+    <div class="clients-panel">
+      <h3>🏠 Je cherche une conciergerie</h3>
+      <p>Décrivez votre bien et vos besoins — nous transmettons votre demande aux conciergeries de votre ville sous 24h.</p>
+      <div class="how-steps">
+        <div class="how-step"><div class="step-num">1</div><div class="step-text"><strong>Remplissez le formulaire</strong>Ville, type de bien, budget estimé</div></div>
+        <div class="how-step"><div class="step-num">2</div><div class="step-text"><strong>Nous analysons votre demande</strong>Et la transmettons aux conciergeries adaptées</div></div>
+        <div class="how-step"><div class="step-num">3</div><div class="step-text"><strong>Les conciergeries vous contactent</strong>Vous choisissez la meilleure offre</div></div>
+      </div>
+      <button class="btn-cta" style="display:inline-block;" onclick="openModal(&#39;client&#39;)">Déposer ma demande →</button>
+    </div>
+
+    <!-- PANNEAU TEMOIGNAGE -->
+    <div class="clients-panel">
+      <h3>⭐ Partagez votre expérience</h3>
+      <p>Vous avez trouvé votre conciergerie grâce à notre répertoire ? Votre témoignage aide d'autres propriétaires à choisir.</p>
+      <div class="how-steps">
+        <div class="how-step"><div class="step-num">1</div><div class="step-text"><strong>Choisissez la conciergerie</strong>Celle avec qui vous avez travaillé</div></div>
+        <div class="how-step"><div class="step-num">2</div><div class="step-text"><strong>Racontez votre histoire</strong>Résultats obtenus, points forts, conseils</div></div>
+        <div class="how-step"><div class="step-num">3</div><div class="step-text"><strong>Votre avis est publié</strong>Après vérification par notre équipe</div></div>
+      </div>
+      <button class="btn-cta" style="display:inline-block;" onclick="openModal(&#39;avis&#39;);showPage(&#39;clients&#39;)">Laisser un témoignage →</button>
+    </div>
+  </div>
+
+  <!-- TEMOIGNAGES -->
+  <div class="temoignages-section">
+    <div class="section-header" style="text-align:center;margin-bottom:2rem;">
+      <span class="section-eyebrow">✦ Ils ont trouvé leur conciergerie ✦</span>
+      <h2 class="section-title">Témoignages de propriétaires</h2>
+    </div>
+    <div class="temoignages-grid" id="temoignagesGrid">
+    <div class="temoignage-card" style="animation:fadeUp .5s ease 0s both;">
+      <div class="temoignage-type">Propriétaire expatrié</div>
+      <div class="temoignage-text">"J'habite à Paris et j'ai un appartement à Marrakech. Grâce à ce répertoire j'ai trouvé une conciergerie sérieuse en 48h. Mon taux d'occupation est passé à 91%. Je recommande à tous les MRE !"</div>
+      <div class="temoignage-author">Rachid M.</div>
+      <div class="temoignage-detail">Appartement — Marrakech · Trouvé via Concierge Maroc</div>
+    </div>
+    <div class="temoignage-card" style="animation:fadeUp .5s ease 0.07s both;">
+      <div class="temoignage-type">Propriétaire résidente</div>
+      <div class="temoignage-text">"J'avais peur de confier ma villa à quelqu'un. Le répertoire m'a permis de comparer plusieurs conciergeries avec leurs avis. J'ai choisi la meilleure et je ne regrette pas."</div>
+      <div class="temoignage-author">Fatima Z.</div>
+      <div class="temoignage-detail">Villa avec piscine — Agadir · Trouvé via Concierge Maroc</div>
+    </div>
+    <div class="temoignage-card" style="animation:fadeUp .5s ease 0.14s both;">
+      <div class="temoignage-type">Investisseur immobilier</div>
+      <div class="temoignage-text">"J'ai 3 appartements à Casablanca. Grâce à ce site j'ai trouvé une conciergerie qui gère tout. Les reversements sont ponctuels et le reporting mensuel est très professionnel."</div>
+      <div class="temoignage-author">Yassine B.</div>
+      <div class="temoignage-detail">3 appartements — Casablanca · Trouvé via Concierge Maroc</div>
+    </div>
+    <div class="temoignage-card" style="animation:fadeUp .5s ease 0.21000000000000002s both;">
+      <div class="temoignage-type">Propriétaire non-résidente</div>
+      <div class="temoignage-text">"En tant que femme expatriée en Belgique, je cherchais quelqu'un de confiance pour mon riad à Fès. Le répertoire m'a orientée vers la meilleure option. Excellent service."</div>
+      <div class="temoignage-author">Khadija A.</div>
+      <div class="temoignage-detail">Riad — Fès · Trouvé via Concierge Maroc</div>
+    </div>
+    <div class="temoignage-card" style="animation:fadeUp .5s ease 0.28s both;">
+      <div class="temoignage-type">Premier investissement</div>
+      <div class="temoignage-text">"C'est mon premier bien locatif. Le répertoire m'a aidé à comprendre ce qu'est une conciergerie et à choisir la bonne. Les avis des autres propriétaires sont très utiles."</div>
+      <div class="temoignage-author">Mehdi L.</div>
+      <div class="temoignage-detail">Appartement — Tanger · Trouvé via Concierge Maroc</div>
+    </div>
+    <div class="temoignage-card" style="animation:fadeUp .5s ease 0.35000000000000003s both;">
+      <div class="temoignage-type">Couple de propriétaires</div>
+      <div class="temoignage-text">"Nous avons une maison à Essaouira que nous louons en été. Ce site nous a permis de trouver une conciergerie locale qui connaît bien la ville. Nos voyageurs sont ravis."</div>
+      <div class="temoignage-author">Sophie &amp; Marc D.</div>
+      <div class="temoignage-detail">Maison — Essaouira · Trouvé via Concierge Maroc</div>
+    </div></div>
+  </div>
+
+  <!-- CTA -->
+  <div class="clients-cta">
+    <h3>Vous gérez une conciergerie ?</h3>
+    <p>Rejoignez le répertoire et recevez des demandes de propriétaires qualifiés directement dans votre boîte mail.</p>
+    <div class="cta-btns">
+      <button class="btn-cta" onclick="showPage(&#39;conciergeries&#39;)">Inscrire ma conciergerie</button>
+      <button class="btn-cta" style="border-color:rgba(201,169,110,.4);color:rgba(247,241,232,.6);" onclick="showPage(&#39;annuaire&#39;)">Voir l'annuaire</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Concierge Maroc</p>
+    <p>Mise en relation gratuite pour les propriétaires</p>
+  </footer>
+</div>
+
+<!-- MODAL AJOUT CONCIERGERIE -->
+<div class="modal-overlay" id="modal-add" onclick="closeModalOutside(event,&#39;add&#39;)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal(&#39;add&#39;)">✕</button>
+    <span class="modal-eyebrow">Inscription gratuite</span>
+    <h3>Ajouter votre conciergerie</h3>
+    <div class="form-row">
+      <div class="form-group"><label>Nom de la conciergerie *</label><input id="f-nom" type="text" placeholder="Ex: Marrakech Stays"></div>
+      <div class="form-group"><label>Ville *</label>
+        <select id="f-ville">
+          <option value="">Choisir...</option>
+          <option>Marrakech</option><option>Casablanca</option><option>Agadir</option>
+          <option>Fès</option><option>Tanger</option><option>Essaouira</option><option>Rabat</option><option>Dakhla</option><option>Autre</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group"><label>Description *</label><textarea id="f-desc" placeholder="Décrivez vos services, zone d&#39;intervention, nombre de biens gérés..."></textarea></div>
+    <div class="form-row">
+      <div class="form-group"><label>WhatsApp / Téléphone</label><input id="f-tel" type="text" placeholder="+212 6XX XXX XXX"></div>
+      <div class="form-group"><label>Email</label><input id="f-email" type="text" placeholder="contact@exemple.com"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Instagram / TikTok</label><input id="f-social" type="text" placeholder="@votre_compte"></div>
+      <div class="form-group"><label>Site web</label><input id="f-web" type="text" placeholder="https://..."></div>
+    </div>
+    <div class="form-group"><label>Type de service</label>
+      <select id="f-type">
+        <option>Airbnb / Location courte durée</option>
+        <option>Villas &amp; propriétés luxe</option>
+        <option>Riads &amp; médinas</option>
+        <option>Multi-services</option>
+      </select>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" id="f-accept">
+      <label for="f-accept">J'accepte que mes informations soient publiées sur le répertoire public</label>
+    </div>
+    <button class="btn-submit" onclick="submitConcierge()">Soumettre pour validation →</button>
+  </div>
+</div>
+
+
+<!-- MODAL DEMANDE CLIENT -->
+<div class="modal-overlay" id="modal-client" onclick="closeModalOutside(event,&#39;client&#39;)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal(&#39;client&#39;)">✕</button>
+    <span class="modal-eyebrow">Mise en relation gratuite</span>
+    <h3>Déposer ma demande</h3>
+    <div class="form-row">
+      <div class="form-group"><label>Votre prénom *</label><input id="c-prenom" type="text" placeholder="Ex: Karim"></div>
+      <div class="form-group"><label>Ville du bien *</label>
+        <select id="c-ville">
+          <option value="">Choisir...</option>
+          <option>Marrakech</option><option>Casablanca</option><option>Agadir</option>
+          <option>Fès</option><option>Tanger</option><option>Essaouira</option><option>Rabat</option><option>Dakhla</option><option>Autre</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group"><label>Type de bien *</label>
+      <select id="c-type">
+        <option>Appartement</option><option>Villa avec piscine</option><option>Riad / Maison de charme</option>
+        <option>Studio</option><option>Maison</option><option>Autre</option>
+      </select>
+    </div>
+    <div class="form-group"><label>Votre situation</label>
+      <select id="c-situation">
+        <option>Je réside au Maroc</option><option>Je suis expatrié(e)</option><option>Je suis en France</option>
+        <option>Je suis en Europe</option><option>Autre pays</option>
+      </select>
+    </div>
+    <div class="form-group"><label>Votre besoin *</label>
+      <textarea id="c-besoin" placeholder="Ex: Je cherche une conciergerie pour gérer mon appartement à Marrakech sur Airbnb. Je vis en France..." style="min-height:90px;"></textarea>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>WhatsApp *</label><input id="c-tel" type="text" placeholder="+212 6XX ou +33 6XX"></div>
+      <div class="form-group"><label>Email</label><input id="c-email" type="text" placeholder="votre@email.com"></div>
+    </div>
+    <button class="btn-submit" onclick="submitClient()">Envoyer ma demande →</button>
+  </div>
+</div>
+
+<!-- NETLIFY FORM CLIENT (invisible) -->
+<form name="demande-client" data-netlify="true" hidden="">
+  <input type="text" name="prenom">
+  <input type="text" name="ville">
+  <input type="text" name="type_bien">
+  <input type="text" name="situation">
+  <textarea name="besoin"></textarea>
+  <input type="text" name="telephone">
+  <input type="email" name="email">
+</form>
+
+<!-- MODAL AVIS -->
+<div class="modal-overlay" id="modal-avis" onclick="closeModalOutside(event,&#39;avis&#39;)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal(&#39;avis&#39;)">✕</button>
+    <span class="modal-eyebrow">Partager votre expérience</span>
+    <h3>Laisser un avis</h3>
+    <div class="form-group"><label>Conciergerie évaluée *</label>
+      <select id="a-concierge"><option value="">Choisir...</option></select>
+    </div>
+    <div class="form-group"><label>Note globale *</label>
+      <div class="star-select" id="starSelect">
+        <button class="star-btn" onclick="setStars(1)">★</button>
+        <button class="star-btn" onclick="setStars(2)">★</button>
+        <button class="star-btn" onclick="setStars(3)">★</button>
+        <button class="star-btn" onclick="setStars(4)">★</button>
+        <button class="star-btn" onclick="setStars(5)">★</button>
+      </div>
+    </div>
+    <div class="form-group"><label>Votre avis *</label><textarea id="a-text" placeholder="Décrivez votre expérience avec cette conciergerie..." style="min-height:100px;"></textarea></div>
+    <div class="form-row">
+      <div class="form-group"><label>Votre prénom *</label><input id="a-prenom" type="text" placeholder="Ex: Sophie"></div>
+      <div class="form-group"><label>Votre rôle</label>
+        <select id="a-role"><option>Propriétaire</option><option>Voyageur</option><option>Partenaire</option></select>
+      </div>
+    </div>
+    <button class="btn-submit" onclick="submitAvis()">Publier mon avis →</button>
+  </div>
+</div>
+
+<!-- MODAL DETAIL -->
+<div class="modal-overlay" id="modal-detail" onclick="closeModalOutside(event,&#39;detail&#39;)">
+  <div class="modal detail-modal">
+    <button class="modal-close" onclick="closeModal(&#39;detail&#39;)">✕</button>
+    <div id="detail-content"></div>
+  </div>
+</div>
+
+
+<!-- ========== PAGE CGU ========== -->
+<div id="cgu-page" class="page">
+  <div style="max-width:780px;margin:0 auto;padding:4rem 5vw 6rem;">
+
+    <div style="text-align:center;margin-bottom:3rem;">
+      <span style="font-size:.62rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;display:block;">✦ Mentions légales ✦</span>
+      <h2 style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:2.5rem;font-weight:300;color:var(--cream);margin-bottom:.5rem;">Conditions Générales d'Utilisation</h2>
+      <p style="font-size:.75rem;color:rgba(247,241,232,.3);letter-spacing:.1em;">Dernière mise à jour : Mai 2025</p>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:2.5rem;">
+
+      <!-- ARTICLE 1 -->
+      <div style="border-left:2px solid rgba(201,169,110,.3);padding-left:1.5rem;">
+        <h3 style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:1.3rem;font-weight:400;color:var(--gold);margin-bottom:.8rem;">Article 1 — Présentation du site</h3>
+        <p style="font-size:.83rem;color:rgba(247,241,232,.55);line-height:1.9;">
+          Le site <strong style="color:var(--cream);">Conciergeries Maroc</strong> (accessible à l'adresse conciergeries-maroc.netlify.app) est un répertoire en ligne dédié aux services de conciergerie immobilière au Maroc. Il permet aux propriétaires de biens immobiliers de trouver des prestataires de gestion locative, et aux conciergeries de se faire connaître auprès de nouveaux clients.
+        </p>
+        <p style="font-size:.83rem;color:rgba(247,241,232,.55);line-height:1.9;margin-top:.8rem;">
+          Le site est édité et exploité par <strong style="color:var(--cream);">Conciergeries Maroc</strong>, joignable à l'adresse : conciergeries.maroc@proton.me
+        </p>
+      </div>
+
+      <!-- ARTICLE 2 -->
+      <div style="border-left:2px solid rgba(201,169,110,.3);padding-left:1.5rem;">
+        <h3 style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:1.3rem;font-weight:400;color:var(--gold);margin-bottom:.8rem;">Article 2 — Propriété intellectuelle</h3>
+        <p style="font-size:.83rem;color:rgba(247,241,232,.55);line-height:1.9;">
+          L'ensemble des éléments constituant le site Conciergeries Maroc (design, logo, textes, code source, structure, concept, base de données) sont la propriété exclusive de <strong style="color:var(--cream);">Conciergeries Maroc</strong> et sont protégés par les lois en vigueur relatives à la propriété intellectuelle.
+        </p>
+        <p style="font-size:.83rem;color:rgba(247,241,232,.55);line-height:1.9;margin-top:.8rem;">
+          Toute reproduction, copie, imitation ou exploitation totale ou partielle du site, de son concept ou de son contenu, sans autorisation écrite préalable, est strictement interdite et pourra faire l'objet de poursuites judiciaires.
+        </p>
+      </div>
+
+      <!-- ARTICLE 3 -->
+      <div style="border-left:2px solid rgba(201,169,110,.3);padding-left:1.5rem;">
+        <h3 style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:1.3rem;font-weight:400;color:var(--gold);margin-bottom:.8rem;">Article 3 — Inscription des conciergeries</h3>
+        <p style="font-size:.83rem;color:rgba(247,241,232,.55);line-height:1.9;">
+          L'inscription au répertoire est gratuite pour les 10 premières conciergeries référencées (offre de lancement). Au-delà, des conditions tarifaires pourront s'appliquer, communiquées au préalable par email.
+        </p>
+        <p style="font-size:.83rem;color:rgba(247,241,232,.55);line-height:1.9;margin-top:.8rem;">
+          En soumettant leur fiche, les conciergeries acceptent que leurs informations (nom, ville, description, contact) soient publiées publiquement sur le répertoire. Elles certifient que les informations fournies sont exactes et à jour.
+        </p>
+        <p style="font-size:.83rem;color:rgba(247,241,232,.55);line-height:1.9;margin-top:.8rem;">
+          Conciergeries Maroc se réserve le droit de refuser, modifier ou supprimer toute fiche ne respectant pas ses critères de qualité, sans obligation de justification.
+        </p>
+      </div>
+
+      <!-- ARTICLE 4 -->
+      <div style="border-left:2px solid rgba(201,169,110,.3);padding-left:1.5rem;">
+        <h3 style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:1.3rem;font-weight:400;color:var(--gold);margin-bottom:.8rem;">Article 4 — Responsabilité</h3>
+        <p style="font-size:.83rem;color:rgba(247,241,232,.55);line-height:1.9;">
+          Conciergeries Maroc agit en tant qu'intermédiaire et ne peut être tenu responsable des prestations fournies par les conciergeries référencées. Le site n'intervient pas dans les relations contractuelles entre propriétaires et prestataires.
+        </p>
+        <p style="font-size:.83rem;color:rgba(247,241,232,.55);line-height:1.9;margin-top:.8rem;">
+          Les avis publiés sur le site sont soumis à validation et reflètent l'opinion de leurs auteurs. Conciergeries Maroc ne saurait être tenu responsable de leur contenu.
+        </p>
+      </div>
+
+      <!-- ARTICLE 5 -->
+      <div style="border-left:2px solid rgba(201,169,110,.3);padding-left:1.5rem;">
+        <h3 style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:1.3rem;font-weight:400;color:var(--gold);margin-bottom:.8rem;">Article 5 — Données personnelles</h3>
+        <p style="font-size:.83rem;color:rgba(247,241,232,.55);line-height:1.9;">
+          Les informations collectées via les formulaires du site (inscription conciergerie, demande propriétaire, avis) sont utilisées uniquement dans le cadre du fonctionnement du répertoire. Elles ne sont jamais vendues ni transmises à des tiers à des fins commerciales.
+        </p>
+        <p style="font-size:.83rem;color:rgba(247,241,232,.55);line-height:1.9;margin-top:.8rem;">
+          Conformément aux réglementations en vigueur, toute personne peut demander la modification ou la suppression de ses données en contactant : <strong style="color:var(--cream);">conciergeries.maroc@proton.me</strong>
+        </p>
+      </div>
+
+      <!-- ARTICLE 6 -->
+      <div style="border-left:2px solid rgba(201,169,110,.3);padding-left:1.5rem;">
+        <h3 style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:1.3rem;font-weight:400;color:var(--gold);margin-bottom:.8rem;">Article 6 — Avis et témoignages</h3>
+        <p style="font-size:.83rem;color:rgba(247,241,232,.55);line-height:1.9;">
+          Les avis publiés sur le site sont soumis à modération avant publication. Conciergeries Maroc se réserve le droit de refuser tout avis jugé inapproprié, diffamatoire ou non conforme à la réalité. En soumettant un avis, l'utilisateur cède à Conciergeries Maroc le droit de le publier et de le modifier à des fins éditoriales.
+        </p>
+      </div>
+
+      <!-- ARTICLE 7 -->
+      <div style="border-left:2px solid rgba(201,169,110,.3);padding-left:1.5rem;">
+        <h3 style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:1.3rem;font-weight:400;color:var(--gold);margin-bottom:.8rem;">Article 7 — Modification des CGU</h3>
+        <p style="font-size:.83rem;color:rgba(247,241,232,.55);line-height:1.9;">
+          Conciergeries Maroc se réserve le droit de modifier les présentes CGU à tout moment. Les utilisateurs seront informés des modifications par email ou via le site. L'utilisation du site après modification vaut acceptation des nouvelles conditions.
+        </p>
+      </div>
+
+      <!-- ARTICLE 8 -->
+      <div style="border-left:2px solid rgba(201,169,110,.3);padding-left:1.5rem;">
+        <h3 style="font-family:&#39;Cormorant Garamond&#39;,serif;font-size:1.3rem;font-weight:400;color:var(--gold);margin-bottom:.8rem;">Article 8 — Contact</h3>
+        <p style="font-size:.83rem;color:rgba(247,241,232,.55);line-height:1.9;">
+          Pour toute question relative aux présentes CGU ou au fonctionnement du site, vous pouvez nous contacter à l'adresse suivante :
+        </p>
+        <p style="font-size:.88rem;color:var(--cream);margin-top:.6rem;font-weight:400;">
+          ✉ conciergeries.maroc@proton.me
+        </p>
+      </div>
+
+    </div>
+
+    <!-- ACCEPTATION -->
+    <div style="margin-top:3rem;background:rgba(201,169,110,.04);border:1px solid rgba(201,169,110,.15);padding:1.5rem;text-align:center;">
+      <p style="font-size:.78rem;color:rgba(247,241,232,.4);line-height:1.7;">
+        En utilisant le site Conciergeries Maroc, vous acceptez sans réserve les présentes Conditions Générales d'Utilisation.<br>
+        <span style="color:rgba(201,169,110,.5);">© 2025 Conciergeries Maroc — Tous droits réservés</span>
+      </p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2025 Conciergeries Maroc — Tous droits réservés</p>
+    <p>conciergeries.maroc@proton.me</p>
+  </footer>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ============ DATA ============
+let conciergeries = [
+  {id:1,nom:"Marrakech Luxury Stays",ville:"Marrakech",desc:"Gestion complète de villas et riads haut de gamme. Check-in, ménage, linge, accueil & assistance 24h/24. Plus de 80 propriétés gérées avec un taux d'occupation de 94%.",tel:"+212 661 234 567",email:"contact@mlstays.ma",social:"@marrakech_luxury_stays",web:"",type:"Villas & propriétés luxe",tags:["Airbnb","Villas","Riads","Luxe"],icon:"🏛️",featured:true,lat:31.6295,lng:-7.9811},
+  {id:2,nom:"Casa Confort Services",ville:"Casablanca",desc:"Spécialiste de la gestion locative courte durée à Casablanca. Idéal pour propriétaires expatriés. Reporting mensuel et reversements ponctuels.",tel:"+212 662 345 678",email:"info@casaconfort.ma",social:"@casaconfort",web:"",type:"Airbnb / Location courte durée",tags:["Airbnb","Expat"],icon:"🏙️",featured:false,lat:33.5731,lng:-7.5898},
+  {id:3,nom:"Agadir Beach Rentals",ville:"Agadir",desc:"Gestion de résidences balnéaires et appartements tourisme à Agadir et Taghazout. Photographie professionnelle incluse.",tel:"+212 663 456 789",email:"hello@agadirbeach.ma",social:"@agadir_beach",web:"",type:"Airbnb / Location courte durée",tags:["Airbnb","Villas"],icon:"🏖️",featured:false,lat:30.4278,lng:-9.5981},
+  {id:4,nom:"Tanger Keys",ville:"Tanger",desc:"Conciergerie digitale pour propriétaires non-résidents. Reporting mensuel détaillé, reversements ponctuels et gestion des urgences 24/7.",tel:"+212 664 567 890",email:"contact@tangerkeys.ma",social:"@tanger_keys",web:"",type:"Airbnb / Location courte durée",tags:["Airbnb","Expat"],icon:"⚓",featured:false,lat:35.7595,lng:-5.8340},
+  {id:5,nom:"Médina Riad Management",ville:"Fès",desc:"Experts en gestion de riads dans la médina de Fès. Accueil culturel personnalisé, services sur mesure pour une expérience authentique.",tel:"+212 665 678 901",email:"fes@medinariad.ma",social:"@medina_riad",web:"",type:"Riads & médinas",tags:["Riads","Luxe"],icon:"🏺",featured:false,lat:34.0181,lng:-5.0078},
+  {id:6,nom:"Mogador Hosting",ville:"Essaouira",desc:"Services de conciergerie haut de gamme dans la cité des alizés. Gestion d'appartements et maisons de charme avec expérience authentique garantie.",tel:"+212 666 789 012",email:"info@mogadorhosting.ma",social:"@mogador_hosting",web:"",type:"Airbnb / Location courte durée",tags:["Airbnb","Villas"],icon:"🌊",featured:false,lat:31.5085,lng:-9.7595},
+  {id:7,nom:"Capitale Concierge",ville:"Rabat",desc:"Gestion professionnelle pour appartements et maisons à Rabat et Salé. Clientèle diplomatique bienvenue. Discrétion et professionnalisme assurés.",tel:"+212 667 890 123",email:"rabat@capitaleconcierge.ma",social:"@capitale_concierge",web:"",type:"Airbnb / Location courte durée",tags:["Airbnb","Expat"],icon:"🏛️",featured:false,lat:33.9716,lng:-6.8498},
+  {id:8,nom:"Dakhla Nomad Stays",ville:"Dakhla",desc:"Conciergerie spécialisée pour kitesurf lodges et hébergements insolites à Dakhla. En pleine croissance dans une destination émergente.",tel:"+212 668 901 234",email:"dakhla@nomadstays.ma",social:"@dakhla_nomad",web:"",type:"Airbnb / Location courte durée",tags:["Villas","Airbnb"],icon:"🪁",featured:false,lat:23.7136,lng:-15.9355},
+  {id:9,nom:"Palmeraie Rentals",ville:"Marrakech",desc:"Gestion de villas avec piscine dans la Palmeraie de Marrakech. Photographie professionnelle, accueil VIP et conciergerie lifestyle inclus.",tel:"+212 669 012 345",email:"palmeraie@rentals.ma",social:"@palmeraie_rentals",web:"",type:"Villas & propriétés luxe",tags:["Airbnb","Villas"],icon:"🌴",featured:false,lat:31.6747,lng:-7.9389},
+  {id:10,nom:"Anfa Premium Hosting",ville:"Casablanca",desc:"Gestion de propriétés de luxe dans le quartier Anfa et California à Casablanca. Services personnalisés pour une clientèle exigeante.",tel:"+212 660 123 456",email:"anfa@premiumhosting.ma",social:"@anfa_premium",web:"",type:"Villas & propriétés luxe",tags:["Luxe","Villas"],icon:"💎",featured:false,lat:33.5900,lng:-7.6394},
+  {id:11,nom:"Souss Valley Conciergerie",ville:"Agadir",desc:"Services tout inclus pour propriétés à Agadir, Taroudant et la région du Souss. Équipe locale expérimentée disponible 7j/7.",tel:"+212 661 234 567",email:"souss@valleyconcierge.ma",social:"@souss_valley",web:"",type:"Multi-services",tags:["Airbnb","Riads"],icon:"🏔️",featured:false,lat:30.3736,lng:-9.0146},
+  {id:12,nom:"Maroc Finds Conciergerie",ville:"Marrakech",desc:"Gestion Airbnb et villas lifestyle au Maroc. Conseils déco, produits tendances et accompagnement propriétaires de A à Z.",tel:"+212 662 345 678",email:"contact@marocfinds.ma",social:"@marocfinds1",web:"",type:"Multi-services",tags:["Airbnb","Villas","Expat"],icon:"✨",featured:false,lat:31.6225,lng:-8.0089},
+  {id:13,nom:"Red Palm Concierge",ville:"Rabat",desc:"Nous ne faisons pas seulement de la gestion locative : nous développons le potentiel de votre bien. Rabat · Bouznika · Mansouria · Casablanca · Marrakech · Agadir · Bientôt à Tanger et Assilah.",tel:"+212687987416",email:"Redpalmconcierge@gmail.com",social:"@redpalmconcierge",web:"https://redpalmconcierge.systeme.io/bf2f89f9",type:"Airbnb / Location courte durée",tags:["Airbnb","Villas","Expat"],icon:"🌴",featured:false,lat:33.9716,lng:-6.8498},
+  {id:14,nom:"Tisura Ouiam Conciergerie",ville:"Marrakech",desc:"Tisura Ouiam Conciergerie accompagne les propriétaires à Marrakech dans la gestion complète de leurs biens en location courte durée. Service clé en main : gestion des réservations, accueil des voyageurs, ménage professionnel, blanchisserie, assistance et optimisation des annonces pour maximiser la rentabilité.",tel:"+33667469854",email:"amanabywiam@gmail.com",social:"@tisuraouiamconciergerie",web:"https://tisuraouiamconciergerie.com",type:"Airbnb / Location courte durée",tags:["Airbnb","Luxe","Expat"],icon:"🏡",featured:false,lat:31.6295,lng:-7.9811},
+  {id:15,nom:"Your Conciergerie",ville:"Rabat",desc:"Au Maroc, accueillir est un art. Chez Your Conciergerie, nous en avons fait une discipline. Vision globale : rigueur opérationnelle, expertise terrain et attention aux détails. Optimisation des revenus, expérience voyageur irréprochable et transparence totale. Entre hospitalité marocaine et standards internationaux, chaque séjour est orchestré avec exigence.",tel:"00212628445344",email:"mourad42@yahoo.fr",social:"@yourconciergerie",web:"https://conciergerie-ma.com/",type:"Airbnb / Location courte durée",tags:["Airbnb","Luxe","Expat"],icon:"🏰",featured:false,lat:33.9716,lng:-6.8698},
+  {id:16,nom:"Élégance Rouge Conciergerie",ville:"Marrakech",desc:"Elegance Rouge Conciergerie est une société de gestion locative courte durée (LCD) basée à Marrakech, spécialisée dans la gestion complète de biens immobiliers pour propriétaires non-résidents. Modèle 100% automatisé : serrures connectées, check-in autonome, messagerie automatisée. Services : création et optimisation des annonces, tarification dynamique, communication voyageurs, coordination ménage et maintenance, reporting propriétaire.",tel:"+212663344115",email:"elegancerougeconciergerie@gmail.com",social:"@elegancerouge.conciergerie",web:"https://elegancerougeconciergerie.com/",type:"Airbnb / Location courte durée",tags:["Airbnb","Expat","Automatisé"],icon:"🔑",featured:false,lat:31.6295,lng:-7.9811}
+];
+
+const avisDataAll = {
+  fr: [
+    {conciergeId:1,stars:5,text:"Service impeccable, taux d'occupation passé de 60% à 94% en 3 mois. L'équipe est réactive, professionnelle et les propriétés sont toujours impeccables pour les voyageurs.",prenom:"Karim B.",role:"Propriétaire",date:"Avril 2025"},
+    {conciergeId:2,stars:5,text:"En tant qu'expatriée à Dubaï, je ne pouvais pas gérer mon appartement à Casablanca à distance. Casa Confort m'a tout simplifié. Reversements ponctuels chaque mois.",prenom:"Nadia M.",role:"Propriétaire",date:"Mars 2025"},
+    {conciergeId:3,stars:4,text:"Très bonne conciergerie pour la région d'Agadir. Photos professionnelles vraiment top, ça a fait une vraie différence sur Airbnb. Je recommande.",prenom:"Youssef A.",role:"Propriétaire",date:"Février 2025"},
+    {conciergeId:4,stars:5,text:"Tanger Keys a tout géré pour moi pendant que je vivais en France. Rapport mensuel clair, zéro stress. La meilleure décision que j'ai prise pour mon appartement.",prenom:"Samira L.",role:"Propriétaire",date:"Janvier 2025"},
+    {conciergeId:6,stars:5,text:"Notre maison à Essaouira est entre de très bonnes mains. L'accueil des voyageurs est chaleureux et authentique. Retours excellents de nos hôtes.",prenom:"Pierre & Marie D.",role:"Propriétaire",date:"Décembre 2024"},
+    {conciergeId:9,stars:5,text:"Villa avec piscine dans la Palmeraie bien gérée depuis 2 ans. Occupation maximale en haute saison. Palmeraie Rentals est fiable et très professionnel.",prenom:"Omar K.",role:"Propriétaire",date:"Mai 2025"}
+  ],
+  en: [
+    {conciergeId:1,stars:5,text:"Impeccable service, occupancy rate went from 60% to 94% in 3 months. The team is responsive, professional and properties are always perfect for guests.",prenom:"Karim B.",role:"Owner",date:"April 2025"},
+    {conciergeId:2,stars:5,text:"As an expat in Dubai, I couldn't manage my Casablanca apartment remotely. Casa Confort simplified everything. Timely payments every month.",prenom:"Nadia M.",role:"Owner",date:"March 2025"},
+    {conciergeId:3,stars:4,text:"Very good concierge for the Agadir region. Professional photos made a real difference on Airbnb. I highly recommend.",prenom:"Youssef A.",role:"Owner",date:"February 2025"},
+    {conciergeId:4,stars:5,text:"Tanger Keys managed everything while I was living in France. Clear monthly report, zero stress. Best decision I made for my apartment.",prenom:"Samira L.",role:"Owner",date:"January 2025"},
+    {conciergeId:6,stars:5,text:"Our house in Essaouira is in very good hands. The guest welcome is warm and authentic. Excellent feedback from our guests.",prenom:"Pierre & Marie D.",role:"Owner",date:"December 2024"},
+    {conciergeId:9,stars:5,text:"Pool villa in the Palmeraie well managed for 2 years. Maximum occupancy in high season. Palmeraie Rentals is reliable and very professional.",prenom:"Omar K.",role:"Owner",date:"May 2025"}
+  ],
+  ar: [
+    {conciergeId:1,stars:5,text:"خدمة لا تشوبها شائبة، ارتفع معدل الإشغال من 60% إلى 94% في 3 أشهر. الفريق متجاوب واحترافي والعقارات دائماً في حالة ممتازة للمسافرين.",prenom:"كريم ب.",role:"مالك",date:"أبريل 2025"},
+    {conciergeId:2,stars:5,text:"بصفتي مغتربة في دبي، لم أستطع إدارة شقتي في الدار البيضاء عن بعد. كاسا كونفور بسّط كل شيء. مدفوعات في الوقت المحدد كل شهر.",prenom:"نادية م.",role:"مالكة",date:"مارس 2025"},
+    {conciergeId:3,stars:4,text:"كونسيرج ممتاز لمنطقة أكادير. الصور الاحترافية أحدثت فرقاً حقيقياً على Airbnb. أنصح به بشدة.",prenom:"يوسف أ.",role:"مالك",date:"فبراير 2025"},
+    {conciergeId:4,stars:5,text:"تانجر كيز أدار كل شيء بينما كنت أعيش في فرنسا. تقرير شهري واضح وصفر ضغط. أفضل قرار اتخذته لشقتي.",prenom:"سميرة ل.",role:"مالكة",date:"يناير 2025"},
+    {conciergeId:6,stars:5,text:"منزلنا في الصويرة في أيدٍ أمينة. استقبال الضيوف دافئ وأصيل. تعليقات ممتازة من ضيوفنا.",prenom:"بيير وماري د.",role:"مالكان",date:"ديسمبر 2024"},
+    {conciergeId:9,stars:5,text:"فيلا مع مسبح في النخيل تُدار بشكل جيد منذ سنتين. إشغال أقصى في الموسم العالي. بالميري رنتالز موثوق واحترافي جداً.",prenom:"عمر ك.",role:"مالك",date:"مايو 2025"}
+  ]
+};
+
+let avisData = avisDataAll.fr;
+
+let currentFilter = 'all';
+let currentView = 'grid';
+let selectedStars = 0;
+// map already declared
+
+// ============ RENDER CARDS ============
+function renderCards(list){
+  const grid = document.getElementById('cardsGrid');
+  grid.innerHTML='';
+  if(!list.length){grid.innerHTML='<p style="color:rgba(247,241,232,.3);padding:3rem;text-align:center;font-style:italic;grid-column:1/-1;">Aucune conciergerie trouvée</p>';return;}
+  list.forEach((c,i)=>{
+    const div=document.createElement('div');
+    const isListView=(currentView==='list');
+    div.className='card'+(c.featured?' featured':'')+(isListView?' list-view-card':'');
+    div.style.animationDelay=(i*0.04)+'s';
+    div.dataset.id=c.id;
+    div.onclick=()=>openDetail(c.id);
+    const cardDesc = currentLang==='en'&&c.desc_en?c.desc_en:currentLang==='ar'&&c.desc_ar?c.desc_ar:c.desc;
+    const starsHtml='★'.repeat(Math.round(getAvgRating(c.id)))+'☆'.repeat(5-Math.round(getAvgRating(c.id)));
+    const tagsHtml=c.tags.map(tag=>`<span class="tag">${tag}</span>`).join('');
+    const ratingNum=getAvgRating(c.id).toFixed(1);
+    const avisCount=avisData.filter(a=>a.conciergeId===c.id).length;
+    const ratingStr=avisCount?`${ratingNum} (${avisCount} avis)`:'Nouveau';
+    if(isListView){
+      div.innerHTML=`<div class="card-accent"></div>
+        <div style="font-size:2.5rem;margin-right:.5rem;flex-shrink:0;align-self:center;">${c.icon}</div>
+        <div class="card-main">
+          <div class="card-city">${c.ville}</div>
+          <div class="card-name">${c.nom}</div>
+          <div class="card-desc">${cardDesc}</div>
+          <div class="card-tags">${tagsHtml}</div>
+        </div>
+        <div class="card-side">
+          <div class="card-rating"><span class="stars" style="font-size:.8rem;">${starsHtml}</span></div>
+          <span style="font-size:.72rem;color:rgba(247,241,232,.35);">${ratingStr}</span>
+          <button class="card-link" onclick="openDetail(${c.id})">Voir le profil →</button>
+          <button class="card-contact" onclick="contactConcierge(${c.id},event)">📱 Contacter</button>
+        </div>`;
+    } else {
+      
+    div.innerHTML=`<div class="card-accent"></div>
+        <div class="card-badge${c.featured?' premium':''}"><span>${c.icon}</span>${c.featured?'Conciergerie Premium':'Conciergerie'}</div>
+        <div class="card-city">${c.ville}</div>
+        <div class="card-name">${c.nom}</div>
+        <div class="card-desc">${cardDesc}</div>
+        <div class="card-tags">${tagsHtml}</div>
+        <div class="card-footer">
+          <div class="card-rating"><span class="stars">${starsHtml}</span><span class="rating-count">${ratingStr}</span></div>
+          <div class="card-actions">
+            <button class="card-contact" onclick="event.stopPropagation();openDetail(${c.id})">📱</button>
+            <button class="card-link" onclick="event.stopPropagation();openDetail(${c.id})">Voir →</button>
+          </div>
+        </div>`;
+    }
+    grid.appendChild(div);
+  });
+}
+
+function getAvgRating(id){
+  const av=avisData.filter(a=>a.conciergeId===id);
+  if(!av.length)return 4.5;
+  return av.reduce((s,a)=>s+a.stars,0)/av.length;
+}
+
+function filterCards(){
+  const search=document.getElementById('searchInput').value.toLowerCase();
+  const city=document.getElementById('cityFilter').value;
+  let filtered=conciergeries.filter(c=>{
+    const matchSearch=!search||(c.nom+c.desc+c.ville).toLowerCase().includes(search);
+    const matchCity=!city||c.ville===city;
+    const matchFilter=currentFilter==='all'||c.tags.some(t=>t.toLowerCase().includes(currentFilter.toLowerCase()));
+    return matchSearch&&matchCity&&matchFilter;
+  });
+  renderCards(filtered);
+  document.getElementById('resultCount').textContent=filtered.length+' résultat'+(filtered.length>1?'s':'');
+  updateStats();
+}
+
+function setView(v,btn){
+  currentView=v;
+  document.querySelectorAll('.view-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const grid=document.getElementById('cardsGrid');
+  grid.className='cards-grid'+(v==='list'?' list-view':'');
+  filterCards();
+}
+
+function filterCity(city){
+  document.getElementById('cityFilter').value=(city==='all'?'':city);
+  filterCards();
+  document.querySelector('.grid-section').scrollIntoView({behavior:'smooth'});
+  showPage('annuaire');
+}
+
+function updateStats(){
+  document.getElementById('totalCount').textContent=conciergeries.length;
+  const allRatings=conciergeries.map(c=>getAvgRating(c.id));
+  const avg=(allRatings.reduce((a,b)=>a+b,0)/allRatings.length).toFixed(1);
+  document.getElementById('avgRating').textContent=avg+'★';
+  document.getElementById('totalAvis').textContent=avisData.length;
+}
+
+function renderCities(){
+  const cities={};
+  conciergeries.forEach(c=>{cities[c.ville]=(cities[c.ville]||0)+1;});
+  const emojis={Marrakech:'🕌',Casablanca:'🏙️',Agadir:'🏖️',Fès:'🏺',Tanger:'⚓',Essaouira:'🌊',Rabat:'🏛️',Dakhla:'🪁'};
+  const grid=document.getElementById('citiesGrid');
+  grid.innerHTML=Object.entries(cities).map(([ville,count])=>`
+    <div class="city-card" onclick="filterCity('${ville}')">
+      <span class="city-emoji">${emojis[ville]||'📍'}</span>
+      <div class="city-name">${ville}</div>
+      <div class="city-count">${count} conciergerie${count>1?'s':''}</div>
+    </div>`).join('');
+}
+
+// ============ DETAIL MODAL ============
+function openDetail(id){
+  const c=conciergeries.find(x=>x.id===id);
+  if(!c)return;
+  const avgR=getAvgRating(id).toFixed(1);
+  const starsHtml='★'.repeat(Math.round(avgR))+'☆'.repeat(5-Math.round(avgR));
+  const avs=avisData.filter(a=>a.conciergeId===id).slice(0,3);
+  const avisHtml=avs.length?avs.map(a=>`
+    <div class="mini-review">
+      <div class="mini-review-stars">${'★'.repeat(a.stars)}</div>
+      <div class="mini-review-text">"${a.text}"</div>
+      <div class="mini-review-author">— ${a.prenom}, ${a.role} · ${a.date}</div>
+    </div>`).join(''):'<p style="font-size:.8rem;color:rgba(247,241,232,.3);font-style:italic;">Aucun avis pour l\'instant. Soyez le premier !</p>';
+  document.getElementById('detail-content').innerHTML=`
+    <div class="detail-hero">
+      <div class="detail-icon">${c.icon}</div>
+      <div class="detail-name">${c.nom}</div>
+      <div class="detail-city">${c.ville}</div>
+      <div class="detail-stars">${starsHtml} ${avgR}</div>
+    </div>
+    <div class="detail-grid">
+      <div class="detail-info"><div class="detail-info-label">Type de service</div><div class="detail-info-value">${c.type}</div></div>
+      <div class="detail-info"><div class="detail-info-label">Ville</div><div class="detail-info-value">${c.ville}</div></div>
+      ${c.tel?`<div class="detail-info"><div class="detail-info-label">Téléphone</div><div class="detail-info-value">${c.tel}</div></div>`:''}
+      ${c.social?`<div class="detail-info"><div class="detail-info-label">Social</div><div class="detail-info-value">${c.social}</div></div>`:''}
+    </div>
+    <p class="detail-desc">${c.desc}</p>
+    <div class="detail-tags">${c.tags.map(tag=>`<span class="tag">${tag}</span>`).join('')}</div>
+    <div class="detail-reviews"><h4>✦ Avis clients (${avisData.filter(a=>a.conciergeId===id).length})</h4>${avisHtml}</div>
+    <div class="contact-actions">
+      ${c.tel?`<button class="btn-whatsapp" onclick="window.open('https://wa.me/${c.tel.replace(/\s/g,'')}','_blank')">💬 WhatsApp</button>`:''}
+      ${c.email?`<button class="btn-email" onclick="window.open('mailto:${c.email}','_blank')">✉ Email</button>`:''}
+    </div>`;
+  openModal('detail');
+}
+
+function contactConcierge(id,e){
+  if(e)e.stopPropagation();
+  openDetail(id);
+}
+
+// ============ MAP ============
+let map = null, markers = [], mapInitialized = false;
+
+function initMap(){
+  if(mapInitialized) return;
+  mapInitialized = true;
+
+  map = L.map('leaflet-map').setView([31.5, -7], 6);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+    attribution:'© OpenStreetMap',maxZoom:18
+  }).addTo(map);
+
+  map.getContainer().style.filter='sepia(40%) saturate(1.3) brightness(0.9)';
+
+  const redIcon = L.divIcon({
+    className:'',
+    html:'<div style="background:#E53030;width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 6px rgba(229,48,48,0.8);"></div>',
+    iconSize:[14,14],iconAnchor:[7,7]
+  });
+
+  conciergeries.forEach(c=>{
+    const avg=getAvgRating(c.id).toFixed(1);
+    const m=L.marker([c.lat,c.lng],{icon:redIcon}).addTo(map);
+    m.bindPopup('<div style="font-family:sans-serif;min-width:180px;"><b>'+c.icon+' '+c.nom+'</b><br><span style="color:#C9A96E;font-size:11px;">'+c.ville+'</span><br><span style="font-size:11px;">★ '+avg+'</span><br><button onclick="openDetail('+c.id+')" style="margin-top:8px;width:100%;background:#C9A96E;border:none;padding:6px;cursor:pointer;font-size:11px;">Voir le profil</button></div>',{maxWidth:220});
+    markers.push({marker:m,id:c.id});
+  });
+
+  renderMapList();
+}
+
+function renderMapList(){
+  const list=document.getElementById('mapList');
+  if(!list)return;
+  list.innerHTML=conciergeries.map(c=>`
+    <div class="map-card" onclick="selectMapCard(${c.id})" id="mc-${c.id}">
+      <div class="map-card-city">${c.icon} ${c.ville}</div>
+      <div class="map-card-name">${c.nom}</div>
+      <div class="map-card-rating">★ ${getAvgRating(c.id).toFixed(1)}</div>
+    </div>`).join('');
+}
+
+function selectMapCard(id){
+  document.querySelectorAll('.map-card').forEach(c=>c.classList.remove('selected'));
+  const el=document.getElementById('mc-'+id);if(el)el.classList.add('selected');
+  const entry=markers.find(m=>m.id===id);
+  const c=conciergeries.find(x=>x.id===id);
+  if(entry&&c&&map){map.setView([c.lat,c.lng],12,{animate:true});entry.marker.openPopup();}
+}
+
+function reinitMapMarkers(){
+  if(!mapInitialized)return;
+  markers.forEach(m=>map.removeLayer(m.marker));
+  markers=[];
+  const redIcon=L.divIcon({className:'',html:'<div style="background:#E53030;width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 6px rgba(229,48,48,0.8);"></div>',iconSize:[14,14],iconAnchor:[7,7]});
+  conciergeries.forEach(c=>{
+    const avg=getAvgRating(c.id).toFixed(1);
+    const m=L.marker([c.lat,c.lng],{icon:redIcon}).addTo(map);
+    m.bindPopup('<div style="font-family:sans-serif;min-width:180px;"><b>'+c.icon+' '+c.nom+'</b><br><span style="color:#C9A96E;">'+c.ville+'</span><br><button onclick="openDetail('+c.id+')" style="margin-top:8px;width:100%;background:#C9A96E;border:none;padding:6px;cursor:pointer;">Voir</button></div>',{maxWidth:220});
+    markers.push({marker:m,id:c.id});
+  });
+  renderMapList();
+}
+
+// ============ AVIS ============
+// ============ AVIS ============
+// ============ AVIS ============
+// ============ AVIS ============
+function renderAvis(){
+  const grid=document.getElementById('avisGrid');
+  const select=document.getElementById('a-concierge');
+  select.innerHTML='<option value="">Choisir...</option>'+conciergeries.map(c=>`<option value="${c.id}">${c.nom} — ${c.ville}</option>`).join('');
+  if(!avisData.length){grid.innerHTML='<p style="padding:3rem 5vw;color:rgba(247,241,232,.3);font-style:italic;">Aucun avis pour l\'instant.</p>';return;}
+  grid.innerHTML=avisData.map((a,i)=>{
+    const c=conciergeries.find(x=>x.id===a.conciergeId);
+    return `<div class="avis-card" style="animation:fadeUp .5s ease ${i*0.07}s both;">
+      <div class="avis-stars">${'★'.repeat(a.stars)+'☆'.repeat(5-a.stars)}</div>
+      <div class="avis-text">"${a.text}"</div>
+      <div class="avis-meta">
+        <div><div class="avis-author">${a.prenom}</div><div class="avis-concierge">${c?c.nom:'—'}</div></div>
+        <div style="text-align:right;"><div class="avis-date">${a.date}</div><div class="avis-concierge">${a.role}</div></div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function setStars(n){
+  selectedStars=n;
+  document.querySelectorAll('.star-btn').forEach((b,i)=>b.classList.toggle('active',i<n));
+}
+
+function submitAvis(){
+  const cId=parseInt(document.getElementById('a-concierge').value);
+  const text=document.getElementById('a-text').value.trim();
+  const prenom=document.getElementById('a-prenom').value.trim();
+  if(!cId){showToast('Veuillez choisir une conciergerie');return;}
+  if(!selectedStars){showToast('Veuillez attribuer une note');return;}
+  if(!text||text.length<20){showToast('Avis trop court (20 caractères min.)');return;}
+  if(!prenom){showToast('Veuillez saisir votre prénom');return;}
+  const now=new Date();
+  const months=['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+  avisData.unshift({conciergeId:cId,stars:selectedStars,text,prenom,role:document.getElementById('a-role').value,date:months[now.getMonth()]+' '+now.getFullYear()});
+  closeModal('avis');
+  renderAvis();
+  updateStats();
+  document.getElementById('a-text').value='';document.getElementById('a-prenom').value='';setStars(0);
+  showToast('✦ Avis publié avec succès !',true);
+}
+
+// ============ FORM SUBMIT ============
+function encode(data){
+  return Object.keys(data).map(k=>encodeURIComponent(k)+'='+encodeURIComponent(data[k])).join('&');
+}
+
+function submitConcierge(){
+  const nom=document.getElementById('f-nom').value.trim();
+  const ville=document.getElementById('f-ville').value;
+  const desc=document.getElementById('f-desc').value.trim();
+  const accept=document.getElementById('f-accept').checked;
+  const tel=document.getElementById('f-tel').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const social=document.getElementById('f-social').value.trim();
+  const web=document.getElementById('f-web').value.trim();
+  const type=document.getElementById('f-type').value;
+  if(!nom){showToast('Veuillez saisir le nom de la conciergerie');return;}
+  if(!ville){showToast('Veuillez choisir une ville');return;}
+  if(!desc||desc.length<30){showToast('Description trop courte (30 caractères min.)');return;}
+  if(!accept){showToast('Veuillez accepter les conditions');return;}
+
+  // Envoyer à Netlify Forms
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},
+    body:encode({'form-name':'inscription-conciergerie',nom,ville,description:desc,telephone:tel,email,social,site_web:web,type_service:type})
+  }).catch(()=>{}); // silently fail if not on Netlify
+
+  // Ajouter localement
+  const icons={Marrakech:'🕌',Casablanca:'🏙️',Agadir:'🏖️',Fès:'🏺',Tanger:'⚓',Essaouira:'🌊',Rabat:'🏛️',Dakhla:'🪁'};
+  const cityCoords={Marrakech:[31.6295,-7.9811],Casablanca:[33.5731,-7.5898],Agadir:[30.4278,-9.5981],Fès:[34.0181,-5.0078],Tanger:[35.7595,-5.8340],Essaouira:[31.5085,-9.7595],Rabat:[33.9716,-6.8498],Dakhla:[23.7136,-15.9355]};
+  const typeMap={'Airbnb / Location courte durée':['Airbnb'],'Villas & propriétés luxe':['Villas','Luxe'],'Riads & médinas':['Riads'],'Multi-services':['Airbnb','Villas']};
+  const newId=Math.max(...conciergeries.map(c=>c.id))+1;
+  const coord=cityCoords[ville]||[31.5,-7];
+  conciergeries.push({id:newId,nom,ville,desc,tel,email,social,web,type,tags:typeMap[type]||['Airbnb'],icon:icons[ville]||'📍',featured:false,lat:coord[0]+(Math.random()-.5)*.05,lng:coord[1]+(Math.random()-.5)*.05});
+  closeModal('add');
+  filterCards();renderCities();renderAvis();updateStats();
+  if(mapInitialized)reinitMapMarkers();
+  showToast('✦ Place réservée ! Vous serez contacté sous 24h.',true);updateSpots();
+  ['f-nom','f-ville','f-desc','f-tel','f-email','f-social','f-web'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  document.getElementById('f-accept').checked=false;
+}
+
+function reinitMapMarkers(){
+  if(!mapInitialized) return;
+  markers.forEach(m=>map.removeLayer(m.marker));
+  markers=[];
+  conciergeries.forEach(c=>{
+    const avg=getAvgRating(c.id).toFixed(1);
+    const icon=L.divIcon({className:'',html:`<div style="background:#E53030;width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 6px rgba(229,48,48,0.8);cursor:pointer;"></div>`,iconSize:[14,14],iconAnchor:[7,7]});
+    const m=L.marker([c.lat,c.lng],{icon}).addTo(map);
+    m.bindPopup(`<div style="min-width:200px;"><b>${c.icon} ${c.nom}</b><br><small style="color:#C9A96E">${c.ville}</small><br><button onclick="openDetail(${c.id})" style="margin-top:6px;width:100%;background:#C9A96E;border:none;padding:5px;cursor:pointer;">Voir</button></div>`,{maxWidth:240});
+    markers.push({marker:m,id:c.id});
+  });
+  renderMapList();
+}
+
+
+const temoignagesData = {
+  fr: [
+    {type:"Propriétaire expatrié",text:"J'habite à Paris et j'ai un appartement à Marrakech. Grâce à ce répertoire j'ai trouvé une conciergerie sérieuse en 48h. Mon taux d'occupation est passé à 91%. Je recommande à tous les MRE !",author:"Rachid M.",detail:"Appartement — Marrakech · Trouvé via Concierge Maroc"},
+    {type:"Propriétaire résidente",text:"J'avais peur de confier ma villa à quelqu'un. Le répertoire m'a permis de comparer plusieurs conciergeries avec leurs avis. J'ai choisi la meilleure et je ne regrette pas.",author:"Fatima Z.",detail:"Villa avec piscine — Agadir · Trouvé via Concierge Maroc"},
+    {type:"Investisseur immobilier",text:"J'ai 3 appartements à Casablanca. Grâce à ce site j'ai trouvé une conciergerie qui gère tout. Les reversements sont ponctuels et le reporting mensuel est très professionnel.",author:"Yassine B.",detail:"3 appartements — Casablanca · Trouvé via Concierge Maroc"},
+    {type:"Propriétaire non-résidente",text:"En tant que femme expatriée en Belgique, je cherchais quelqu'un de confiance pour mon riad à Fès. Le répertoire m'a orientée vers la meilleure option. Excellent service.",author:"Khadija A.",detail:"Riad — Fès · Trouvé via Concierge Maroc"},
+    {type:"Premier investissement",text:"C'est mon premier bien locatif. Le répertoire m'a aidé à comprendre ce qu'est une conciergerie et à choisir la bonne. Les avis des autres propriétaires sont très utiles.",author:"Mehdi L.",detail:"Appartement — Tanger · Trouvé via Concierge Maroc"},
+    {type:"Couple de propriétaires",text:"Nous avons une maison à Essaouira que nous louons en été. Ce site nous a permis de trouver une conciergerie locale qui connaît bien la ville. Nos voyageurs sont ravis.",author:"Sophie & Marc D.",detail:"Maison — Essaouira · Trouvé via Concierge Maroc"}
+  ],
+  en: [
+    {type:"Expat property owner",text:"I live in Paris and own an apartment in Marrakech. Thanks to this directory I found a reliable concierge in 48h. My occupancy rate went from 60% to 91%. I recommend it to all MREs!",author:"Rachid M.",detail:"Apartment — Marrakech · Found via Concierge Maroc"},
+    {type:"Resident owner",text:"I was afraid to entrust my villa to someone. The directory allowed me to compare several concierges with their reviews. I chose the best one and have no regrets.",author:"Fatima Z.",detail:"Villa with pool — Agadir · Found via Concierge Maroc"},
+    {type:"Real estate investor",text:"I have 3 apartments in Casablanca. Thanks to this site I found a concierge that manages everything. Payments are on time and the monthly reporting is very professional.",author:"Yassine B.",detail:"3 apartments — Casablanca · Found via Concierge Maroc"},
+    {type:"Non-resident owner",text:"As an expat woman in Belgium, I was looking for someone trustworthy for my riad in Fes. The directory guided me to the best option. Excellent service.",author:"Khadija A.",detail:"Riad — Fes · Found via Concierge Maroc"},
+    {type:"First investment",text:"This is my first rental property. The directory helped me understand what a concierge is and choose the right one. Other owners' reviews are very helpful.",author:"Mehdi L.",detail:"Apartment — Tangier · Found via Concierge Maroc"},
+    {type:"Property owners couple",text:"We have a house in Essaouira that we rent in summer. This site helped us find a local concierge who knows the city well. Our guests are delighted.",author:"Sophie & Marc D.",detail:"House — Essaouira · Found via Concierge Maroc"}
+  ],
+  ar: [
+    {type:"مالك مغترب",text:"أقيم في باريس ولدي شقة في مراكش. بفضل هذا الدليل وجدت كونسيرج موثوقاً في 48 ساعة. ارتفع معدل الإشغال لديّ إلى 91%. أوصي به لجميع المغاربة المقيمين في الخارج!",author:"رشيد م.",detail:"شقة — مراكش · وجد عبر كونسيرج المغرب"},
+    {type:"مالكة مقيمة",text:"كنت أخشى أن أعهد بفيلتي لأحد. أتاح لي الدليل مقارنة عدة خدمات كونسيرج مع تقييماتها. اخترت الأفضل ولا أندم على ذلك.",author:"فاطمة ز.",detail:"فيلا مع مسبح — أكادير · وجد عبر كونسيرج المغرب"},
+    {type:"مستثمر عقاري",text:"لدي 3 شقق في الدار البيضاء. بفضل هذا الموقع وجدت كونسيرج يدير كل شيء. المدفوعات في الوقت المحدد والتقارير الشهرية احترافية جداً.",author:"ياسين ب.",detail:"3 شقق — الدار البيضاء · وجد عبر كونسيرج المغرب"},
+    {type:"مالكة غير مقيمة",text:"كمغتربة في بلجيكا، كنت أبحث عن شخص موثوق لريادي في فاس. أرشدني الدليل إلى أفضل خيار. خدمة ممتازة.",author:"خديجة أ.",detail:"رياض — فاس · وجد عبر كونسيرج المغرب"},
+    {type:"أول استثمار",text:"هذا أول عقار إيجاري لي. ساعدني الدليل على فهم ما هو الكونسيرج واختيار الأنسب. تقييمات الملاك الآخرين مفيدة جداً.",author:"مهدي ل.",detail:"شقة — طنجة · وجد عبر كونسيرج المغرب"},
+    {type:"زوجان من الملاك",text:"لدينا منزل في الصويرة نؤجره في الصيف. ساعدنا هذا الموقع على إيجاد كونسيرج محلي يعرف المدينة جيداً. ضيوفنا سعداء جداً.",author:"صوفي ومارك د.",detail:"منزل — الصويرة · وجد عبر كونسيرج المغرب"}
+  ]
+};
+
+let temoignages = temoignagesData.fr;
+
+function renderTemoignages(){
+  const grid=document.getElementById('temoignagesGrid');
+  if(!grid)return;
+  temoignages = temoignagesData[currentLang] || temoignagesData.fr;
+  grid.innerHTML=temoignages.map((t,i)=>`
+    <div class="temoignage-card" style="animation:fadeUp .5s ease ${i*0.07}s both;">
+      <div class="temoignage-type">${t.type}</div>
+      <div class="temoignage-text">"${t.text}"</div>
+      <div class="temoignage-author">${t.author}</div>
+      <div class="temoignage-detail">${t.detail}</div>
+    </div>`).join('');
+}
+
+function submitClient(){
+  const prenom=document.getElementById('c-prenom').value.trim();
+  const ville=document.getElementById('c-ville').value;
+  const besoin=document.getElementById('c-besoin').value.trim();
+  const tel=document.getElementById('c-tel').value.trim();
+  if(!prenom){showToast('Veuillez saisir votre prénom');return;}
+  if(!ville){showToast('Veuillez choisir la ville de votre bien');return;}
+  if(!besoin||besoin.length<20){showToast('Décrivez votre besoin (20 caractères min.)');return;}
+  if(!tel){showToast('Veuillez saisir votre WhatsApp');return;}
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},
+    body:encode({'form-name':'demande-client',prenom,ville,type_bien:document.getElementById('c-type').value,
+      situation:document.getElementById('c-situation').value,besoin,telephone:tel,email:document.getElementById('c-email').value})
+  }).catch(()=>{});
+  closeModal('client');
+  showToast('✦ Demande envoyée ! Une conciergerie vous contactera sous 24h.',true);
+  ['c-prenom','c-ville','c-besoin','c-tel','c-email'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+}
+
+
+// ============ SPOTS COUNTER ============
+// ⚙️ MODIFIEZ CE CHIFFRE à chaque nouvelle inscription reçue par email
+const INSCRIPTIONS_REELLES = 4; // 0 = aucune inscription pour l'instant
+const MAX_SPOTS = 10;
+
+function updateSpots(){
+  const taken = Math.min(INSCRIPTIONS_REELLES, MAX_SPOTS);
+  const left = MAX_SPOTS - taken;
+  const el_left = document.getElementById('spots-left');
+  const el_taken = document.getElementById('spots-taken');
+  const bar = document.getElementById('spots-bar');
+  if(el_left) el_left.textContent = left > 0 ? left : '0';
+  if(el_taken) el_taken.textContent = taken;
+  if(bar) bar.style.width = (taken/MAX_SPOTS*100) + '%';
+  if(el_left) el_left.style.color = left <= 3 ? '#C4622D' : 'var(--gold)';
+  const btn = document.querySelector('#conciergeries-page .btn-cta');
+  if(btn && left <= 0){
+    btn.textContent = "Rejoindre la liste d'attente →";
+    btn.style.borderColor = 'rgba(247,241,232,.3)';
+    btn.style.color = 'rgba(247,241,232,.5)';
+  }
+}
+
+
+// ============ LANGUAGES ============
+const T = {
+  fr:{
+    nav:["Annuaire","Carte","Avis","Propriétaires","Conciergeries","CGU"],
+    btn:"+ Ajouter ma conciergerie",
+    hero_ey:"✦ Le premier répertoire dédié ✦",
+    hero_h1:"Les meilleures<br><em>conciergeries</em><br>du Maroc",
+    hero_p:"Trouvez, comparez et contactez les meilleures conciergeries Airbnb & villas à travers tout le Royaume.",
+    s_ph:"Rechercher une conciergerie...",s_btn:"Chercher",
+    stats:["Conciergeries","Villes","Note moyenne","Avis clients"],
+    filters:["Tous","Airbnb","Villas","Riads","Luxe","Expat-friendly"],
+    fl:"Filtrer :",ac:"Toutes les villes",
+    grid:"Conciergeries répertoriées",
+    c_ey:"✦ Par destination ✦",c_ti:"Explorer par ville",
+    cta_h:"Vous gérez une conciergerie ?",
+    cta_p:"Rejoignez le répertoire et gagnez en visibilité auprès de milliers de propriétaires à travers le Maroc.",
+    cta_b:"Référencer ma conciergerie",
+    map_h:"Carte des conciergeries",map_p:"Visualisez toutes les conciergeries répertoriées à travers le Maroc",
+    map_s:"✦ Toutes les conciergeries",
+    avis_h:"Avis & Témoignages",avis_p:"Ce que disent les propriétaires et les hôtes",
+    avis_b:"+ Laisser un avis",
+    voir:"Voir →",voir_p:"Voir le profil →",
+    dir:"ltr",
+    conc_h1:"Les <em>10 premières</em><br>conciergeries<br>inscrites gratuitement",
+    conc_p:"Profitez de notre offre de lancement exclusive. Les 10 premières conciergeries bénéficient d'une visibilité à vie et gratuite.",
+    conc_btn:"Je réserve ma place →",
+    proc_h:"Comment ça fonctionne",proc_s:"De inscription à votre premier client en 4 étapes simples",
+    s1_t:"Remplissez le formulaire",s1_d:"Nom, ville, description de vos services, contact",
+    s2_t:"Validation sous 24h",s2_d:"Notre équipe vérifie votre inscription avant publication",
+    s3_t:"Vous êtes en ligne",s3_d:"Votre fiche apparaît dans le répertoire et sur la carte",
+    s4_t:"Premiers contacts",s4_d:"Les propriétaires vous contactent directement",
+    why_h:"Pourquoi nous rejoindre ?",
+    form_h:"Inscrivez votre conciergerie",form_sub:"REMPLISSEZ LE FORMULAIRE CI-DESSOUS",
+    form_n:"NOM DE LA CONCIERGERIE *",form_v:"VILLE *",form_d:"DESCRIPTION DE VOS SERVICES *",
+    form_t:"WHATSAPP *",form_e:"EMAIL",form_s:"INSTAGRAM / TIKTOK",form_w:"SITE WEB",
+    form_btn:"Soumettre mon inscription →",
+    spots_l:"Places restantes",spots_t:"Déjà inscrites",
+    cl_h:"Vous êtes propriétaire ?",
+    cl_p:"Trouvez la conciergerie idéale pour votre bien ou partagez votre expérience.",
+    p1_h:"Je cherche une conciergerie",p1_b:"Déposer ma demande →",
+    p2_h:"Partagez votre expérience",p2_b:"Laisser un témoignage →",
+    tem_h:"Témoignages de propriétaires",
+    conc_h1:"Développez votre<br><em>conciergerie</em><br>au Maroc",
+    conc_p:"Rejoignez le premier répertoire national et recevez des demandes de propriétaires qualifiés directement dans votre boîte mail.",
+    conc_btn:"Je réserve ma place →",
+    proc_h:"Comment ça fonctionne", proc_s:"De inscription à votre premier client en 4 étapes simples",
+    s1_t:"Remplissez le formulaire", s1_d:"Nom, ville, description de vos services, contact",
+    s2_t:"Validation sous 24h", s2_d:"Notre équipe vérifie votre inscription avant publication",
+    s3_t:"Vous êtes en ligne", s3_d:"Votre fiche apparaît dans le répertoire et sur la carte",
+    s4_t:"Premiers contacts", s4_d:"Les propriétaires vous contactent directement",
+    why_h:"Pourquoi nous rejoindre ?",
+    form_h:"Inscrivez votre conciergerie", form_sub:"REMPLISSEZ LE FORMULAIRE CI-DESSOUS",
+    form_n:"NOM DE LA CONCIERGERIE *", form_v:"VILLE *", form_d:"DESCRIPTION DE VOS SERVICES *",
+    form_t:"WHATSAPP *", form_e:"EMAIL", form_s:"INSTAGRAM / TIKTOK", form_w:"SITE WEB",
+    form_btn:"Soumettre mon inscription →",
+    spots_l:"Places restantes", spots_t:"Déjà inscrites",
+    cl_h:"Vous êtes propriétaire ?",
+    cl_p:"Trouvez la conciergerie idéale pour votre bien ou partagez votre expérience.",
+    p1_h:"Je cherche une conciergerie", p1_b:"Déposer ma demande →",
+    p2_h:"Partagez votre expérience", p2_b:"Laisser un témoignage →",
+    tem_h:"Témoignages de propriétaires"
+  },
+  en:{
+    nav:["Directory","Map","Reviews","Owners","Concierges","Terms"],
+    btn:"+ Add my concierge",
+    hero_ey:"✦ The first dedicated directory ✦",
+    hero_h1:"The best<br><em>concierge services</em><br>in Morocco",
+    hero_p:"Find, compare and contact the best Airbnb & villa concierge services across the Kingdom.",
+    s_ph:"Search for a concierge...",s_btn:"Search",
+    stats:["Concierges","Cities","Average rating","Reviews"],
+    filters:["All","Airbnb","Villas","Riads","Luxury","Expat-friendly"],
+    fl:"Filter:",ac:"All cities",
+    grid:"Listed concierge services",
+    c_ey:"✦ By destination ✦",c_ti:"Explore by city",
+    cta_h:"Do you manage a concierge service?",
+    cta_p:"Join the directory and gain visibility with thousands of property owners across Morocco.",
+    cta_b:"List my concierge",
+    map_h:"Concierge map",map_p:"View all listed concierge services across Morocco",
+    map_s:"✦ All concierges",
+    avis_h:"Reviews & Testimonials",avis_p:"What owners and guests say",
+    avis_b:"+ Leave a review",
+    voir:"View →",voir_p:"View profile →",
+    dir:"ltr",
+    conc_h1:"Grow your<br><em>concierge business</em><br>in Morocco",
+    conc_p:"Join the first national directory and receive qualified owner requests directly in your inbox.",
+    conc_btn:"Reserve my free spot →",
+    proc_h:"How it works", proc_s:"From registration to your first client in 4 simple steps",
+    s1_t:"Fill out the form", s1_d:"Name, city, service description, contact",
+    s2_t:"Validated within 24h", s2_d:"Our team reviews your registration before publishing",
+    s3_t:"You are online", s3_d:"Your profile appears in the directory and on the map",
+    s4_t:"First contacts", s4_d:"Property owners contact you directly",
+    why_h:"Why join us?",
+    form_h:"Register your concierge", form_sub:"FILL OUT THE FORM BELOW",
+    form_n:"CONCIERGE NAME *", form_v:"CITY *", form_d:"SERVICE DESCRIPTION *",
+    form_t:"WHATSAPP *", form_e:"EMAIL", form_s:"INSTAGRAM / TIKTOK", form_w:"WEBSITE",
+    form_btn:"Submit my registration →",
+    spots_l:"Spots remaining", spots_t:"Already registered",
+    cl_h:"Are you a property owner?",
+    cl_p:"Find the ideal concierge for your property or share your experience.",
+    p1_h:"I am looking for a concierge", p1_b:"Submit my request →",
+    p2_h:"Share your experience", p2_b:"Leave a testimonial →",
+    tem_h:"Owner testimonials"
+  },
+  ar:{
+    nav:["الدليل","الخريطة","التقييمات","الملاك","الكونسيرج","الشروط"],
+    btn:"+ إضافة كونسيرج",
+    hero_ey:"✦ أول دليل متخصص ✦",
+    hero_h1:"أفضل<br><em>خدمات الكونسيرج</em><br>في المغرب",
+    hero_p:"ابحث وقارن وتواصل مع أفضل خدمات الكونسيرج في جميع أنحاء المملكة.",
+    s_ph:"البحث عن كونسيرج...",s_btn:"بحث",
+    stats:["كونسيرج","مدن","متوسط التقييم","تقييمات"],
+    filters:["الكل","Airbnb","فيلات","رياض","فاخر","للمغتربين"],
+    fl:"تصفية:",ac:"جميع المدن",
+    grid:"خدمات الكونسيرج المدرجة",
+    c_ey:"✦ حسب الوجهة ✦",c_ti:"استكشف حسب المدينة",
+    cta_h:"هل تدير خدمة كونسيرج؟",
+    cta_p:"انضم إلى الدليل واكتسب الظهور أمام آلاف أصحاب العقارات في المغرب.",
+    cta_b:"تسجيل خدمتي",
+    map_h:"خريطة الكونسيرج",map_p:"عرض جميع خدمات الكونسيرج في المغرب",
+    map_s:"✦ جميع الكونسيرج",
+    avis_h:"التقييمات والشهادات",avis_p:"ما يقوله الملاك والضيوف",
+    avis_b:"+ إضافة تقييم",
+    voir:"عرض →",voir_p:"عرض الملف →",
+    dir:"rtl"
+  }
+};
+
+let currentLang = "fr";
+
+function setLang(lang, btn) {
+  currentLang = lang;
+  const t = T[lang];
+  document.querySelectorAll(".lang-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  document.body.dir = t.dir;
+
+  // Nav
+  const navIds = ["nav-annuaire","nav-carte","nav-avis","nav-clients","nav-conciergeries","nav-cgu"];
+  navIds.forEach((id,i) => { const el=document.getElementById(id); if(el) el.textContent=t.nav[i]; });
+
+  // Header btn
+  const ba = document.querySelector(".btn-add"); if(ba) ba.textContent = t.btn;
+
+  // Hero
+  const he = document.querySelector(".hero-eyebrow"); if(he) he.textContent = t.hero_ey;
+  const hh = document.querySelector(".hero h1"); if(hh) hh.innerHTML = t.hero_h1;
+  const hp = document.querySelector(".hero-desc"); if(hp) hp.textContent = t.hero_p;
+
+  // Search
+  const si = document.getElementById("searchInput"); if(si) si.placeholder = t.s_ph;
+  const sb = document.querySelector(".search-btn"); if(sb) sb.textContent = t.s_btn;
+
+  // Stats
+  document.querySelectorAll(".stat-label").forEach((el,i) => { if(t.stats[i]) el.textContent = t.stats[i]; });
+
+  // Filters
+
+
+  // Grid
+  const gt = document.querySelector(".grid-title"); if(gt) gt.textContent = t.grid;
+
+  // Cities
+  const cse = document.querySelector(".cities-section .section-eyebrow"); if(cse) cse.textContent = t.c_ey;
+  const cst = document.querySelector(".cities-section .section-title"); if(cst) cst.textContent = t.c_ti;
+
+  // CTA
+  const ch = document.querySelector(".cta-section h2"); if(ch) ch.textContent = t.cta_h;
+  const cp = document.querySelector(".cta-section p"); if(cp) cp.textContent = t.cta_p;
+  const cb = document.querySelector(".cta-section .btn-cta"); if(cb) cb.textContent = t.cta_b;
+
+  // Map
+  const mh = document.querySelector(".map-header h2"); if(mh) mh.textContent = t.map_h;
+  const mp = document.querySelector(".map-header p"); if(mp) mp.textContent = t.map_p;
+  const ms = document.querySelector(".map-sidebar h3"); if(ms) ms.textContent = t.map_s;
+
+  // Avis page
+  const ah = document.querySelector(".avis-header h2"); if(ah) ah.textContent = t.avis_h;
+  const ap = document.querySelector(".avis-header p"); if(ap) ap.textContent = t.avis_p;
+  const ab = document.querySelector(".add-avis-btn"); if(ab) ab.textContent = t.avis_b;
+
+  // Conciergeries page
+  const cph = document.getElementById("conc-hero-h2"); 
+  if(cph && t.conc_h1 && lang !== 'fr') cph.innerHTML = t.conc_h1;
+  else if(cph && lang === 'fr') cph.innerHTML = "Les <em>10 premières</em><br>conciergeries<br>inscrites gratuitement";
+  const cpp = document.getElementById("conc-hero-p"); 
+  if(cpp && t.conc_p) cpp.textContent = t.conc_p;
+  const cpb = document.querySelector(".conc-hero .btn-cta"); 
+  if(cpb && t.conc_btn) cpb.textContent = t.conc_btn;
+  const prh = document.querySelector(".conc-process h3"); if(prh) prh.textContent = t.proc_h;
+  const prs = document.querySelector(".conc-process-sub"); if(prs) prs.textContent = t.proc_s;
+  const steps = document.querySelectorAll(".process-step");
+  const stepData = [[t.s1_t,t.s1_d],[t.s2_t,t.s2_d],[t.s3_t,t.s3_d],[t.s4_t,t.s4_d]];
+  steps.forEach((s,i) => {
+    if(stepData[i]){
+      const ti = s.querySelector(".process-title"); if(ti) ti.textContent = stepData[i][0];
+      const de = s.querySelector(".process-desc"); if(de) de.textContent = stepData[i][1];
+    }
+  });
+  const wyh = document.querySelector(".conc-left h3"); if(wyh) wyh.textContent = t.why_h;
+  const foh = document.querySelector(".conc-right h3"); if(foh) foh.textContent = t.form_h;
+  const fos = document.querySelector(".conc-form-eyebrow"); if(fos) fos.textContent = t.form_sub;
+  const fsb = document.querySelector("#conciergeries-page .btn-submit"); if(fsb) fsb.textContent = t.form_btn;
+
+  // Clients page
+  const clh = document.querySelector(".clients-hero h2"); if(clh) clh.textContent = t.cl_h;
+  const clp = document.querySelector(".clients-hero p"); if(clp) clp.textContent = t.cl_p;
+  const phs = document.querySelectorAll(".clients-panel h3");
+  if(phs[0]) phs[0].textContent = t.p1_h;
+  if(phs[1]) phs[1].textContent = t.p2_h;
+  const teh = document.querySelector(".temoignages-section .section-title"); if(teh) teh.textContent = t.tem_h;
+
+  // Spots counter labels
+  const sl = document.querySelector("#spots-left + span"); 
+  const st = document.querySelector("#spots-taken + span");
+  document.querySelectorAll(".stat-label").forEach(el => {
+    if(el.textContent === "Places restantes" || el.textContent === "Spots remaining" || el.textContent === "الأماكن المتبقية") el.textContent = t.spots_l;
+    if(el.textContent === "Déjà inscrites" || el.textContent === "Already registered" || el.textContent === "مسجل بالفعل") el.textContent = t.spots_t;
+  });
+
+  // Re-render
+  filterCards();
+  renderAvis();
+  renderTemoignages();
+}
+
+// ============ PAGE NAV ============
+function showPage(p){
+  document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(el=>el.classList.remove('active'));
+  document.getElementById(p+'-page').classList.add('active');
+  document.getElementById('nav-'+p).classList.add('active');
+  if(p==='carte'){setTimeout(()=>{initMap();if(map)map.invalidateSize();},200);}
+  if(p==='avis')renderAvis();
+  if(p==='clients'){renderTemoignages();}
+  if(p==='conciergeries'){const fi=document.getElementById('form-inscription');if(fi)fi.scrollTop=0;updateSpots();}
+  if(p==='cgu'){}
+  window.scrollTo(0,0);
+}
+
+// ============ MODAL ============
+function openModal(name){
+  document.getElementById('modal-'+name).classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(name){
+  document.getElementById('modal-'+name).classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeModalOutside(e,name){if(e.target===document.getElementById('modal-'+name))closeModal(name);}
+
+// ============ TOAST ============
+function showToast(msg,gold=false){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.className='toast'+(gold?' toast-gold':'');
+  t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+// ============ INIT ============
+document.addEventListener('DOMContentLoaded',()=>{
+  filterCards();
+  renderCities();
+  updateStats();
+  renderTemoignages();
+  updateSpots();
+});
+</script>
+
+
+</body></html>
