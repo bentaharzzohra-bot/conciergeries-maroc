@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0045)file:///C:/Users/BABAR/Downloads/index_2.html -->
+<!-- saved from url=(0043)file:///C:/Users/BABAR/Downloads/index.html -->
 <html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 42 42&#39;%3E%3Cpolygon points=&#39;21,2 40,15 40,27 21,40 2,27 2,15&#39; fill=&#39;%230C0904&#39; stroke=&#39;%23C9A96E&#39; stroke-width=&#39;2&#39;/%3E%3Ccircle cx=&#39;21&#39; cy=&#39;21&#39; r=&#39;4&#39; fill=&#39;%23C9A96E&#39;/%3E%3C/svg%3E">
@@ -156,6 +156,9 @@ nav a:hover,nav a.active{opacity:1;color:var(--gold);}
 .card.list-view-card .card-desc{margin-bottom:.8rem;}
 .card.list-view-card .card-main{flex:1;}
 .card.list-view-card .card-side{display:flex;flex-direction:column;align-items:flex-end;gap:.8rem;min-width:160px;}
+.card-photo{width:100%;height:140px;object-fit:cover;margin-bottom:1rem;opacity:0.8;transition:opacity .3s;}
+.card:hover .card-photo{opacity:1;}
+.card-photo-wrap{margin:-1.8rem -1.8rem 1.2rem;overflow:hidden;height:140px;}
 
 /* MAP */
 #map-page{display:none;}
@@ -498,7 +501,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
       <span class="grid-title">Conciergeries répertoriées</span>
       <span class="grid-count" id="resultCount">18 résultats</span>
     </div>
-    <div class="cards-grid" id="cardsGrid"><div class="card featured" data-id="1" style="animation-delay: 0s;"><div class="card-accent"></div>
+    <div class="cards-grid" id="cardsGrid"><div class="card featured" data-id="1" style="animation-delay: 0s;"><div class="card-photo-wrap"><img class="card-photo" src="./index_files/photo-1539020140153-e479b8c22e70" alt="Marrakech" loading="lazy"></div><div class="card-accent"></div>
         <div class="card-badge premium"><span>🏛️</span>Conciergerie Premium</div>
         <div class="card-city">Marrakech</div>
         <div class="card-name">Marrakech Luxury Stays</div>
@@ -510,7 +513,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
             <button class="card-contact" onclick="event.stopPropagation();openDetail(1)">📱</button>
             <button class="card-link" onclick="event.stopPropagation();openDetail(1)">Voir →</button>
           </div>
-        </div></div><div class="card" data-id="2" style="animation-delay: 0.04s;"><div class="card-accent"></div>
+        </div></div><div class="card" data-id="2" style="animation-delay: 0.04s;"><div class="card-photo-wrap"><img class="card-photo" src="./index_files/photo-1581443459255-e895f2a4222f" alt="Casablanca" loading="lazy"></div><div class="card-accent"></div>
         <div class="card-badge"><span>🏙️</span>Conciergerie</div>
         <div class="card-city">Casablanca</div>
         <div class="card-name">Casa Confort Services</div>
@@ -522,7 +525,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
             <button class="card-contact" onclick="event.stopPropagation();openDetail(2)">📱</button>
             <button class="card-link" onclick="event.stopPropagation();openDetail(2)">Voir →</button>
           </div>
-        </div></div><div class="card" data-id="3" style="animation-delay: 0.08s;"><div class="card-accent"></div>
+        </div></div><div class="card" data-id="3" style="animation-delay: 0.08s;"><div class="card-photo-wrap"><img class="card-photo" src="./index_files/photo-1538050558691-dfaad62c8ea0" alt="Agadir" loading="lazy"></div><div class="card-accent"></div>
         <div class="card-badge"><span>🏖️</span>Conciergerie</div>
         <div class="card-city">Agadir</div>
         <div class="card-name">Agadir Beach Rentals</div>
@@ -534,7 +537,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
             <button class="card-contact" onclick="event.stopPropagation();openDetail(3)">📱</button>
             <button class="card-link" onclick="event.stopPropagation();openDetail(3)">Voir →</button>
           </div>
-        </div></div><div class="card" data-id="4" style="animation-delay: 0.12s;"><div class="card-accent"></div>
+        </div></div><div class="card" data-id="4" style="animation-delay: 0.12s;"><div class="card-photo-wrap"><img class="card-photo" src="./index_files/photo-1697291302946-60103b3dd3e3" alt="Tanger" loading="lazy"></div><div class="card-accent"></div>
         <div class="card-badge"><span>⚓</span>Conciergerie</div>
         <div class="card-city">Tanger</div>
         <div class="card-name">Tanger Keys</div>
@@ -546,7 +549,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
             <button class="card-contact" onclick="event.stopPropagation();openDetail(4)">📱</button>
             <button class="card-link" onclick="event.stopPropagation();openDetail(4)">Voir →</button>
           </div>
-        </div></div><div class="card" data-id="5" style="animation-delay: 0.16s;"><div class="card-accent"></div>
+        </div></div><div class="card" data-id="5" style="animation-delay: 0.16s;"><div class="card-photo-wrap"><img class="card-photo" src="./index_files/photo-1549565513-0380ceb8198f" alt="Fès" loading="lazy"></div><div class="card-accent"></div>
         <div class="card-badge"><span>🏺</span>Conciergerie</div>
         <div class="card-city">Fès</div>
         <div class="card-name">Médina Riad Management</div>
@@ -558,7 +561,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
             <button class="card-contact" onclick="event.stopPropagation();openDetail(5)">📱</button>
             <button class="card-link" onclick="event.stopPropagation();openDetail(5)">Voir →</button>
           </div>
-        </div></div><div class="card" data-id="6" style="animation-delay: 0.2s;"><div class="card-accent"></div>
+        </div></div><div class="card" data-id="6" style="animation-delay: 0.2s;"><div class="card-photo-wrap"><img class="card-photo" src="./index_files/photo-1555686367-56d5186965d5" alt="Essaouira" loading="lazy"></div><div class="card-accent"></div>
         <div class="card-badge"><span>🌊</span>Conciergerie</div>
         <div class="card-city">Essaouira</div>
         <div class="card-name">Mogador Hosting</div>
@@ -570,7 +573,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
             <button class="card-contact" onclick="event.stopPropagation();openDetail(6)">📱</button>
             <button class="card-link" onclick="event.stopPropagation();openDetail(6)">Voir →</button>
           </div>
-        </div></div><div class="card" data-id="7" style="animation-delay: 0.24s;"><div class="card-accent"></div>
+        </div></div><div class="card" data-id="7" style="animation-delay: 0.24s;"><div class="card-photo-wrap"><img class="card-photo" src="./index_files/photo-1587974928442-77dc3e0dba72" alt="Rabat" loading="lazy"></div><div class="card-accent"></div>
         <div class="card-badge"><span>🏛️</span>Conciergerie</div>
         <div class="card-city">Rabat</div>
         <div class="card-name">Capitale Concierge</div>
@@ -582,7 +585,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
             <button class="card-contact" onclick="event.stopPropagation();openDetail(7)">📱</button>
             <button class="card-link" onclick="event.stopPropagation();openDetail(7)">Voir →</button>
           </div>
-        </div></div><div class="card" data-id="8" style="animation-delay: 0.28s;"><div class="card-accent"></div>
+        </div></div><div class="card" data-id="8" style="animation-delay: 0.28s;"><div class="card-photo-wrap"><img class="card-photo" src="./index_files/photo-1570993185263-36f8d56e06c2" alt="Dakhla" loading="lazy"></div><div class="card-accent"></div>
         <div class="card-badge"><span>🪁</span>Conciergerie</div>
         <div class="card-city">Dakhla</div>
         <div class="card-name">Dakhla Nomad Stays</div>
@@ -594,7 +597,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
             <button class="card-contact" onclick="event.stopPropagation();openDetail(8)">📱</button>
             <button class="card-link" onclick="event.stopPropagation();openDetail(8)">Voir →</button>
           </div>
-        </div></div><div class="card" data-id="9" style="animation-delay: 0.32s;"><div class="card-accent"></div>
+        </div></div><div class="card" data-id="9" style="animation-delay: 0.32s;"><div class="card-photo-wrap"><img class="card-photo" src="./index_files/photo-1539020140153-e479b8c22e70" alt="Marrakech" loading="lazy"></div><div class="card-accent"></div>
         <div class="card-badge"><span>🌴</span>Conciergerie</div>
         <div class="card-city">Marrakech</div>
         <div class="card-name">Palmeraie Rentals</div>
@@ -606,7 +609,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
             <button class="card-contact" onclick="event.stopPropagation();openDetail(9)">📱</button>
             <button class="card-link" onclick="event.stopPropagation();openDetail(9)">Voir →</button>
           </div>
-        </div></div><div class="card" data-id="10" style="animation-delay: 0.36s;"><div class="card-accent"></div>
+        </div></div><div class="card" data-id="10" style="animation-delay: 0.36s;"><div class="card-photo-wrap"><img class="card-photo" src="./index_files/photo-1581443459255-e895f2a4222f" alt="Casablanca" loading="lazy"></div><div class="card-accent"></div>
         <div class="card-badge"><span>💎</span>Conciergerie</div>
         <div class="card-city">Casablanca</div>
         <div class="card-name">Anfa Premium Hosting</div>
@@ -618,7 +621,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
             <button class="card-contact" onclick="event.stopPropagation();openDetail(10)">📱</button>
             <button class="card-link" onclick="event.stopPropagation();openDetail(10)">Voir →</button>
           </div>
-        </div></div><div class="card" data-id="11" style="animation-delay: 0.4s;"><div class="card-accent"></div>
+        </div></div><div class="card" data-id="11" style="animation-delay: 0.4s;"><div class="card-photo-wrap"><img class="card-photo" src="./index_files/photo-1538050558691-dfaad62c8ea0" alt="Agadir" loading="lazy"></div><div class="card-accent"></div>
         <div class="card-badge"><span>🏔️</span>Conciergerie</div>
         <div class="card-city">Agadir</div>
         <div class="card-name">Souss Valley Conciergerie</div>
@@ -630,7 +633,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
             <button class="card-contact" onclick="event.stopPropagation();openDetail(11)">📱</button>
             <button class="card-link" onclick="event.stopPropagation();openDetail(11)">Voir →</button>
           </div>
-        </div></div><div class="card" data-id="12" style="animation-delay: 0.44s;"><div class="card-accent"></div>
+        </div></div><div class="card" data-id="12" style="animation-delay: 0.44s;"><div class="card-photo-wrap"><img class="card-photo" src="./index_files/photo-1539020140153-e479b8c22e70" alt="Marrakech" loading="lazy"></div><div class="card-accent"></div>
         <div class="card-badge"><span>✨</span>Conciergerie</div>
         <div class="card-city">Marrakech</div>
         <div class="card-name">Maroc Finds Conciergerie</div>
@@ -642,7 +645,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
             <button class="card-contact" onclick="event.stopPropagation();openDetail(12)">📱</button>
             <button class="card-link" onclick="event.stopPropagation();openDetail(12)">Voir →</button>
           </div>
-        </div></div><div class="card" data-id="13" style="animation-delay: 0.48s;"><div class="card-accent"></div>
+        </div></div><div class="card" data-id="13" style="animation-delay: 0.48s;"><div class="card-photo-wrap"><img class="card-photo" src="./index_files/photo-1587974928442-77dc3e0dba72" alt="Rabat" loading="lazy"></div><div class="card-accent"></div>
         <div class="card-badge"><span>🌴</span>Conciergerie</div>
         <div class="card-city">Rabat</div>
         <div class="card-name">Red Palm Concierge</div>
@@ -654,7 +657,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
             <button class="card-contact" onclick="event.stopPropagation();openDetail(13)">📱</button>
             <button class="card-link" onclick="event.stopPropagation();openDetail(13)">Voir →</button>
           </div>
-        </div></div><div class="card" data-id="14" style="animation-delay: 0.52s;"><div class="card-accent"></div>
+        </div></div><div class="card" data-id="14" style="animation-delay: 0.52s;"><div class="card-photo-wrap"><img class="card-photo" src="./index_files/photo-1539020140153-e479b8c22e70" alt="Marrakech" loading="lazy"></div><div class="card-accent"></div>
         <div class="card-badge"><span>🏡</span>Conciergerie</div>
         <div class="card-city">Marrakech</div>
         <div class="card-name">Tisura Ouiam Conciergerie</div>
@@ -666,7 +669,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
             <button class="card-contact" onclick="event.stopPropagation();openDetail(14)">📱</button>
             <button class="card-link" onclick="event.stopPropagation();openDetail(14)">Voir →</button>
           </div>
-        </div></div><div class="card" data-id="15" style="animation-delay: 0.56s;"><div class="card-accent"></div>
+        </div></div><div class="card" data-id="15" style="animation-delay: 0.56s;"><div class="card-photo-wrap"><img class="card-photo" src="./index_files/photo-1587974928442-77dc3e0dba72" alt="Rabat" loading="lazy"></div><div class="card-accent"></div>
         <div class="card-badge"><span>🏰</span>Conciergerie</div>
         <div class="card-city">Rabat</div>
         <div class="card-name">Your Conciergerie</div>
@@ -678,7 +681,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
             <button class="card-contact" onclick="event.stopPropagation();openDetail(15)">📱</button>
             <button class="card-link" onclick="event.stopPropagation();openDetail(15)">Voir →</button>
           </div>
-        </div></div><div class="card" data-id="16" style="animation-delay: 0.6s;"><div class="card-accent"></div>
+        </div></div><div class="card" data-id="16" style="animation-delay: 0.6s;"><div class="card-photo-wrap"><img class="card-photo" src="./index_files/photo-1539020140153-e479b8c22e70" alt="Marrakech" loading="lazy"></div><div class="card-accent"></div>
         <div class="card-badge"><span>🔑</span>Conciergerie</div>
         <div class="card-city">Marrakech</div>
         <div class="card-name">Élégance Rouge Conciergerie</div>
@@ -690,7 +693,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
             <button class="card-contact" onclick="event.stopPropagation();openDetail(16)">📱</button>
             <button class="card-link" onclick="event.stopPropagation();openDetail(16)">Voir →</button>
           </div>
-        </div></div><div class="card" data-id="17" style="animation-delay: 0.64s;"><div class="card-accent"></div>
+        </div></div><div class="card" data-id="17" style="animation-delay: 0.64s;"><div class="card-photo-wrap"><img class="card-photo" src="./index_files/photo-1539020140153-e479b8c22e70" alt="Marrakech" loading="lazy"></div><div class="card-accent"></div>
         <div class="card-badge"><span>U0001f3e1</span>Conciergerie</div>
         <div class="card-city">Marrakech</div>
         <div class="card-name">La Conciergerie Marocaine</div>
@@ -702,7 +705,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
             <button class="card-contact" onclick="event.stopPropagation();openDetail(17)">📱</button>
             <button class="card-link" onclick="event.stopPropagation();openDetail(17)">Voir →</button>
           </div>
-        </div></div><div class="card" data-id="18" style="animation-delay: 0.68s;"><div class="card-accent"></div>
+        </div></div><div class="card" data-id="18" style="animation-delay: 0.68s;"><div class="card-photo-wrap"><img class="card-photo" src="./index_files/photo-1539020140153-e479b8c22e70" alt="Marrakech" loading="lazy"></div><div class="card-accent"></div>
         <div class="card-badge"><span>🕌</span>Conciergerie</div>
         <div class="card-city">Marrakech</div>
         <div class="card-name">Targa Management</div>
@@ -1435,7 +1438,18 @@ function renderCards(list){
         </div>`;
     } else {
       
-    div.innerHTML=`<div class="card-accent"></div>
+    const photos = {
+      'Marrakech': 'https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=400&q=80',
+      'Casablanca': 'https://images.unsplash.com/photo-1581443459255-e895f2a4222f?w=400&q=80',
+      'Rabat': 'https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?w=400&q=80',
+      'Agadir': 'https://images.unsplash.com/photo-1538050558691-dfaad62c8ea0?w=400&q=80',
+      'Tanger': 'https://images.unsplash.com/photo-1697291302946-60103b3dd3e3?w=400&q=80',
+      'Fès': 'https://images.unsplash.com/photo-1549565513-0380ceb8198f?w=400&q=80',
+      'Essaouira': 'https://images.unsplash.com/photo-1555686367-56d5186965d5?w=400&q=80',
+      'Dakhla': 'https://images.unsplash.com/photo-1570993185263-36f8d56e06c2?w=400&q=80',
+    };
+    const photoUrl = photos[c.ville] || photos['Marrakech'];
+    div.innerHTML=`<div class="card-photo-wrap"><img class="card-photo" src="${photoUrl}" alt="${c.ville}" loading="lazy"></div><div class="card-accent"></div>
         <div class="card-badge${c.featured?' premium':''}"><span>${c.icon}</span>${c.featured?'Conciergerie Premium':'Conciergerie'}</div>
         <div class="card-city">${c.ville}</div>
         <div class="card-name">${c.nom}</div>
