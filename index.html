@@ -167,12 +167,27 @@ nav a:hover,nav a.active{opacity:1;color:var(--gold);}
   font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .3s;}
 .search-btn:hover{background:var(--gold-light);}
 
+/* HERO SUBTITLE */
+.hero-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-light);font-size:1.05rem;margin-bottom:1.2rem;opacity:.85;animation:fadeUp .8s ease .15s both;}
+
+/* TRUST BADGES */
+.hero-badges{display:flex;gap:.7rem;justify-content:center;margin-bottom:1.5rem;flex-wrap:wrap;animation:fadeUp .8s ease .2s both;}
+.hero-badge{font-size:.68rem;color:var(--gold);border:1px solid rgba(201,169,110,.35);padding:.22rem .55rem;letter-spacing:.04em;white-space:nowrap;}
+
+/* HERO CTA BUTTONS */
+.hero-cta{display:flex;flex-direction:column;gap:12px;max-width:380px;margin:0 auto;animation:fadeUp .8s ease .25s both;}
+.btn-hero-primary{background:var(--gold);color:var(--warm-black);border:none;width:100%;padding:1rem 1.5rem;font-family:'Jost',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;cursor:pointer;transition:background .3s;}
+.btn-hero-primary:hover{background:var(--gold-light);}
+.btn-hero-secondary{background:transparent;color:var(--gold);border:1px solid var(--gold);width:100%;padding:.95rem 1.5rem;font-family:'Jost',sans-serif;font-size:.82rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .3s;}
+.btn-hero-secondary:hover{background:rgba(201,169,110,.1);}
+
 /* STATS */
-.stats-bar{position:relative;z-index:5;display:flex;justify-content:center;gap:4rem;padding:1.8rem 5vw;
+.stats-bar{position:relative;z-index:5;display:flex;justify-content:center;align-items:center;padding:1.4rem 5vw;
   border-top:1px solid rgba(201,169,110,.08);border-bottom:1px solid rgba(201,169,110,.08);margin-bottom:3.5rem;animation:fadeUp .8s ease .35s both;}
-.stat{text-align:center;}
+.stat{text-align:center;flex:1;}
 .stat-number{font-family:'Cormorant Garamond',serif;font-size:2.3rem;font-weight:300;color:var(--gold);line-height:1;display:block;}
 .stat-label{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,241,232,.35);margin-top:.3rem;display:block;}
+.stat-divider{width:1px;height:40px;background:rgba(201,169,110,.3);flex-shrink:0;}
 
 /* FILTERS */
 .filters{position:relative;z-index:5;display:flex;gap:.6rem;padding:0 5vw;margin-bottom:2.5rem;flex-wrap:wrap;align-items:center;animation:fadeUp .8s ease .4s both;}
@@ -460,7 +475,8 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
 @media(max-width:768px){
   .card.featured{grid-column:span 1;}
   nav{display:none;}
-  .stats-bar{gap:1.5rem;flex-wrap:wrap;}
+  .stats-bar{gap:0;flex-wrap:nowrap;}
+  .stat-divider{display:block;}
   .form-row{grid-template-columns:1fr;}
   footer{flex-direction:column;gap:.5rem;text-align:center;}
   .map-container{flex-direction:column;}
@@ -474,6 +490,18 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
   .search-bar input{min-width:0;width:100%;}
   .search-bar select{flex:1;border-left:none;border-top:1px solid rgba(201,169,110,.25);}
   .search-btn{width:100%;border-top:1px solid rgba(201,169,110,.25);}
+  .hero{padding:1.8rem 5vw 1.2rem;}
+  .hero h1{font-size:clamp(1.9rem,8vw,2.8rem);margin-bottom:.7rem;}
+  .hero-subtitle{font-size:.95rem;margin-bottom:.9rem;}
+  .hero-desc{font-size:.82rem;margin-bottom:1rem;line-height:1.6;}
+  .hero-badges{gap:.5rem;margin-bottom:1.1rem;}
+  .hero-cta{max-width:100%;padding:0 0;}
+  .btn-hero-primary{padding:.9rem 1rem;font-size:.8rem;min-height:48px;}
+  .btn-hero-secondary{padding:.85rem 1rem;font-size:.78rem;min-height:48px;}
+  .stats-bar{padding:1rem 5vw;margin-bottom:2rem;}
+  .stat-number{font-size:1.8rem;}
+  .stat-label{font-size:.58rem;}
+  .ornament{margin-bottom:1rem;}
 }
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.6rem;background:none;border:1px solid rgba(201,169,110,.3);z-index:300;margin-left:.5rem;}
 .hamburger span{width:22px;height:2px;background:var(--gold);display:block;}
@@ -539,7 +567,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
 
 <!-- HEADER -->
 <div id="urgence-banner" style="background:linear-gradient(90deg,#1A5C1A,#C9A96E);color:#fff;text-align:center;padding:.6rem 1rem;font-size:.82rem;letter-spacing:.05em;position:relative;z-index:300;">
-  🎉 <strong id="banner-strong">Répertoire complet — 10/10 conciergeries fondatrices !</strong> — <a id="banner-link" href="#" onclick="showPage(&#39;conciergeries&#39;);return false;" style="color:#fff;text-decoration:underline;font-weight:600;">Rejoindre la liste d'attente Premium</a>
+  🎉 <strong id="banner-strong">24 conciergeries vérifiées dans le répertoire</strong> — <a id="banner-link" href="#" onclick="showPage(&#39;conciergeries&#39;);return false;" style="color:#fff;text-decoration:underline;font-weight:600;">Rejoindre la liste Premium →</a>
   <span onclick="document.getElementById(&#39;urgence-banner&#39;).style.display=&#39;none&#39;" style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);cursor:pointer;opacity:.7;">✕</span>
 </div>
 <header>
@@ -583,14 +611,18 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
 <!-- ========== PAGE ANNUAIRE ========== -->
 <div id="annuaire-page" class="page active">
   <section class="hero">
-    <p class="hero-eyebrow">✦ Le 1er répertoire national des conciergeries au Maroc ✦</p>
-    <h1>Trouvez la meilleure<br><em>conciergerie</em><br>au Maroc</h1>
-    <p class="hero-desc">Vous êtes propriétaire MRE ? Comparez et contactez les meilleures conciergeries Airbnb &amp; villas. <strong style="color:var(--gold);">100% gratuit pour les propriétaires.</strong></p>
-    <div style="display:flex;gap:1rem;justify-content:center;margin-bottom:2rem;flex-wrap:wrap;">
-      <button id="hero-btn-find" class="btn-cta" onclick="showPage(&#39;clients&#39;)" style="padding:.8rem 2rem;font-size:.85rem;">🔍 Trouver une conciergerie</button>
-      <button id="hero-btn-list" class="btn-cta" onclick="showPage(&#39;conciergeries&#39;)" style="padding:.8rem 2rem;font-size:.85rem;">+ Inscrire ma conciergerie</button>
+    <h1>Votre bien au Maroc,<br><em>enfin bien géré</em></h1>
+    <p class="hero-subtitle">depuis la France, en toute sérénité</p>
+    <p class="hero-desc">Trouvez, comparez et contactez les meilleures conciergeries Airbnb &amp; villas — gratuitement.</p>
+    <div class="hero-badges">
+      <span class="hero-badge">✓ Vérifiées</span>
+      <span class="hero-badge">✓ WhatsApp direct</span>
+      <span class="hero-badge">✓ Gratuit</span>
     </div>
-    <div class="ornament"><div class="ornament-line"></div><div class="ornament-diamond"></div><div class="ornament-line"></div></div>
+    <div class="hero-cta">
+      <button id="hero-btn-find" class="btn-hero-primary" onclick="showPage(&#39;clients&#39;)">🔍 TROUVER MA CONCIERGERIE</button>
+      <button id="hero-btn-list" class="btn-hero-secondary" onclick="showPage(&#39;conciergeries&#39;)">+ INSCRIRE MA CONCIERGERIE</button>
+    </div>
   </section>
 
   <div class="search-wrap">
@@ -607,10 +639,11 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
   </div>
 
   <div class="stats-bar">
-    <div class="stat"><span class="stat-number" id="totalCount">21</span><span class="stat-label">Conciergeries</span></div>
+    <div class="stat"><span class="stat-number" id="totalCount">24</span><span class="stat-label">Conciergeries</span></div>
+    <div class="stat-divider"></div>
     <div class="stat"><span class="stat-number">8</span><span class="stat-label">Villes</span></div>
-    <div class="stat"><span class="stat-number" id="avgRating">4.6★</span><span class="stat-label">Note moyenne</span></div>
-    <div class="stat"><span class="stat-number" id="totalAvis">6</span><span class="stat-label">Avis clients</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><span class="stat-number">0€</span><span class="stat-label">Pour vous</span></div>
   </div>
 
   
@@ -1957,11 +1990,11 @@ function filterCity(city){
 }
 
 function updateStats(){
-  document.getElementById('totalCount').textContent=conciergeries.length;
+  const tc=document.getElementById('totalCount'); if(tc) tc.textContent=conciergeries.length;
   const allRatings=conciergeries.map(c=>getAvgRating(c.id));
   const avg=(allRatings.reduce((a,b)=>a+b,0)/allRatings.length).toFixed(1);
-  document.getElementById('avgRating').textContent=avg+'★';
-  document.getElementById('totalAvis').textContent=avisData.length;
+  const ar=document.getElementById('avgRating'); if(ar) ar.textContent=avg+'★';
+  const ta=document.getElementById('totalAvis'); if(ta) ta.textContent=avisData.length;
 }
 
 function renderCities(){
@@ -2278,8 +2311,9 @@ const T = {
     nav:["Annuaire","Carte","Avis","Propriétaires","Conciergeries","CGU"],
     btn:"+ Ajouter ma conciergerie",
     hero_ey:"✦ Le premier répertoire dédié ✦",
-    hero_h1:"Les meilleures<br><em>conciergeries</em><br>du Maroc",
-    hero_p:"Trouvez, comparez et contactez les meilleures conciergeries Airbnb & villas à travers tout le Royaume.",
+    hero_h1:"Votre bien au Maroc,<br><em>enfin bien géré</em>",
+    hero_subtitle:"depuis la France, en toute sérénité",
+    hero_p:"Trouvez, comparez et contactez les meilleures conciergeries Airbnb & villas — gratuitement.",
     s_ph:"Rechercher une conciergerie...",s_btn:"Chercher",
     stats:["Conciergeries","Villes","Note moyenne","Avis clients"],
     filters:["Tous","Airbnb","Villas","Riads","Luxe","Expat-friendly"],
@@ -2315,13 +2349,13 @@ const T = {
     p2_h:"Partagez votre expérience", p2_b:"Laisser un témoignage →",
     tem_h:"Témoignages de propriétaires",
     // Banner
-    banner_strong:"Répertoire complet — 10/10 conciergeries fondatrices !",
-    banner_link:"Rejoindre la liste d'attente Premium",
+    banner_strong:"24 conciergeries vérifiées dans le répertoire",
+    banner_link:"Rejoindre la liste Premium →",
     // Mobile menu
     mob_btn:"+ Ajouter ma conciergerie",
     // Hero buttons
-    hero_btn_find:"🔍 Trouver une conciergerie",
-    hero_btn_list:"+ Inscrire ma conciergerie",
+    hero_btn_find:"🔍 TROUVER MA CONCIERGERIE",
+    hero_btn_list:"+ INSCRIRE MA CONCIERGERIE",
     // Trust badges
     trust1_t:"1er au Maroc",trust1_d:"Le seul répertoire national dédié aux conciergeries",
     trust2_t:"100% Gratuit",trust2_d:"Gratuit pour les propriétaires. Toujours.",
@@ -2412,13 +2446,13 @@ const T = {
     p2_h:"Share your experience",p2_b:"Leave a testimonial →",
     tem_h:"Owner testimonials",
     // Banner
-    banner_strong:"Directory full — 10/10 founding concierges!",
-    banner_link:"Join the Premium waitlist",
+    banner_strong:"24 verified concierge services in the directory",
+    banner_link:"Join Premium list →",
     // Mobile menu
     mob_btn:"+ List My Service",
     // Hero buttons
-    hero_btn_find:"🔍 Find a concierge",
-    hero_btn_list:"+ List my concierge service",
+    hero_btn_find:"🔍 FIND MY CONCIERGE",
+    hero_btn_list:"+ LIST MY CONCIERGE",
     // Trust badges
     trust1_t:"#1 in Morocco",trust1_d:"The only national directory dedicated to concierge services",
     trust2_t:"100% Free",trust2_d:"Free for property owners. Always.",
@@ -2509,12 +2543,12 @@ const T = {
     p2_h:"شارك تجربتك",p2_b:"← ترك شهادة",
     tem_h:"شهادات الملاك",
     // Banner
-    banner_strong:"الدليل مكتمل — 10/10 من الكونسيرج المؤسسين!",
-    banner_link:"انضم إلى قائمة انتظار Premium",
+    banner_strong:"24 خدمة كونسيرج موثقة في الدليل",
+    banner_link:"انضم إلى القائمة المميزة →",
     // Mobile menu
     mob_btn:"+ تسجيل خدمتي",
     // Hero buttons
-    hero_btn_find:"🔍 إيجاد كونسيرج",
+    hero_btn_find:"🔍 إيجاد كونسيرجي",
     hero_btn_list:"+ تسجيل خدمتي",
     // Trust badges
     trust1_t:"الأول في المغرب",trust1_d:"الدليل الوطني الوحيد المتخصص في خدمات الكونسيرج",
@@ -2586,6 +2620,7 @@ function setLang(lang, btn) {
   // Hero
   const he = document.querySelector(".hero-eyebrow"); if(he) he.textContent = t.hero_ey;
   const hh = document.querySelector(".hero h1"); if(hh) hh.innerHTML = t.hero_h1;
+  const hs = document.querySelector(".hero-subtitle"); if(hs && t.hero_subtitle) hs.textContent = t.hero_subtitle;
   const hp = document.querySelector(".hero-desc"); if(hp) hp.textContent = t.hero_p;
 
   // Search
