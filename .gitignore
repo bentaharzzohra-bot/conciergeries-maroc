@@ -1,0 +1,21 @@
+config.js
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Test & verification scripts
+verify_site.js
+test_debug.js
+test_i18n.js
+
+# Screenshots de test
+ss_*.png
+test_*.png
+
+# Windows
+desktop.ini
+Thumbs.db
+
+# OS
+.DS_Store
