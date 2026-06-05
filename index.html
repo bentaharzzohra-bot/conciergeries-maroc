@@ -373,12 +373,12 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
 .mini-review-stars{color:var(--gold);font-size:.7rem;margin-bottom:.3rem;}
 .mini-review-text{font-size:.8rem;color:rgba(247,241,232,.55);font-style:italic;line-height:1.6;}
 .mini-review-author{font-size:.65rem;color:rgba(247,241,232,.3);margin-top:.4rem;}
-.contact-actions{display:flex;gap:.8rem;}
-.btn-whatsapp{flex:1;background:#25D366;border:none;padding:.8rem;color:#fff;font-family:'Jost',sans-serif;
-  font-size:.75rem;font-weight:500;letter-spacing:.1em;cursor:pointer;transition:background .2s;}
-.btn-whatsapp:hover{background:#20b557;}
-.btn-email{flex:1;background:transparent;border:1px solid var(--gold);color:var(--gold);padding:.8rem;font-family:'Jost',sans-serif;
-  font-size:.75rem;font-weight:500;letter-spacing:.1em;cursor:pointer;transition:all .2s;}
+.contact-actions{display:flex;flex-direction:column;gap:.7rem;}
+.btn-whatsapp{background:var(--gold);border:none;padding:1rem 1.5rem;color:var(--warm-black);font-family:'Jost',sans-serif;
+  font-size:.85rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .2s;width:100%;}
+.btn-whatsapp:hover{background:var(--gold-light);}
+.btn-email{background:transparent;border:1.5px solid var(--gold);color:var(--gold);padding:1rem 1.5rem;font-family:'Jost',sans-serif;
+  font-size:.82rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .2s;width:100%;}
 .btn-email:hover{background:var(--gold);color:var(--warm-black);}
 .btn-web{flex:1;background:transparent;border:1px solid var(--gold-light);color:var(--gold-light);padding:.8rem;font-family:'Jost',sans-serif;
   font-size:.75rem;font-weight:500;letter-spacing:.1em;cursor:pointer;transition:all .2s;}
@@ -2071,8 +2071,8 @@ function openDetail(id){
     <div class="detail-tags">${c.tags.map(tag=>`<span class="tag">${tag}</span>`).join('')}</div>
     <div class="detail-reviews"><h4>✦ Avis clients (${avisData.filter(a=>a.conciergeId===id).length})</h4>${avisHtml}</div>
     <div class="contact-actions">
-      ${c.tel?`<button class="btn-whatsapp" onclick="window.open('https://wa.me/${c.tel.replace(/\s/g,'')}','_blank')">💬 WhatsApp</button>`:''}
-      ${c.email?`<button class="btn-email" onclick="window.open('mailto:${c.email}','_blank')">✉ Email</button>`:''}
+      ${c.tel?`<button class="btn-whatsapp" onclick="window.open('https://wa.me/${c.tel.replace(/\s/g,'')}','_blank')">💬 Contacter sur WhatsApp</button>`:''}
+      ${c.email?`<button class="btn-email" onclick="window.open('mailto:${c.email}','_blank')">✉ Contacter par Email</button>`:''}
       ${c.web?`<button class="btn-web" onclick="window.open('https://${c.web.replace(/^https?:\/\//,'')}','_blank')">🌐 Site web</button>`:''}
     </div>`;
   openModal('detail');
