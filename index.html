@@ -379,6 +379,9 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
 .btn-email{flex:1;background:transparent;border:1px solid var(--gold);color:var(--gold);padding:.8rem;font-family:'Jost',sans-serif;
   font-size:.75rem;font-weight:500;letter-spacing:.1em;cursor:pointer;transition:all .2s;}
 .btn-email:hover{background:var(--gold);color:var(--warm-black);}
+.btn-web{flex:1;background:transparent;border:1px solid var(--gold-light);color:var(--gold-light);padding:.8rem;font-family:'Jost',sans-serif;
+  font-size:.75rem;font-weight:500;letter-spacing:.1em;cursor:pointer;transition:all .2s;}
+.btn-web:hover{background:var(--gold-light);color:var(--warm-black);}
 
 /* TOAST */
 .toast{position:fixed;bottom:2rem;right:2rem;background:#1A1209;border:1px solid rgba(201,169,110,.4);
@@ -2056,6 +2059,7 @@ function openDetail(id){
     <div class="contact-actions">
       ${c.tel?`<button class="btn-whatsapp" onclick="window.open('https://wa.me/${c.tel.replace(/\s/g,'')}','_blank')">💬 WhatsApp</button>`:''}
       ${c.email?`<button class="btn-email" onclick="window.open('mailto:${c.email}','_blank')">✉ Email</button>`:''}
+      ${c.web?`<button class="btn-web" onclick="window.open('https://${c.web.replace(/^https?:\/\//,'')}','_blank')">🌐 Site web</button>`:''}
     </div>`;
   openModal('detail');
 }
