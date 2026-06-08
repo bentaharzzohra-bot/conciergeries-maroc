@@ -704,6 +704,61 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
     </div>
   </section>
 
+  <!-- ===== GUIDE GRATUIT LEAD MAGNET ===== -->
+  <section style="position:relative;z-index:10;padding:3rem 5vw;background:linear-gradient(135deg,rgba(201,169,110,.08) 0%,rgba(12,9,4,.0) 100%);border-bottom:1px solid rgba(201,169,110,.15);">
+    <div style="max-width:560px;margin:0 auto;text-align:center;">
+      <div style="font-size:2rem;margin-bottom:.8rem;">📥</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;color:var(--cream);margin-bottom:.6rem;">Le guide gratuit pour propriétaires MRE</h2>
+      <p style="color:rgba(247,241,232,.55);font-size:.88rem;line-height:1.8;margin-bottom:1.8rem;">15 questions à poser à votre conciergerie avant de signer</p>
+      <form
+        action="https://formspree.io/f/meednkgp"
+        method="POST"
+        onsubmit="handleGuideSubmit(event)"
+        style="display:flex;flex-direction:column;gap:.9rem;"
+      >
+        <input type="hidden" name="_subject" value="Guide gratuit — demande propriétaire MRE">
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="Votre adresse email *"
+          style="background:rgba(247,241,232,.05);border:1px solid rgba(201,169,110,.3);color:var(--cream);padding:.85rem 1.1rem;font-size:.9rem;outline:none;font-family:inherit;width:100%;box-sizing:border-box;"
+        >
+        <input
+          type="text"
+          name="prenom_ville"
+          placeholder="Prénom + ville (ex : Fatima, Paris)"
+          style="background:rgba(247,241,232,.05);border:1px solid rgba(201,169,110,.3);color:var(--cream);padding:.85rem 1.1rem;font-size:.9rem;outline:none;font-family:inherit;width:100%;box-sizing:border-box;"
+        >
+        <button
+          type="submit"
+          style="background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#0C0904;font-weight:700;font-size:.88rem;letter-spacing:.08em;padding:1rem 1.5rem;border:none;cursor:pointer;font-family:inherit;transition:opacity .2s;"
+          onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'"
+        >Recevoir mon guide gratuit 🇲🇦</button>
+        <p style="color:rgba(247,241,232,.3);font-size:.72rem;margin:0;">Aucun spam. Désabonnement en 1 clic.</p>
+      </form>
+    </div>
+  </section>
+  <script>
+  function handleGuideSubmit(e) {
+    e.preventDefault();
+    var form = e.target;
+    var data = new FormData(form);
+    fetch(form.action, {method:'POST', body:data, headers:{'Accept':'application/json'}})
+      .then(function(r) {
+        if (r.ok) {
+          window.location.href = 'https://conciergeries-maroc.com/15-questions-conciergerie-maroc.pdf';
+        } else {
+          alert('Une erreur est survenue. Veuillez réessayer.');
+        }
+      })
+      .catch(function() {
+        alert('Une erreur est survenue. Vérifiez votre connexion.');
+      });
+  }
+  </script>
+  <!-- ===== FIN GUIDE GRATUIT ===== -->
+
   <div class="search-wrap">
     <div class="search-bar">
       <input type="text" placeholder="Rechercher une conciergerie..." id="searchInput" oninput="filterCards()">
