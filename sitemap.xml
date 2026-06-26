@@ -89,6 +89,22 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Page dédiée Marrakech -->
+  <url>
+    <loc>https://conciergeries-maroc.com/conciergerie-marrakech.html</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Page dédiée Casablanca -->
+  <url>
+    <loc>https://conciergeries-maroc.com/conciergerie-casablanca.html</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Page dédiée Agadir -->
   <url>
     <loc>https://conciergeries-maroc.com/conciergerie-agadir.html</loc>
