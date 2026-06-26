@@ -89,10 +89,18 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Page dédiée Essaouira -->
+  <url>
+    <loc>https://conciergeries-maroc.com/conciergerie-essaouira.html</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- SEO Essaouira -->
   <url>
     <loc>https://conciergeries-maroc.com/#seo-essaouira</loc>
-    <lastmod>2026-06-03</lastmod>
+    <lastmod>2026-06-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
