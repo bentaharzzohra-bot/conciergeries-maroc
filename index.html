@@ -779,6 +779,22 @@ header #nav-premium{color:#C9A96E!important;border-color:rgba(201,169,110,.5)!im
 .clients-panel,.conc-left,.conc-right{background:#FDFAF5;}
 .detail-name{color:#1C1A17;font-weight:600;}
 
+/* Sélecteur « Vous êtes ? » */
+.role-choices{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;}
+.role-choice{display:flex;align-items:center;gap:.7rem;text-align:left;background:#FDFAF5;border:1px solid rgba(176,136,64,.35);color:#1C1A17;padding:.85rem .9rem;font-family:'Jost',sans-serif;font-size:13px;font-weight:400;line-height:1.35;cursor:pointer;transition:border-color .2s,background .2s;}
+.role-choice strong{display:block;font-weight:600;font-size:14px;margin-bottom:.1rem;}
+.role-choice .role-icon{font-size:1.4rem;flex-shrink:0;}
+.role-choice:hover{border-color:#B08840;}
+.role-choice.selected{border:1px solid #B08840;background:#F4ECE0;box-shadow:inset 0 0 0 1px #B08840;}
+.role-choice:focus-visible{outline:2px solid #B08840;outline-offset:2px;}
+.role-fields{margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid rgba(176,136,64,.22);}
+.premium-encart{background:linear-gradient(135deg,rgba(201,169,110,.18),rgba(201,169,110,.06));border:1px solid #C9A96E;padding:1rem 1.1rem;margin:.4rem 0 1rem;color:#1C1A17;}
+.premium-encart strong{display:block;color:#8C6A2E;font-weight:600;font-size:14px;letter-spacing:.04em;margin-bottom:.3rem;}
+.premium-encart p{font-size:13px;color:#4A443B;line-height:1.6;margin-bottom:.5rem;}
+.premium-encart a{color:#B08840;font-weight:600;font-size:13px;text-decoration:none;}
+.premium-encart a:hover{text-decoration:underline;}
+@media(max-width:480px){.role-choices{grid-template-columns:1fr;}}
+
 /* Témoignages */
 .mre-temoignages{background:#F4ECE0;}
 .mre-tem-card,.temoignage-card,.avis-card{background:#FDFAF5;border:1px solid rgba(176,136,64,0.22);}
@@ -2162,22 +2178,54 @@ footer a:hover{color:#C9A96E;}
   <div class="modal">
     <button class="modal-close" onclick="closeModal(&#39;client&#39;)">✕</button>
     <span class="modal-eyebrow">Mise en relation gratuite</span>
-    <h3>Trouvez votre conciergerie</h3>
-    <div class="form-group"><label>Ville du bien au Maroc *</label>
-      <select id="c-ville">
-        <option value="">Choisir...</option>
-        <option>Marrakech</option><option>Casablanca</option><option>Agadir</option>
-        <option>Fès</option><option>Tanger</option><option>Essaouira</option><option>Rabat</option><option>Dakhla</option><option>Tétouan</option><option>Autre</option>
-      </select>
+    <h3 id="c-title">Trouvez votre conciergerie</h3>
+    <div class="form-group role-group">
+      <label id="c-role-label">Vous êtes ? *</label>
+      <div class="role-choices" role="radiogroup" aria-labelledby="c-role-label">
+        <button type="button" class="role-choice" role="radio" aria-checked="false" data-role="proprietaire" onclick="chooseRole('proprietaire')"><span class="role-icon">🏠</span><span><strong>Propriétaire MRE</strong>je cherche une conciergerie</span></button>
+        <button type="button" class="role-choice" role="radio" aria-checked="false" data-role="conciergerie" onclick="chooseRole('conciergerie')"><span class="role-icon">🏢</span><span><strong>Conciergerie</strong>je veux être référencée</span></button>
+      </div>
     </div>
-    <div class="form-group"><label>WhatsApp *</label><input id="c-tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+33 6XX ou +212 6XX"></div>
-    <div class="form-group"><label>Votre email *</label><input id="c-email" type="email" inputmode="email" autocomplete="email" placeholder="vous@exemple.com" required></div>
-    <div class="form-group"><label>Type de bien *</label>
-      <select id="c-type">
-        <option>Appartement</option><option>Villa</option><option>Maison</option>
-      </select>
+
+    <!-- Champs propriétaire -->
+    <div id="c-fields-proprietaire" class="role-fields" hidden>
+      <div class="form-group"><label>Ville du bien au Maroc *</label>
+        <select id="c-ville">
+          <option value="">Choisir...</option>
+          <option>Marrakech</option><option>Casablanca</option><option>Agadir</option>
+          <option>Fès</option><option>Tanger</option><option>Essaouira</option><option>Rabat</option><option>Dakhla</option><option>Tétouan</option><option>Autre</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Type de bien *</label>
+        <select id="c-type">
+          <option>Appartement</option><option>Villa</option><option>Maison</option><option>Riad</option>
+        </select>
+      </div>
+      <div class="form-group"><label>WhatsApp *</label><input id="c-tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+33 6XX ou +212 6XX"></div>
+      <div class="form-group"><label>Votre email *</label><input id="c-email" type="email" inputmode="email" autocomplete="email" placeholder="vous@exemple.com" required></div>
+      <div class="form-group"><label>Votre message</label><textarea id="c-msg" placeholder="Nombre de chambres, disponibilités, vos attentes…"></textarea></div>
+      <button class="btn-submit" onclick="submitClient()">Trouver ma conciergerie →</button>
     </div>
-    <button class="btn-submit" onclick="submitClient()">Trouver ma conciergerie →</button>
+
+    <!-- Champs conciergerie -->
+    <div id="c-fields-conciergerie" class="role-fields" hidden>
+      <div class="form-group"><label>Nom de la société *</label><input id="cc-nom" type="text" autocomplete="organization" placeholder="Ex : Marrakech Stays"></div>
+      <div class="form-group"><label>Ville *</label>
+        <select id="cc-ville">
+          <option value="">Choisir...</option>
+          <option>Marrakech</option><option>Casablanca</option><option>Agadir</option>
+          <option>Fès</option><option>Tanger</option><option>Essaouira</option><option>Rabat</option><option>Dakhla</option><option>Tétouan</option><option>Autre</option>
+        </select>
+      </div>
+      <div class="form-group"><label>WhatsApp *</label><input id="cc-tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+212 6XX XXX XXX"></div>
+      <div class="form-group"><label>Site web</label><input id="cc-web" type="url" inputmode="url" autocomplete="url" placeholder="https://…"></div>
+      <div class="premium-encart">
+        <strong>✦ Passez en Premium</strong>
+        <p>Apparaissez en tête de l'annuaire, avec un badge Premium et une fiche mise en avant auprès des propriétaires MRE.</p>
+        <a href="#" onclick="closeModal('client');showPage('premium');return false;">Découvrir l'offre Premium →</a>
+      </div>
+      <button class="btn-submit" onclick="submitConciergeRapide()">Demander mon référencement →</button>
+    </div>
   </div>
 </div>
 
@@ -2847,21 +2895,55 @@ function renderTemoignages(){
     </div>`).join('');
 }
 
+// Sélecteur « Vous êtes ? » : affiche les champs du profil choisi
+function chooseRole(role){
+  document.querySelectorAll('#modal-client .role-choice').forEach(b=>{
+    const on=b.dataset.role===role;
+    b.classList.toggle('selected',on);
+    b.setAttribute('aria-checked',on?'true':'false');
+  });
+  document.getElementById('c-fields-proprietaire').hidden=role!=='proprietaire';
+  document.getElementById('c-fields-conciergerie').hidden=role!=='conciergerie';
+  document.getElementById('c-title').textContent=role==='conciergerie'?'Référencez votre conciergerie':'Trouvez votre conciergerie';
+}
+function resetClientForm(){
+  ['c-ville','c-tel','c-email','c-msg','cc-nom','cc-ville','cc-tel','cc-web'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  chooseRole(null);
+}
+
 function submitClient(){
   const ville=document.getElementById('c-ville').value;
   const tel=document.getElementById('c-tel').value.trim();
   const email=document.getElementById('c-email').value.trim();
   const type_bien=document.getElementById('c-type').value;
+  const message=document.getElementById('c-msg').value.trim();
   if(!ville){showToast('Veuillez choisir la ville de votre bien');return;}
   if(tel.replace(/[^0-9]/g,'').length<8){showToast('Veuillez saisir un numéro WhatsApp valide');return;}
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){showToast('Veuillez saisir un email valide');return;}
   if(typeof gtag==='function') gtag('event','generate_lead',{'event_category':'formulaire','event_label':'proprietaire'});
   fetch('https://formspree.io/f/meednkgp',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
-    body:JSON.stringify({type:'demande-proprietaire',ville,type_bien,telephone:tel,email})
+    body:JSON.stringify({type:'demande-proprietaire',ville,type_bien,telephone:tel,email,message})
   }).catch(()=>{});
   closeModal('client');
   showConfirmation('proprietaire');
-  ['c-ville','c-tel','c-email'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  resetClientForm();
+}
+
+function submitConciergeRapide(){
+  const nom=document.getElementById('cc-nom').value.trim();
+  const ville=document.getElementById('cc-ville').value;
+  const tel=document.getElementById('cc-tel').value.trim();
+  const site_web=document.getElementById('cc-web').value.trim();
+  if(!nom){showToast('Veuillez saisir le nom de votre société');return;}
+  if(!ville){showToast('Veuillez choisir une ville');return;}
+  if(tel.replace(/[^0-9]/g,'').length<8){showToast('Veuillez saisir un numéro WhatsApp valide');return;}
+  if(typeof gtag==='function') gtag('event','generate_lead',{'event_category':'formulaire','event_label':'conciergerie'});
+  fetch('https://formspree.io/f/meednkgp',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({type:'inscription-conciergerie',nom,ville,telephone:tel,site_web})
+  }).catch(()=>{});
+  closeModal('client');
+  showConfirmation('conciergerie');
+  resetClientForm();
 }
 
 
