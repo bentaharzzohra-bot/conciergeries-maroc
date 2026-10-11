@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://conciergeries-maroc.com/sitemap.xml

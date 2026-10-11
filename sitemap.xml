@@ -1,172 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Page principale — Annuaire des conciergeries -->
+  <!-- Page principale — Annuaire des 31 conciergeries -->
   <url>
     <loc>https://conciergeries-maroc.com/</loc>
-    <lastmod>2026-06-05</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Carte interactive -->
-  <url>
-    <loc>https://conciergeries-maroc.com/#carte</loc>
-    <lastmod>2026-06-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Avis & Témoignages -->
-  <url>
-    <loc>https://conciergeries-maroc.com/#avis</loc>
-    <lastmod>2026-06-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Espace propriétaires MRE -->
-  <url>
-    <loc>https://conciergeries-maroc.com/#clients</loc>
-    <lastmod>2026-06-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Inscrire sa conciergerie -->
-  <url>
-    <loc>https://conciergeries-maroc.com/#conciergeries</loc>
-    <lastmod>2026-06-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- FAQ — Questions fréquentes -->
-  <url>
-    <loc>https://conciergeries-maroc.com/#faq</loc>
-    <lastmod>2026-06-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- SEO Marrakech -->
-  <url>
-    <loc>https://conciergeries-maroc.com/#seo-marrakech</loc>
-    <lastmod>2026-06-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- SEO Casablanca -->
-  <url>
-    <loc>https://conciergeries-maroc.com/#seo-casablanca</loc>
-    <lastmod>2026-06-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- SEO Rabat -->
-  <url>
-    <loc>https://conciergeries-maroc.com/#seo-rabat</loc>
-    <lastmod>2026-06-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- SEO Agadir -->
-  <url>
-    <loc>https://conciergeries-maroc.com/#seo-agadir</loc>
-    <lastmod>2026-06-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- SEO Tanger -->
-  <url>
-    <loc>https://conciergeries-maroc.com/#seo-tanger</loc>
-    <lastmod>2026-06-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Page dédiée Marrakech -->
+  <!-- Pages villes -->
   <url>
     <loc>https://conciergeries-maroc.com/conciergerie-marrakech.html</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Page dédiée Casablanca -->
-  <url>
-    <loc>https://conciergeries-maroc.com/conciergerie-casablanca.html</loc>
-    <lastmod>2026-06-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Page dédiée Agadir -->
   <url>
     <loc>https://conciergeries-maroc.com/conciergerie-agadir.html</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Page dédiée Tanger -->
-  <url>
-    <loc>https://conciergeries-maroc.com/conciergerie-tanger.html</loc>
-    <lastmod>2026-06-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Page dédiée Fès -->
-  <url>
-    <loc>https://conciergeries-maroc.com/conciergerie-fes.html</loc>
-    <lastmod>2026-06-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Page dédiée Essaouira -->
   <url>
     <loc>https://conciergeries-maroc.com/conciergerie-essaouira.html</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- SEO Essaouira -->
   <url>
-    <loc>https://conciergeries-maroc.com/#seo-essaouira</loc>
-    <lastmod>2026-06-26</lastmod>
+    <loc>https://conciergeries-maroc.com/conciergerie-casablanca.html</loc>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
   </url>
 
-  <!-- SEO Fès -->
   <url>
-    <loc>https://conciergeries-maroc.com/#seo-fes</loc>
-    <lastmod>2026-06-03</lastmod>
+    <loc>https://conciergeries-maroc.com/conciergerie-tanger.html</loc>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
   </url>
 
-  <!-- SEO Tétouan -->
   <url>
-    <loc>https://conciergeries-maroc.com/#seo-tetouan</loc>
-    <lastmod>2026-06-03</lastmod>
+    <loc>https://conciergeries-maroc.com/conciergerie-fes.html</loc>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
   </url>
 
-  <!-- Conditions générales d'utilisation -->
+  <!-- Guide gratuit PDF pour propriétaires MRE -->
   <url>
-    <loc>https://conciergeries-maroc.com/#cgu</loc>
-    <lastmod>2026-06-03</lastmod>
+    <loc>https://conciergeries-maroc.com/15-questions-conciergerie-maroc.pdf</loc>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.5</priority>
   </url>
 
 </urlset>
