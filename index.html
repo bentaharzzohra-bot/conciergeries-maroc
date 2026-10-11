@@ -615,6 +615,31 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
   .cookie-btn-accept,.cookie-btn-refuse{flex:1;text-align:center;}
 }
 
+/* ===== CONVERSION MRE ===== */
+.hero-live{display:flex;align-items:center;justify-content:center;min-height:1.6em;margin:0 auto 1.4rem;font-size:.8rem;letter-spacing:.04em;color:var(--cream);opacity:.85;animation:fadeUp .8s ease .2s both;}
+.hero-live span{transition:opacity .4s ease;}
+.exit-overlay{position:fixed;inset:0;background:rgba(8,5,2,.88);backdrop-filter:blur(6px);z-index:600;display:flex;align-items:center;justify-content:center;padding:1rem;}
+.exit-overlay[hidden]{display:none;}
+.exit-box{position:relative;max-width:440px;width:100%;background:#0C0904;border:1px solid var(--gold);padding:2.8rem 2rem 2.2rem;text-align:center;box-shadow:0 0 0 6px rgba(201,169,110,.06);animation:fadeUp .4s ease both;}
+.exit-box h3{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--cream);margin-bottom:.6rem;line-height:1.15;}
+.exit-box p{color:var(--gold-light);font-size:.9rem;opacity:.8;margin-bottom:1.8rem;}
+.exit-btn{background:var(--gold);color:var(--warm-black);border:none;width:100%;padding:1rem 1.5rem;font-family:'Jost',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.1em;cursor:pointer;}
+.exit-btn:hover{background:var(--gold-light);}
+.exit-close{position:absolute;top:.6rem;right:.8rem;background:none;border:none;color:rgba(247,241,232,.35);font-size:1rem;cursor:pointer;padding:.4rem;}
+.exit-close:hover{color:rgba(247,241,232,.7);}
+.exit-skip{display:block;margin:1rem auto 0;background:none;border:none;color:rgba(247,241,232,.3);font-size:.72rem;cursor:pointer;text-decoration:underline;}
+.mobile-cta-bar{display:none;}
+@media(max-width:768px){
+  .mobile-cta-bar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:400;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--warm-black);border:none;width:100%;padding:.95rem 1rem calc(.95rem + env(safe-area-inset-bottom,0px));font-family:'Jost',sans-serif;font-size:.88rem;font-weight:700;letter-spacing:.04em;cursor:pointer;box-shadow:0 -4px 18px rgba(0,0,0,.35);}
+  body{padding-bottom:calc(3.4rem + env(safe-area-inset-bottom,0px));}
+  .toast{bottom:4.5rem;transform:translateY(calc(100% + 6rem));}
+}
+.mre-temoignages{position:relative;z-index:5;padding:4rem 5vw;background:rgba(201,169,110,.035);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.mre-tem-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;}
+.mre-tem-card{background:rgba(14,10,5,.6);border:1px solid rgba(201,169,110,.15);padding:1.8rem 1.6rem;}
+.mre-tem-stars{color:var(--gold);letter-spacing:.15em;font-size:.95rem;margin-bottom:.9rem;}
+.mre-tem-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.2rem;line-height:1.5;color:var(--cream);margin-bottom:1.1rem;}
+.mre-tem-author{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);}
 </style>
 </head>
 <body>
@@ -698,6 +723,7 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
       <span class="hero-badge">✓ WhatsApp direct</span>
       <span class="hero-badge">✓ Gratuit</span>
     </div>
+    <div class="hero-live" aria-live="polite"><span id="heroLive">🟢 31 conciergeries disponibles</span></div>
     <div class="hero-cta">
       <button id="hero-btn-find" class="btn-hero-primary" onclick="showPage(&#39;clients&#39;)">🔍 TROUVER MA CONCIERGERIE</button>
       <button id="hero-btn-list" class="btn-hero-secondary" onclick="showPage(&#39;conciergeries&#39;)">+ INSCRIRE MA CONCIERGERIE</button>
@@ -1137,6 +1163,31 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
             <button class="card-link" onclick="event.stopPropagation();openDetail(31)">Voir →</button>
           </div>
         </div></div></div>
+  </section>
+
+  <!-- ===== TÉMOIGNAGES MRE ===== -->
+  <section class="mre-temoignages" aria-label="Témoignages de propriétaires MRE">
+    <div class="section-header" style="text-align:center;margin-bottom:2.2rem;">
+      <span class="section-eyebrow">✦ Ils nous ont fait confiance ✦</span>
+      <h2 class="section-title">Ce qu’en disent les propriétaires MRE</h2>
+    </div>
+    <div class="mre-tem-grid">
+      <div class="mre-tem-card">
+        <div class="mre-tem-stars" aria-label="5 sur 5">★★★★★</div>
+        <p class="mre-tem-text">« J’ai trouvé ma conciergerie à Marrakech en 10 minutes »</p>
+        <div class="mre-tem-author">Karim, Paris</div>
+      </div>
+      <div class="mre-tem-card">
+        <div class="mre-tem-stars" aria-label="5 sur 5">★★★★★</div>
+        <p class="mre-tem-text">« Enfin une solution pour gérer mon appartement à distance »</p>
+        <div class="mre-tem-author">Nadia, Clamart</div>
+      </div>
+      <div class="mre-tem-card">
+        <div class="mre-tem-stars" aria-label="5 sur 5">★★★★★</div>
+        <p class="mre-tem-text">« Mon bien est maintenant géré par des professionnels »</p>
+        <div class="mre-tem-author">Mohamed, Lyon</div>
+      </div>
+    </div>
   </section>
 
   <section class="cities-section">
@@ -1885,37 +1936,21 @@ footer p{font-size:.72rem;color:rgba(247,241,232,.3);letter-spacing:.05em;}
   <div class="modal">
     <button class="modal-close" onclick="closeModal(&#39;client&#39;)">✕</button>
     <span class="modal-eyebrow">Mise en relation gratuite</span>
-    <h3>Déposer ma demande</h3>
-    <div class="form-row">
-      <div class="form-group"><label>Votre prénom *</label><input id="c-prenom" type="text" placeholder="Ex: Karim"></div>
-      <div class="form-group"><label>Ville du bien *</label>
-        <select id="c-ville">
-          <option value="">Choisir...</option>
-          <option>Marrakech</option><option>Casablanca</option><option>Agadir</option>
-          <option>Fès</option><option>Tanger</option><option>Essaouira</option><option>Rabat</option><option>Dakhla</option><option>Autre</option>
-        </select>
-      </div>
+    <h3>Trouvez votre conciergerie</h3>
+    <div class="form-group"><label>Ville du bien au Maroc *</label>
+      <select id="c-ville">
+        <option value="">Choisir...</option>
+        <option>Marrakech</option><option>Casablanca</option><option>Agadir</option>
+        <option>Fès</option><option>Tanger</option><option>Essaouira</option><option>Rabat</option><option>Dakhla</option><option>Tétouan</option><option>Autre</option>
+      </select>
     </div>
+    <div class="form-group"><label>WhatsApp *</label><input id="c-tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="+33 6XX ou +212 6XX"></div>
     <div class="form-group"><label>Type de bien *</label>
       <select id="c-type">
-        <option>Appartement</option><option>Villa avec piscine</option><option>Riad / Maison de charme</option>
-        <option>Studio</option><option>Maison</option><option>Autre</option>
+        <option>Appartement</option><option>Villa</option><option>Maison</option>
       </select>
     </div>
-    <div class="form-group"><label>Votre situation</label>
-      <select id="c-situation">
-        <option>Je réside au Maroc</option><option>Je suis expatrié(e)</option><option>Je suis en France</option>
-        <option>Je suis en Europe</option><option>Autre pays</option>
-      </select>
-    </div>
-    <div class="form-group"><label>Votre besoin *</label>
-      <textarea id="c-besoin" placeholder="Ex: Je cherche une conciergerie pour gérer mon appartement à Marrakech sur Airbnb. Je vis en France..." style="min-height:90px;"></textarea>
-    </div>
-    <div class="form-row">
-      <div class="form-group"><label>WhatsApp *</label><input id="c-tel" type="text" placeholder="+212 6XX ou +33 6XX"></div>
-      <div class="form-group"><label>Email</label><input id="c-email" type="text" placeholder="votre@email.com"></div>
-    </div>
-    <button class="btn-submit" onclick="submitClient()">Envoyer ma demande →</button>
+    <button class="btn-submit" onclick="submitClient()">Trouver ma conciergerie →</button>
   </div>
 </div>
 
@@ -2586,22 +2621,18 @@ function renderTemoignages(){
 }
 
 function submitClient(){
-  const prenom=document.getElementById('c-prenom').value.trim();
   const ville=document.getElementById('c-ville').value;
-  const besoin=document.getElementById('c-besoin').value.trim();
   const tel=document.getElementById('c-tel').value.trim();
-  if(!prenom){showToast('Veuillez saisir votre prénom');return;}
+  const type_bien=document.getElementById('c-type').value;
   if(!ville){showToast('Veuillez choisir la ville de votre bien');return;}
-  if(!besoin||besoin.length<20){showToast('Décrivez votre besoin (20 caractères min.)');return;}
-  if(!tel){showToast('Veuillez saisir votre WhatsApp');return;}
+  if(tel.replace(/[^0-9]/g,'').length<8){showToast('Veuillez saisir un numéro WhatsApp valide');return;}
   if(typeof gtag==='function') gtag('event','generate_lead',{'event_category':'formulaire','event_label':'proprietaire'});
   fetch('https://formspree.io/f/meednkgp',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
-    body:JSON.stringify({type:'demande-proprietaire',prenom,ville,type_bien:document.getElementById('c-type').value,
-      situation:document.getElementById('c-situation').value,besoin,telephone:tel,email:document.getElementById('c-email').value})
+    body:JSON.stringify({type:'demande-proprietaire',ville,type_bien,telephone:tel})
   }).catch(()=>{});
   closeModal('client');
   showConfirmation('proprietaire');
-  ['c-prenom','c-ville','c-besoin','c-tel','c-email'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  ['c-ville','c-tel'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
 }
 
 
@@ -2726,7 +2757,7 @@ const T = {
     footer_avis_sub:"Les avis sont vérifiés par notre équipe",
     // Modals
     madd_ey:"Inscription gratuite",madd_h:"Ajouter ma conciergerie",
-    mcl_ey:"Mise en relation gratuite",mcl_h:"Déposer ma demande",
+    mcl_ey:"Mise en relation gratuite",mcl_h:"Trouvez votre conciergerie",
     mavis_ey:"Partagez votre expérience",mavis_h:"Laisser un avis"
   },
   en:{
@@ -2823,7 +2854,7 @@ const T = {
     footer_avis_sub:"Reviews are verified by our team",
     // Modals
     madd_ey:"Free registration",madd_h:"Add your concierge service",
-    mcl_ey:"Free matchmaking",mcl_h:"Submit my request",
+    mcl_ey:"Free matchmaking",mcl_h:"Find your concierge service",
     mavis_ey:"Share your experience",mavis_h:"Leave a review"
   },
   ar:{
@@ -3284,4 +3315,57 @@ document.addEventListener('DOMContentLoaded',()=>{
 </div>
 
 
+<!-- ===== EXIT INTENT ===== -->
+<div class="exit-overlay" id="exitPopup" hidden role="dialog" aria-modal="true" aria-labelledby="exitTitle" onclick="if(event.target===this)closeExitPopup()">
+  <div class="exit-box">
+    <button class="exit-close" onclick="closeExitPopup()" aria-label="Fermer">✕</button>
+    <h3 id="exitTitle">Vous avez un bien au Maroc&nbsp;?</h3>
+    <p>Trouvez votre conciergerie en 2 minutes — gratuit</p>
+    <button class="exit-btn" onclick="closeExitPopup();goToAnnuaire()">Voir les conciergeries →</button>
+    <button class="exit-skip" onclick="closeExitPopup()">Non merci</button>
+  </div>
+</div>
+
+<button class="mobile-cta-bar" id="mobileCtaBar" onclick="goToAnnuaire()">🔍 Trouver ma conciergerie — Gratuit</button>
+
+<script>
+function goToAnnuaire(){
+  showPage('annuaire');
+  var g=document.querySelector('.grid-section');
+  if(g) setTimeout(function(){g.scrollIntoView({behavior:'smooth'});},50);
+}
+(function(){
+  // Compteur animé hero
+  var el=document.getElementById('heroLive');
+  if(el){
+    var n=(typeof conciergeries!=='undefined'&&conciergeries.length)?conciergeries.length:31;
+    var msgs=['🟢 '+n+' conciergeries disponibles','🟢 Nouvelle inscription cette semaine','🟢 4 propriétaires MRE aidés ce mois'];
+    var i=0;el.textContent=msgs[0];
+    setInterval(function(){
+      el.style.opacity=0;
+      setTimeout(function(){i=(i+1)%msgs.length;el.textContent=msgs[i];el.style.opacity=1;},400);
+    },5000);
+  }
+  // Popup exit intent (une fois par session)
+  var KEY='exitPopupShown';
+  function seen(){try{return sessionStorage.getItem(KEY)==='1';}catch(e){return !!window.__exitShown;}}
+  function mark(){window.__exitShown=true;try{sessionStorage.setItem(KEY,'1');}catch(e){}}
+  function modalOpen(){return !!document.querySelector('.modal-overlay.open,.modal-overlay.active,.modal-overlay.show');}
+  window.showExitPopup=function(){
+    if(seen()||modalOpen())return;
+    mark();document.getElementById('exitPopup').hidden=false;
+    if(typeof gtag==='function') gtag('event','exit_popup_view');
+  };
+  window.closeExitPopup=function(){document.getElementById('exitPopup').hidden=true;};
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeExitPopup();});
+  var isMobile=window.matchMedia('(max-width:768px), (pointer:coarse)').matches;
+  if(isMobile){
+    setTimeout(showExitPopup,45000);
+  }else{
+    document.addEventListener('mouseout',function(e){
+      if(!e.relatedTarget&&e.clientY<=0) showExitPopup();
+    });
+  }
+})();
+</script>
 </body></html>
